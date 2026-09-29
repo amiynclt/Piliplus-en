@@ -151,7 +151,7 @@ class VideoPopupMenu extends StatelessWidget {
                               contentPadding: const .fromLTRB(24, 16, 24, 24),
                               children: [
                                 if (tp.dislikeReasons != null) ...[
-                                  const Text('I don't want to see'),
+                                  const Text("I don't want to see"),
                                   const SizedBox(height: 5),
                                   Wrap(
                                     spacing: 8.0,

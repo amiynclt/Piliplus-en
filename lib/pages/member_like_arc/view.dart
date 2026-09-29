@@ -47,7 +47,10 @@ class _MemberLikeArcPageState extends State<MemberLikeArcPage> {
     return SimpleScaffold(
       appBar: AppBar(
         title: Text(
-          '${widget.mid == mid ? '我' : '${widget.name}'}'s recommendation',
+          // FIX (whole line)
+widget.mid == mid
+    ? "My recommendations"
+    : "${widget.name}'s recommendations",
         ),
       ),
       body: refreshIndicator(

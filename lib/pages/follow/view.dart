@@ -93,7 +93,7 @@ class _FollowPageState extends State<FollowPage>
         ? const Text('my concern')
         : Obx(() {
             final name = _followController.name.value;
-            if (name != null) return Text('$name's attention');
+            if (name != null) return Text("$name's attention");
             return const SizedBox.shrink();
           }),
     actions: _followController.isOwner

@@ -85,7 +85,7 @@ abstract final class Update {
                       GStorage.setting.put(SettingBoxKey.autoUpdate, false);
                     },
                     child: Text(
-                      'Don't remind again',
+                      "Don't remind again",
                       style: TextStyle(color: colorScheme.outline),
                     ),
                   ),

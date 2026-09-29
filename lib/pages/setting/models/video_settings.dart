@@ -39,7 +39,7 @@ List<SettingsModel> get videoSettings => [
   ),
   NormalModel(
     title: 'B station directional traffic support',
-    subtitle: 'If the package includes Bilibili directional traffic, it will be used automatically. You can check the operator's traffic records for confirmation.',
+    subtitle: "If the package includes Bilibili directional traffic, it will be used automatically. You can check the operator's traffic records for confirmation.",
     leading: const Icon(Icons.perm_data_setting_outlined),
     getTrailing: (theme) => IgnorePointer(
       child: Transform.scale(
@@ -149,32 +149,32 @@ List<SettingsModel> get videoSettings => [
     title: 'buffer size',
     leading: const Icon(Icons.storage_outlined),
     getSubtitle: () =>
-        'Current: ${Pref.bufferSize}MB. Both the forward and backward buffer sizes. For live streaming, there is no backward buffer size, all is transferred to the forward (this option is mpv's --demuxer-max-bytes, --demuxer-max-back-bytes)',
+        "Current: ${Pref.bufferSize}MB. Both the forward and backward buffer sizes. For live streaming, there is no backward buffer size, all is transferred to the forward (this option is mpv's --demuxer-max-bytes, --demuxer-max-back-bytes)",
     onTap: _showBufferSizeDialog,
   ),
   NormalModel(
     title: 'Buffer duration',
     leading: const Icon(Icons.av_timer),
     getSubtitle: () =>
-        'Current: ${Pref.bufferSec}s. The actual buffer is the minimum of the two. For live streams, this option has no effect (this option is mpv's --cache-secs)',
+        "Current: ${Pref.bufferSec}s. The actual buffer is the minimum of the two. For live streams, this option has no effect (this option is mpv's --cache-secs)",
     onTap: _showBufferSecDialog,
   ),
   NormalModel(
     title: 'Automatic synchronization',
     leading: const Icon(Icons.sync_rounded),
-    getSubtitle: () => 'Current: ${Pref.autosync} (this item is mpv's --autosync)',
+    getSubtitle: () => "Current: ${Pref.autosync} (this item is mpv's --autosync)",
     onTap: _showAutoSyncDialog,
   ),
   NormalModel(
     title: 'Video sync',
     leading: const Icon(Icons.view_timeline_outlined),
-    getSubtitle: () => 'Current: ${Pref.videoSync} (this item is mpv's --video-sync)',
+    getSubtitle: () => "Current: ${Pref.videoSync} (this item is mpv's --video-sync)",
     onTap: _showVideoSyncDialog,
   ),
   NormalModel(
     title: 'Hard solution mode',
     leading: const Icon(Icons.memory_outlined),
-    getSubtitle: () => 'Current: ${Pref.hardwareDecoding} (this item is mpv's --hwdec)',
+    getSubtitle: () => "Current: ${Pref.hardwareDecoding} (this item is mpv's --hwdec)",
     onTap: _showHwDecDialog,
   ),
 ];

@@ -47,10 +47,7 @@ class _MemberCoinArcPageState extends State<MemberCoinArcPage> {
     return SimpleScaffold(
       appBar: AppBar(
         title: Text(
-          // FIX (whole line)
-widget.mid == mid
-    ? "My recent coins"
-    : "${widget.name}'s recent coins",
+          '${widget.mid == mid ? '我' : '${widget.name}'}'s recent coins',
         ),
       ),
       body: refreshIndicator(

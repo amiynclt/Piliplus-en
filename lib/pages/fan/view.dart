@@ -58,7 +58,7 @@ class _FansPageState extends FollowTypePageState<FansPage> {
               ? const Text('my fans')
               : Obx(() {
                   final name = controller.name.value;
-                  if (name != null) return Text('$name's fans');
+                  if (name != null) return Text("$name's fans");
                   return const SizedBox.shrink();
                 }),
         )

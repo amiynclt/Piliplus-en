@@ -441,7 +441,7 @@ class _PLVideoPlayerState extends State<PLVideoPlayer>
         ),
         onTap: () {
           if (!introController.nextPlay()) {
-            SmartDialog.showToast('It's already the last episode');
+            SmartDialog.showToast("It's already the last episode");
           }
         },
       ),
