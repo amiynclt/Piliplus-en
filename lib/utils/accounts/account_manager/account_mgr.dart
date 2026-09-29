@@ -272,7 +272,7 @@ class AccountManager extends Interceptor {
         } catch (_) {
           desc = '';
         }
-        return '$descNetwork exception ${error.error}';
+        return '\$desc exception ${error.error}';
     }
   }
 }

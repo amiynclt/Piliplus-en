@@ -625,7 +625,7 @@ class _VideoDetailPageVState extends State<VideoDetailPageV>
       children: [
         Icon(icon, color: colorScheme.primary),
         Text(
-          '$playStatplay',
+          '\$playStat',
           style: TextStyle(color: colorScheme.primary),
         ),
       ],

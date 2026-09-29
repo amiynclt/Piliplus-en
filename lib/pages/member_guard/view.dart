@@ -57,7 +57,9 @@ class _MemberGuardState extends State<MemberGuard> {
   Widget build(BuildContext context) {
     return SimpleScaffold(
       appBar: AppBar(
-        title: Text('Fleet${_count == null for $_userName?'' : '($_count)'}'),
+        title: Text(
+          _count == null ? "Fleet \$_userName" : "Fleet \$_userName (\$_count)",
+        ),
       ),
       body: refreshIndicator(
         onRefresh: _controller.onRefresh,

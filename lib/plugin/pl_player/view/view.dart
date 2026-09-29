@@ -1422,7 +1422,7 @@ class _PLVideoPlayerState extends State<PLVideoPlayer>
                       ),
                       child: Obx(
                         () => Text(
-                          '${plPlayerController.enableAutoLongPressSpeed ​​? (plPlayerController.longPressStatus.value ? plPlayerController.lastPlaybackSpeed ​​: plPlayerController.playbackSpeed) * 2 : plPlayerController.longPressSpeed} double speed',
+                          '${plPlayerController.enableAutoLongPressSpeed ? (plPlayerController.longPressStatus.value ? plPlayerController.lastPlaybackSpeed : plPlayerController.playbackSpeed) * 2 : plPlayerController.longPressSpeed} double speed',
                           style: const TextStyle(
                             color: Colors.white,
                             fontSize: 13,

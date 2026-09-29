@@ -70,7 +70,7 @@ class _BarSetPageState extends State<BarSetPage> with ReorderMixin {
   Widget build(BuildContext context) {
     return SimpleScaffold(
       appBar: AppBar(
-        title: Text('$titleedit'),
+        title: Text('\$title'),
         actions: [
           TextButton(onPressed: onReset, child: const Text('reset')),
           TextButton(onPressed: saveEdit, child: const Text('save')),

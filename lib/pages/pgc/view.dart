@@ -421,7 +421,9 @@ class _PgcPageState extends State<PgcPage> with AutomaticKeepAliveClientMixin {
               )
             : Center(
                 child: Text(
-                  'No ${widget.tabType == HomeTabType.bangumi yet?'追番' : 'Catch up on dramas'}',
+                  widget.tabType == HomeTabType.bangumi
+                          ? "No Bangumi yet"
+                          : "No catch-up dramas yet",
                 ),
               ),
       Error(:final errMsg) => Container(

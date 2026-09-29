@@ -136,7 +136,7 @@ class _BubblePageState extends State<BubblePage>
           if (tribeName == null) {
             return const SizedBox.shrink();
           }
-          return Text('$tribeNameSite');
+          return Text('\$tribeName');
         }),
       ),
       body: Padding(

@@ -44,11 +44,11 @@ abstract final class DurationUtils {
 
     final format = StringBuffer();
 
-    if (years > 0) format.write('$yearsyears');
-    if (months > 0) format.write('$monthsmonths');
+    if (years > 0) format.write('\$years');
+    if (months > 0) format.write('\$months');
     if (days > 0) format.write('$days days');
     if (hours > 0) format.write('$hours hours');
-    if (minutes > 0) format.write('$minutesminutes');
+    if (minutes > 0) format.write('\$minutes');
 
     return format.toString();
   }

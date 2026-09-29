@@ -201,7 +201,7 @@ class _CdnSelectDialogState extends State<CdnSelectDialog> {
             _updateSpeedResult(index, downloaded, duration);
             downloaded = 0;
           } else {
-            throw TimeoutException('Speed ​​test timeout');
+            throw TimeoutException('Speed test timeout');
           }
         } else if (downloaded >= maxSize) {
           onClose();
@@ -238,7 +238,7 @@ class _CdnSelectDialogState extends State<CdnSelectDialog> {
       message = error.toString();
     }
     if (message.isEmpty) {
-      message = 'Speed ​​test failed';
+      message = 'Speed test failed';
     }
     item.value = message;
   }

@@ -51,7 +51,7 @@ class SearchPanelController<R extends SearchNumData<T>, T>
     if (getBack) Get.back();
     SmartDialog.dismiss();
     if (label != null) {
-      SmartDialog.showToast("Filter results for "$label"");
+      SmartDialog.showToast('Filter results for \$label');
     }
     SmartDialog.showLoading(msg: 'loading');
     onReload().whenComplete(SmartDialog.dismiss);
