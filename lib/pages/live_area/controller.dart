@@ -62,7 +62,7 @@ class LiveAreaController extends CommonListController<List<AreaList>?, AreaList>
       );
       if (res.isSuccess) {
         isEditing.toggle();
-        SmartDialog.showToast('设置成功');
+        SmartDialog.showToast('Setup successful');
       } else {
         res.toast();
       }

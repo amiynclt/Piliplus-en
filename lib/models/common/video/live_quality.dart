@@ -1,13 +1,13 @@
 enum LiveQuality {
-  dolby(30000, '杜比'),
-  origin4K(25000, '4K 原画'),
+  dolby(30000, 'Dolby'),
+  origin4K(25000, '4K original painting'),
   super4K(20000, '4K'),
   super2K(15000, '2K'),
-  origin(10000, '原画'),
-  bluRay(400, '蓝光'),
-  superHD(250, '超清'),
-  smooth(150, '高清'),
-  flunt(80, '流畅'),
+  origin(10000, 'original painting'),
+  bluRay(400, 'Blu-ray'),
+  superHD(250, 'ultra clear'),
+  smooth(150, 'HD'),
+  flunt(80, 'Smooth'),
   ;
 
   final int code;

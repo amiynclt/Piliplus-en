@@ -199,11 +199,11 @@ class _WebviewPageState extends State<WebviewPage> with RouteAware {
             await LinuxCookieManager.deleteAllCookies();
             await LinuxWebviewPlugin.clearCache();
             _linuxController?.reload();
-            SmartDialog.showToast('已清理缓存并刷新', alignment: Alignment.topCenter);
+            SmartDialog.showToast('Cache cleared and refreshed', alignment: Alignment.topCenter);
           } else {
             await InAppWebViewController.clearAllCache();
             await _webViewController?.clearHistory();
-            SmartDialog.showToast('已清理');
+            SmartDialog.showToast('Cleaned');
           }
         } catch (e) {
           SmartDialog.showToast(e.toString());
@@ -230,10 +230,10 @@ class _WebviewPageState extends State<WebviewPage> with RouteAware {
             }
           }
           _linuxController?.reload();
-          SmartDialog.showToast('设置成功，正在刷新网页', alignment: Alignment.topCenter);
+          SmartDialog.showToast('Setup successful, refreshing web page', alignment: Alignment.topCenter);
         } else {
           await LoginUtils.setWebCookie();
-          SmartDialog.showToast('设置成功，刷新或重新打开网页');
+          SmartDialog.showToast('Setup successful, refresh or reopen the webpage');
         }
         break;
     }
@@ -496,7 +496,7 @@ document.styleSheets[0].insertRule('#app__display-area > div.control-panel {disp
                             final url = request.url.toString();
                             return AlertDialog(
                               title: Text(
-                                '下载文件: $suggestedFilename ?',
+                                'Download file: $suggestedFilename ?',
                                 style: const TextStyle(fontSize: 18),
                               ),
                               content: SelectionText(url),
@@ -504,7 +504,7 @@ document.styleSheets[0].insertRule('#app__display-area > div.control-panel {disp
                                 TextButton(
                                   onPressed: Get.back,
                                   child: Text(
-                                    '取消',
+                                    'Cancel',
                                     style: TextStyle(
                                       color: Theme.of(context)
                                           .colorScheme
@@ -517,7 +517,7 @@ document.styleSheets[0].insertRule('#app__display-area > div.control-panel {disp
                                     Get.back();
                                     PageUtils.launchURL(url);
                                   },
-                                  child: Text('确定 ($fileSize)'),
+                                  child: Text('OK ($fileSize)'),
                                 ),
                               ],
                             );
@@ -567,9 +567,9 @@ document.styleSheets[0].insertRule('#app__display-area > div.control-panel {disp
                       final snackBar = SnackBar(
                         persist: false,
                         showCloseIcon: true,
-                        content: const Text('当前网页将要打开外部链接，是否打开'),
+                        content: const Text('The current web page will open an external link. Do you want to open it?'),
                         action: SnackBarAction(
-                          label: '打开',
+                          label: 'Open',
                           onPressed: () => PageUtils.launchURL(url),
                         ),
                       );

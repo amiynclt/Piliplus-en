@@ -44,12 +44,12 @@ class MineController extends CommonDataController<FavFolderData, FavFolderData>
   late final list = <({IconData icon, String title, VoidCallback onTap})>[
     (
       icon: CustomIcons.folderDownloadOutline,
-      title: '离线缓存',
+      title: 'Offline caching',
       onTap: () => Get.toNamed('/download'),
     ),
     (
       icon: CustomIcons.history,
-      title: '观看记录',
+      title: 'Watch history',
       onTap: () {
         if (isLogin) {
           Get.toNamed('/history');
@@ -58,7 +58,7 @@ class MineController extends CommonDataController<FavFolderData, FavFolderData>
     ),
     (
       icon: CustomIcons.subscriptions_outlined,
-      title: '我的订阅',
+      title: 'my subscription',
       onTap: () {
         if (isLogin) {
           Get.toNamed('/subscription');
@@ -67,7 +67,7 @@ class MineController extends CommonDataController<FavFolderData, FavFolderData>
     ),
     (
       icon: CustomIcons.watch_later_outlined,
-      title: '稍后再看',
+      title: 'See you later',
       onTap: () {
         if (isLogin) {
           Get.toNamed('/later');
@@ -89,7 +89,7 @@ class MineController extends CommonDataController<FavFolderData, FavFolderData>
 
   bool get isLogin {
     if (!accountService.isLogin.value) {
-      // SmartDialog.showToast('账号未登录');
+      // SmartDialog.showToast('Account not logged in');
       return false;
     }
     return true;
@@ -113,7 +113,7 @@ class MineController extends CommonDataController<FavFolderData, FavFolderData>
     } else {
       final errMsg = res.toString();
       SmartDialog.showToast(errMsg);
-      if (errMsg == '账号未登录') {
+      if (errMsg == 'Account not logged in') {
         _onLogoutMain();
         return;
       }
@@ -148,7 +148,7 @@ class MineController extends CommonDataController<FavFolderData, FavFolderData>
 
   static void onChangeAnonymity() {
     if (Accounts.account.isEmpty) {
-      SmartDialog.showToast('请先登录');
+      SmartDialog.showToast('Please log in first');
       return;
     }
     final newVal = !anonymity.value;
@@ -182,17 +182,17 @@ class MineController extends CommonDataController<FavFolderData, FavFolderData>
                     children: <Widget>[
                       const Icon(MdiIcons.incognito, size: 20),
                       const SizedBox(width: 10),
-                      Text('已进入无痕模式', style: theme.textTheme.titleMedium),
+                      Text('Entered incognito mode', style: theme.textTheme.titleMedium),
                     ],
                   ),
                   const SizedBox(height: 10),
                   Text(
-                    '搜索不携带身份信息\n'
-                    '不产生查询或播放记录\n'
-                    '点赞等其它操作不受影响\n'
-                    '播放进度信息跟随视频取流\n'
-                    '上次观看分p信息跟随主账号\n'
-                    '(前往隐私设置了解详情)',
+                    'Search does not carry identifying information\n'
+                    'No query or playback records are generated\n'
+                    'Likes and other operations will not be affected\n'
+                    'Playback progress information follows the video stream\n'
+                    'The last viewed sub-p information follows the main account\n'
+                    '(Go to privacy settings for details)',
                     style: theme.textTheme.bodySmall,
                   ),
                   Row(
@@ -201,17 +201,17 @@ class MineController extends CommonDataController<FavFolderData, FavFolderData>
                       TextButton(
                         onPressed: () {
                           SmartDialog.dismiss(result: true);
-                          SmartDialog.showToast('已设为永久无痕模式');
+                          SmartDialog.showToast('Set to permanent incognito mode');
                         },
-                        child: Text('保存为永久', style: style),
+                        child: Text('Save as permanent', style: style),
                       ),
                       const SizedBox(width: 10),
                       TextButton(
                         onPressed: () {
                           SmartDialog.dismiss();
-                          SmartDialog.showToast('已设为临时无痕模式');
+                          SmartDialog.showToast('Set to temporary incognito mode');
                         },
-                        child: Text('仅本次（默认）', style: style),
+                        child: Text('This time only (default)', style: style),
                       ),
                     ],
                   ),
@@ -252,7 +252,7 @@ class MineController extends CommonDataController<FavFolderData, FavFolderData>
                 children: [
                   const Icon(MdiIcons.incognitoOff, size: 20),
                   const SizedBox(width: 10),
-                  Text('已退出无痕模式', style: theme.textTheme.titleMedium),
+                  Text('Exited incognito mode', style: theme.textTheme.titleMedium),
                 ],
               ),
             ),

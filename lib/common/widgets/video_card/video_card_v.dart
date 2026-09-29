@@ -186,7 +186,7 @@ class VideoCardV extends StatelessWidget {
                   ),
                 if (videoItem.goto == 'picture')
                   const PBadge(
-                    text: '动态',
+                    text: 'dynamic',
                     isStack: false,
                     size: .small,
                     type: .line_primary,
@@ -194,7 +194,7 @@ class VideoCardV extends StatelessWidget {
                   ),
                 if (videoItem.isFollowed)
                   const PBadge(
-                    text: '已关注',
+                    text: 'Already following',
                     isStack: false,
                     size: .small,
                     type: .secondary,

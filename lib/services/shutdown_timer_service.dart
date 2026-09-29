@@ -20,8 +20,8 @@ const _kSqueeze = 1.25;
 const _kItemExtent = 38.0;
 
 enum _ShutdownType with EnumWithLabel {
-  pause('暂停视频'),
-  exit('退出APP'),
+  pause('Pause video'),
+  exit('Exit APP'),
   ;
 
   @override
@@ -65,10 +65,10 @@ class ShutdownTimerService {
   void _startShutdownTimer(int durationInMinutes) {
     reset(durationInMinutes);
     if (durationInMinutes == 0) {
-      SmartDialog.showToast('取消定时关闭');
+      SmartDialog.showToast('Cancel scheduled shutdown');
       return;
     }
-    SmartDialog.showToast('设置 ${_format(durationInMinutes)} 后定时关闭');
+    SmartDialog.showToast('Close regularly after setting ${_format(durationInMinutes)}');
     _deadline = DateTime.now().add(Duration(minutes: durationInMinutes));
     _shutdownTimer = Timer(
       Duration(minutes: durationInMinutes),
@@ -88,7 +88,7 @@ class ShutdownTimerService {
           } else {
             _durationInMinutes = 0;
             (onPause ?? player?.pause)?.call();
-            SmartDialog.showToast('定时时间已到，已暂停');
+            SmartDialog.showToast('The scheduled time has expired and has been paused');
           }
         }
       case .exit:
@@ -111,7 +111,7 @@ class ShutdownTimerService {
       case .pause:
         _isWaiting = false;
         _durationInMinutes = 0;
-        SmartDialog.showToast('定时时间已到，已暂停');
+        SmartDialog.showToast('The scheduled time has expired and has been paused');
       case .exit:
         _syncProgressAndExit();
     }
@@ -136,14 +136,14 @@ class ShutdownTimerService {
       (minutes ~/ 60, minutes % 60);
 
   static String _format(int minutes) {
-    if (minutes == 60) return '60分钟';
+    if (minutes == 60) return '60 minutes';
     final (int hour, int minute) = _parseMinutes(minutes);
     if (hour > 0 && minute > 0) {
-      return '$hour小时$minute分钟';
+      return '$hour $minute minutes';
     } else if (hour > 0) {
-      return '$hour小时';
+      return '$hour hours';
     } else {
-      return '$minute分钟';
+      return '$minute minutes';
     }
   }
 
@@ -213,7 +213,7 @@ class ShutdownTimerService {
           TextButton(
             onPressed: () => Navigator.pop(context),
             child: Text(
-              '取消',
+              'Cancel',
               style: TextStyle(color: ColorScheme.of(context).outline),
             ),
           ),
@@ -224,7 +224,7 @@ class ShutdownTimerService {
               onCountdown();
               setState(() {});
             },
-            child: const Text('确认'),
+            child: const Text('confirm'),
           ),
         ],
       ),
@@ -261,7 +261,7 @@ class ShutdownTimerService {
                   alignment: .center,
                   clipBehavior: .none,
                   children: [
-                    const Text('定时关闭', style: titleStyle),
+                    const Text('Scheduled shutdown', style: titleStyle),
                     Positioned(top: 0, bottom: 0, right: 16, child: countdown),
                   ],
                 ),
@@ -277,7 +277,7 @@ class ShutdownTimerService {
                         },
                         title: Text(
                           switch (minutes) {
-                            0 => '禁用',
+                            0 => 'Disable',
                             _ => _format(minutes),
                           },
                           style: titleStyle,
@@ -295,7 +295,7 @@ class ShutdownTimerService {
                   dense: true,
                   onTap: () =>
                       _showTimePickerDialog(context, onCountdown, setState),
-                  title: const Text('自定义', style: titleStyle),
+                  title: const Text('Customize', style: titleStyle),
                 ),
                 if (!isLive) ...[
                   Builder(
@@ -308,7 +308,7 @@ class ShutdownTimerService {
                       return ListTile(
                         dense: true,
                         onTap: onChanged,
-                        title: const Text('额外等待视频播放完毕', style: titleStyle),
+                        title: const Text('Wait for the video to finish playing', style: titleStyle),
                         trailing: Transform.scale(
                           alignment: .centerRight,
                           scale: 0.8,
@@ -329,7 +329,7 @@ class ShutdownTimerService {
                       return Row(
                         spacing: 12,
                         children: [
-                          const Text('倒计时结束:', style: titleStyle),
+                          const Text('Countdown ends:', style: titleStyle),
                           ..._ShutdownType.values.map(
                             (e) => ActionRowLineItem(
                               onTap: () {
@@ -413,7 +413,7 @@ mixin ShutdownMixin<T extends StatefulWidget> on State<T> {
 
   bool _updateCountdownText([_]) {
     if (shutdownTimerService.isWaiting) {
-      _updateCountdownTextEnd('当前播放结束后关闭');
+      _updateCountdownTextEnd('Close after current playback ends');
       return false;
     }
     final deadline = shutdownTimerService.deadline;

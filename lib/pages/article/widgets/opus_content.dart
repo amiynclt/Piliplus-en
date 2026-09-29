@@ -488,7 +488,7 @@ class OpusContent extends StatelessWidget {
                           children: [
                             Text(opus.title!),
                             Text(
-                              '${opus.authorName} · ${opus.statView ?? 0}阅读',
+                              '${opus.authorName} · ${opus.statView ?? 0}Read',
                               style: TextStyle(
                                 fontSize: 13,
                                 color: colorScheme.outline,
@@ -523,7 +523,7 @@ class OpusContent extends StatelessWidget {
                           children: [
                             Text(vote.desc!),
                             Text(
-                              '${vote.joinNum}人参与',
+                              '${vote.joinNum} people participated',
                               style: TextStyle(
                                 fontSize: 13,
                                 color: colorScheme.outline,
@@ -599,7 +599,7 @@ class OpusContent extends StatelessWidget {
                                     ),
                                   if (e.price?.isNotEmpty == true)
                                     Text(
-                                      '${e.price!}起',
+                                      'Starting from ${e.price!}',
                                       style: TextStyle(
                                         fontSize: 13,
                                         color: colorScheme.outline,
@@ -653,14 +653,14 @@ class OpusContent extends StatelessWidget {
                                           null,
                                         );
                                       },
-                                      child: const Text('视频'),
+                                      child: const Text('video'),
                                     ),
                                     DialogOption(
                                       onPressed: () {
                                         Get.back();
                                         PageUtils.pushDynFromId(id: card.oid!);
                                       },
-                                      child: const Text('动态/专栏'),
+                                      child: const Text('News/Column'),
                                     ),
                                   ],
                                 ),
@@ -747,7 +747,7 @@ class OpusContent extends StatelessWidget {
               }
 
               return Text(
-                '不支持的类型 (${element.paraType})',
+                'Unsupported type (${element.paraType})',
                 style: const TextStyle(
                   fontWeight: .bold,
                   color: Colors.red,
@@ -756,7 +756,7 @@ class OpusContent extends StatelessWidget {
           }
         } catch (e, s) {
           return Text(
-            '错误的类型 $e${kDebugMode ? '\n$s' : ''}',
+            'Error type $e${kDebugMode ?'\n$s' : ''}',
             style: const TextStyle(
               fontWeight: .bold,
               color: Colors.red,

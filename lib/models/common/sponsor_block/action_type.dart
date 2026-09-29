@@ -1,8 +1,8 @@
 enum ActionType {
-  skip('跳过'),
-  mute('静音'),
-  full('整个视频'),
-  poi('精彩时刻'),
+  skip('jump over'),
+  mute('mute'),
+  full('whole video'),
+  poi('Highlights'),
   ;
 
   final String title;

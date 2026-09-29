@@ -44,7 +44,7 @@ class FavNoteController
     );
     if (res.isSuccess) {
       afterDelete(removeList);
-      SmartDialog.showToast('删除成功');
+      SmartDialog.showToast('Delete successfully');
     } else {
       res.toast();
     }

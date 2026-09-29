@@ -49,7 +49,7 @@ class _FavSortPageState extends State<FavSortPage> with ReorderMixin {
   Widget build(BuildContext context) {
     return SimpleScaffold(
       appBar: AppBar(
-        title: Text('排序: ${_favDetailController.folderInfo.value.title}'),
+        title: Text('Sort by: ${_favDetailController.folderInfo.value.title}'),
         actions: [
           TextButton(
             onPressed: () {
@@ -62,7 +62,7 @@ class _FavSortPageState extends State<FavSortPage> with ReorderMixin {
                 sort: sort.join(','),
               ).then((res) {
                 if (res.isSuccess) {
-                  SmartDialog.showToast('排序完成');
+                  SmartDialog.showToast('Sorting completed');
                   _favDetailController.loadingState.value = Success(sortList);
                   if (mounted) {
                     Get.back();
@@ -72,7 +72,7 @@ class _FavSortPageState extends State<FavSortPage> with ReorderMixin {
                 }
               });
             },
-            child: const Text('完成'),
+            child: const Text('Finish'),
           ),
           const SizedBox(width: 16),
         ],

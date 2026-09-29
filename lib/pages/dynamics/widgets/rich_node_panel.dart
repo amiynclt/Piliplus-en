@@ -18,7 +18,7 @@ import 'package:flutter_smart_dialog/flutter_smart_dialog.dart';
 import 'package:get/get.dart';
 import 'package:material_ui/material_ui.dart';
 
-const _linkFoldedText = '网页链接';
+const _linkFoldedText = 'Web link';
 
 // 富文本
 TextSpan? richNode(
@@ -173,7 +173,7 @@ TextSpan? richNode(
               )
               ..add(
                 TextSpan(
-                  text: '投票：${i.text}',
+                  text: 'Vote: ${i.text}',
                   style: style,
                   recognizer: NoDeadlineTapGestureRecognizer()
                     ..onTap = () => showVoteDialog(

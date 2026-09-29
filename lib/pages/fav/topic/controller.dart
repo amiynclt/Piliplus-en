@@ -44,7 +44,7 @@ class FavTopicController
       loadingState
         ..value.data!.removeAt(index)
         ..refresh();
-      SmartDialog.showToast('已取消收藏');
+      SmartDialog.showToast('Canceled favorites');
     } else {
       res.toast();
     }

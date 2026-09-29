@@ -54,7 +54,7 @@ class DownloadSearchController
   void onRemove() {
     showConfirmDialog(
       context: Get.context!,
-      title: const Text('确定删除选中视频？'),
+      title: const Text('Are you sure you want to delete the selected video?'),
       onConfirm: () async {
         SmartDialog.showLoading();
         final allChecked = this.allChecked.toSet();

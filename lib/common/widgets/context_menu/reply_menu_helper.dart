@@ -19,7 +19,7 @@ void showReplyCopyDialog(
               buttonItems.insertOrAdd(
                 3,
                 ContextMenuButtonItem(
-                  label: showEmote ? '文本' : '表情',
+                  label: showEmote ? 'text' : 'expression',
                   onPressed: () {
                     state.hideAndClear();
                     showEmote = !showEmote;
@@ -38,7 +38,7 @@ void showReplyCopyDialog(
 
                     showConfirmDialog(
                       context: context,
-                      title: const Text('是否确认评论过滤的变更：'),
+                      title: const Text('Do you want to confirm the comment filtering changes:'),
                       content: Text.rich(
                         TextSpan(
                           text: ReplyGrpc.replyRegExp.pattern,
@@ -64,11 +64,11 @@ void showReplyCopyDialog(
                           SettingBoxKey.banWordForReply,
                           filter,
                         );
-                        SmartDialog.showToast('已保存');
+                        SmartDialog.showToast('saved');
                       },
                     );
                   },
-                  label: '加入过滤',
+                  label: 'Add filter',
                 ),
               );
             }

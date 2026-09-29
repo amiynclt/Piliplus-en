@@ -55,7 +55,7 @@ class _SearchUserPanelState
           children: [
             Obx(
               () => Text(
-                '排序: ${controller.userOrderType!.value.label}',
+                'Sorting: ${controller.userOrderType!.value.label}',
                 maxLines: 1,
                 style: TextStyle(color: colorScheme.outline),
               ),
@@ -63,7 +63,7 @@ class _SearchUserPanelState
             const Spacer(),
             Obx(
               () => Text(
-                '用户类型: ${controller.userType!.value.label}',
+                'User type: ${controller.userType!.value.label}',
                 maxLines: 1,
                 style: TextStyle(color: colorScheme.outline),
               ),
@@ -73,7 +73,7 @@ class _SearchUserPanelState
               width: 32,
               height: 32,
               child: IconButton(
-                tooltip: '筛选',
+                tooltip: 'filter',
                 style: const ButtonStyle(
                   padding: WidgetStatePropertyAll(EdgeInsets.zero),
                 ),

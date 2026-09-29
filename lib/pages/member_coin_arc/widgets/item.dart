@@ -76,13 +76,13 @@ class MemberCoinLikeItem extends StatelessWidget {
                       ),
                       if (item.isCooperation == true)
                         const PBadge(
-                          text: '合作',
+                          text: 'cooperate',
                           top: 6,
                           right: 6,
                         )
                       else if (item.isSteins == true)
                         const PBadge(
-                          text: '互动',
+                          text: 'interactive',
                           top: 6,
                           right: 6,
                         ),

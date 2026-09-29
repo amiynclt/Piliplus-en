@@ -27,8 +27,8 @@ import 'package:get/get.dart';
 import 'package:material_ui/material_ui.dart';
 
 enum DynType implements EnumWithLabel {
-  repost('转发'),
-  reply('评论'),
+  repost('Forward'),
+  reply('Comment'),
   like('赞');
 
   @override
@@ -115,7 +115,7 @@ mixin CommonDynPageMixin<T extends StatefulWidget>
               () {
                 final count = controller.count.value;
                 return Text(
-                  '${count == -1 ? 0 : NumUtils.numFormat(count)}条回复',
+                  '${count == -1 ? 0 : NumUtils.numFormat(count)} Replies',
                 );
               },
             ),
@@ -171,7 +171,7 @@ mixin CommonDynPageMixin<T extends StatefulWidget>
                   margin: EdgeInsets.only(bottom: padding.bottom),
                   height: 125,
                   child: Text(
-                    controller.isEnd ? '没有更多了' : '加载中...',
+                    controller.isEnd ? 'no more' : 'loading...',
                     style: TextStyle(
                       fontSize: 12,
                       color: theme.colorScheme.outline,
@@ -202,7 +202,7 @@ mixin CommonDynPageMixin<T extends StatefulWidget>
         }
 
         final child = HttpError(
-          errMsg: '还没有评论',
+          errMsg: 'No comments yet',
           onReload: controller.onReload,
         );
         if (controller.voteCard case final voteCard?) {
@@ -246,7 +246,7 @@ mixin CommonDynPageMixin<T extends StatefulWidget>
         if (showBackBtn) {
           return SimpleScaffold(
             appBar: AppBar(
-              title: const Text('评论详情'),
+              title: const Text('Comment details'),
               shape: Border(
                 bottom: BorderSide(
                   color: theme.colorScheme.outline.withValues(alpha: 0.1),
@@ -285,7 +285,7 @@ mixin CommonDynPageMixin<T extends StatefulWidget>
   }
 
   Widget ratioWidget(double maxWidth) => IconButton(
-    tooltip: '页面比例调节',
+    tooltip: 'Page proportion adjustment',
     onPressed: () => showDialog(
       context: context,
       builder: (context) => Align(
@@ -347,7 +347,7 @@ mixin CommonDynPageMixin<T extends StatefulWidget>
         );
       } catch (_) {}
     },
-    tooltip: '评论',
+    tooltip: 'Comment',
     child: const Icon(Icons.reply),
   );
 }

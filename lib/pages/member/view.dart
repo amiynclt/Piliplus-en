@@ -173,7 +173,7 @@ class _MemberPageState extends State<MemberPage> {
 
   Widget _reserveBtn(List<ReservationCardItem> list, ColorScheme theme) {
     return IconButton(
-      tooltip: '预约',
+      tooltip: 'reserve',
       onPressed: () => _showReserveList(list),
       icon: ReserveButton(
         count: list.length,
@@ -249,7 +249,7 @@ class _MemberPageState extends State<MemberPage> {
                         ),
                       ),
                       child: Text(
-                        '${e.isFollow ? '已' : ''}预约',
+                        '${e.isFollow ? '已' : ''}reserve',
                         style: const TextStyle(fontSize: 13),
                       ),
                     );
@@ -259,7 +259,7 @@ class _MemberPageState extends State<MemberPage> {
                         mainAxisSize: .min,
                         children: [
                           iconButton(
-                            tooltip: '预约动态',
+                            tooltip: 'Reservation updates',
                             size: 32,
                             iconSize: 20,
                             iconColor: scheme.outline,
@@ -287,7 +287,7 @@ class _MemberPageState extends State<MemberPage> {
                               TextSpan(
                                 text:
                                     '${e.descText1 == null ? '' : '${e.descText1}  '}'
-                                    '${NumUtils.numFormat(e.total)}人预约',
+                                    '${NumUtils.numFormat(e.total)} people make reservations',
                               ),
                               if (e.lotteryPrizeInfo case final lottery?) ...[
                                 const TextSpan(text: '\n'),
@@ -337,7 +337,7 @@ class _MemberPageState extends State<MemberPage> {
     if (_userController.reserves?.isNotEmpty ?? false)
       _reserveBtn(_userController.reserves!, theme),
     IconButton(
-      tooltip: '搜索',
+      tooltip: 'search',
       onPressed: () => Get.toNamed(
         '/memberSearch?mid=$_mid&uname=${_userController.username}',
       ),
@@ -356,7 +356,7 @@ class _MemberPageState extends State<MemberPage> {
                 const Icon(Icons.block, size: 19),
                 const SizedBox(width: 10),
                 Text(
-                  _userController.relation.value != 128 ? '加入黑名单' : '移除黑名单',
+                  _userController.relation.value != 128 ? 'Add to blacklist' : 'Remove blacklist',
                 ),
               ],
             ),
@@ -369,7 +369,7 @@ class _MemberPageState extends State<MemberPage> {
                 children: [
                   Icon(Icons.remove_circle_outline_outlined, size: 19),
                   SizedBox(width: 10),
-                  Text('移除粉丝'),
+                  Text('Remove followers'),
                 ],
               ),
             ),
@@ -382,7 +382,7 @@ class _MemberPageState extends State<MemberPage> {
               const Icon(Icons.share_outlined, size: 19),
               const SizedBox(width: 10),
               Text(
-                _userController.account.mid != _mid ? '分享UP主' : '分享我的主页',
+                _userController.account.mid != _mid ? 'Share UP master' : 'Share my page',
               ),
             ],
           ),
@@ -395,7 +395,7 @@ class _MemberPageState extends State<MemberPage> {
               children: [
                 Icon(Icons.add_box_outlined, size: 19),
                 SizedBox(width: 10),
-                Text('添加至桌面'),
+                Text('add to desktop'),
               ],
             ),
           ),
@@ -411,7 +411,7 @@ class _MemberPageState extends State<MemberPage> {
         //       children: [
         //         Icon(Icons.electric_bolt, size: 19),
         //         SizedBox(width: 10),
-        //         Text('充电排行榜'),
+        //         Text('Charging rankings'),
         //       ],
         //     ),
         //   ),
@@ -427,7 +427,7 @@ class _MemberPageState extends State<MemberPage> {
         //       children: [
         //         Icon(Icons.anchor, size: 19),
         //         SizedBox(width: 10),
-        //         Text('大航海舰队'),
+        //         Text('Great Navigation Fleet'),
         //       ],
         //     ),
         //   ),
@@ -439,7 +439,7 @@ class _MemberPageState extends State<MemberPage> {
               children: [
                 Icon(Icons.extension_outlined, size: 19),
                 SizedBox(width: 10),
-                Text('网页投稿'),
+                Text('Web submission'),
               ],
             ),
           ),
@@ -461,7 +461,7 @@ class _MemberPageState extends State<MemberPage> {
                   children: [
                     Icon(Icons.upcoming_outlined, size: 19),
                     SizedBox(width: 10),
-                    Text('大会员经验'),
+                    Text('Great membership experience'),
                   ],
                 ),
               ),
@@ -472,7 +472,7 @@ class _MemberPageState extends State<MemberPage> {
                 children: [
                   Icon(Icons.devices, size: 18),
                   SizedBox(width: 10),
-                  Text('登录设备'),
+                  Text('Log into device'),
                 ],
               ),
             ),
@@ -486,7 +486,7 @@ class _MemberPageState extends State<MemberPage> {
                 children: [
                   Icon(Icons.login, size: 18),
                   SizedBox(width: 10),
-                  Text('登录记录'),
+                  Text('Login record'),
                 ],
               ),
             ),
@@ -500,7 +500,7 @@ class _MemberPageState extends State<MemberPage> {
                 children: [
                   Icon(FontAwesomeIcons.b, size: 16),
                   SizedBox(width: 10),
-                  Text('硬币记录'),
+                  Text('coin records'),
                 ],
               ),
             ),
@@ -514,7 +514,7 @@ class _MemberPageState extends State<MemberPage> {
                 children: [
                   Icon(Icons.linear_scale, size: 18),
                   SizedBox(width: 10),
-                  Text('经验记录'),
+                  Text('Experience record'),
                 ],
               ),
             ),
@@ -525,7 +525,7 @@ class _MemberPageState extends State<MemberPage> {
                 children: [
                   Icon(Icons.settings_outlined, size: 19),
                   SizedBox(width: 10),
-                  Text('空间设置'),
+                  Text('space setting'),
                 ],
               ),
             ),
@@ -538,7 +538,7 @@ class _MemberPageState extends State<MemberPage> {
                   children: [
                     Icon(Icons.more_time_outlined, size: 19),
                     SizedBox(width: 10),
-                    Text('关注时间'),
+                    Text('attention time'),
                   ],
                 ),
               ),
@@ -559,7 +559,7 @@ class _MemberPageState extends State<MemberPage> {
                   ),
                   const SizedBox(width: 10),
                   Text(
-                    '举报',
+                    'report',
                     style: TextStyle(color: theme.error),
                   ),
                 ],
@@ -619,7 +619,7 @@ class _MemberPageState extends State<MemberPage> {
             TextButton(
               onPressed: Get.back,
               child: Text(
-                '关闭',
+                'closure',
                 style: TextStyle(color: ColorScheme.of(context).outline),
               ),
             ),

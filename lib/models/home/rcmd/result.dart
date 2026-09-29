@@ -24,7 +24,7 @@ class RcmdVideoItemAppModel extends BaseRcmdVideoItemModel {
     goto = json['card_goto'];
     owner = RcmdOwner.fromJson(json, goto);
     rcmdReason = json['rcmd_reason'];
-    if (rcmdReason == '竖屏') rcmdReason = null;
+    if (rcmdReason == 'Vertical screen') rcmdReason = null;
     //     json['bottom_rcmd_reason'] ??
     //     json['top_rcmd_reason'];
     if (rcmdReason != null && rcmdReason!.contains('赞')) {
@@ -33,7 +33,7 @@ class RcmdVideoItemAppModel extends BaseRcmdVideoItemModel {
     }
     // 由于app端api并不会直接返回与owner的关注状态
     // 所以借用推荐原因是否为“已关注”、“新关注”判别关注状态，从而与web端接口等效
-    isFollowed = const {'已关注', '新关注'}.contains(rcmdReason);
+    isFollowed = const {'Already following', 'new attention'}.contains(rcmdReason);
     // 如果是，就无需再显示推荐原因，交由view统一处理即可
     if (isFollowed) rcmdReason = null;
 

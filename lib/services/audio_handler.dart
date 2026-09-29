@@ -73,7 +73,7 @@ class VideoPlayerServiceHandler extends BaseAudioHandler with SeekHandler {
   void setMediaItem(MediaItem newMediaItem) {
     if (!enableBackgroundPlay) return;
     // if (kDebugMode) {
-    //   debugPrint("此时调用栈为：");
+    //   debugPrint("The call stack at this time is:");
     //   debugPrint(newMediaItem);
     //   debugPrint(newMediaItem.title);
     //   debugPrint(StackTrace.current.toString());
@@ -192,7 +192,7 @@ class VideoPlayerServiceHandler extends BaseAudioHandler with SeekHandler {
   }) {
     if (!enableBackgroundPlay) return;
     // if (kDebugMode) {
-    //   debugPrint('当前调用栈为：');
+    //   debugPrint('The current call stack is:');
     //   debugPrint(StackTrace.current);
     // }
     if (data == null) return;

@@ -1,7 +1,7 @@
 enum DmBlockType {
-  keyword('关键词'),
-  regex('正则'),
-  uid('用户'),
+  keyword('keywords'),
+  regex('regular'),
+  uid('user'),
   ;
 
   final String label;

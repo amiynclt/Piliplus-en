@@ -96,7 +96,7 @@ class _SearchPageState extends State<SearchPage> {
       Obx(
         () => _searchController.showUidBtn.value
             ? IconButton(
-                tooltip: 'UID搜索用户',
+                tooltip: 'UID search user',
                 icon: const Icon(Icons.person_outline, size: 22),
                 onPressed: () => Get.toNamed(
                   '/member?mid=${_searchController.controller.text}',
@@ -105,12 +105,12 @@ class _SearchPageState extends State<SearchPage> {
             : const SizedBox.shrink(),
       ),
       IconButton(
-        tooltip: '清空',
+        tooltip: 'Clear',
         icon: const Icon(Icons.clear, size: 22),
         onPressed: _searchController.onClear,
       ),
       IconButton(
-        tooltip: '搜索',
+        tooltip: 'search',
         onPressed: _searchController.submit,
         icon: const Icon(Icons.search, size: 22),
       ),
@@ -124,7 +124,7 @@ class _SearchPageState extends State<SearchPage> {
       onChanged: _searchController.onChange,
       decoration: InputDecoration(
         visualDensity: .standard,
-        hintText: _searchController.hintText ?? '搜索',
+        hintText: _searchController.hintText ?? 'search',
         border: InputBorder.none,
       ),
       onSubmitted: (value) => _searchController.submit(),
@@ -178,7 +178,7 @@ class _SearchPageState extends State<SearchPage> {
     bool isTrending = true,
   }) {
     final text = Text(
-      isTrending ? '大家都在搜' : '搜索发现',
+      isTrending ? 'Everyone is searching' : 'Search found',
       strutStyle: const StrutStyle(leading: 0, height: 1),
       style: theme.textTheme.titleMedium!.copyWith(
         height: 1,
@@ -227,7 +227,7 @@ class _SearchPageState extends State<SearchPage> {
                               child: Row(
                                 children: [
                                   Text(
-                                    '完整榜单',
+                                    'Complete list',
                                     strutStyle: const StrutStyle(
                                       leading: 0,
                                       height: 1,
@@ -262,7 +262,7 @@ class _SearchPageState extends State<SearchPage> {
                       color: secondary,
                     ),
                     label: Text(
-                      '刷新',
+                      'refresh',
                       strutStyle: const StrutStyle(leading: 0, height: 1),
                       style: TextStyle(height: 1, color: secondary),
                     ),
@@ -312,7 +312,7 @@ class _SearchPageState extends State<SearchPage> {
                   child: Row(
                     children: [
                       Text(
-                        '搜索历史',
+                        'Search history',
                         strutStyle: const StrutStyle(leading: 0, height: 1),
                         style: theme.textTheme.titleMedium!.copyWith(
                           height: 1,
@@ -338,7 +338,7 @@ class _SearchPageState extends State<SearchPage> {
                           color: secondary,
                         ),
                         label: Text(
-                          '清空',
+                          'Clear',
                           style: TextStyle(height: 1, color: secondary),
                         ),
                       ),
@@ -378,7 +378,7 @@ class _SearchPageState extends State<SearchPage> {
       bool enable = _searchController.recordSearchHistory.value;
       return IconButton(
         iconSize: 22,
-        tooltip: enable ? '记录搜索' : '无痕搜索',
+        tooltip: enable ? 'record search' : 'Incognito search',
         icon: DisabledIcon(
           disable: !enable,
           child: Icon(
@@ -405,7 +405,7 @@ class _SearchPageState extends State<SearchPage> {
 
   Widget get _exportBtn => IconButton(
     iconSize: 22,
-    tooltip: '导入/导出历史记录',
+    tooltip: 'Import/export history',
     icon: Icon(
       Icons.import_export_outlined,
       color: theme.colorScheme.onSurfaceVariant.withValues(alpha: 0.8),
@@ -417,7 +417,7 @@ class _SearchPageState extends State<SearchPage> {
     ),
     onPressed: () => showImportExportDialog<List>(
       context,
-      title: '历史记录',
+      title: 'History',
       localFileName: () => 'search',
       onExport: () => jsonEncode(_searchController.historyList),
       onImport: (json) {

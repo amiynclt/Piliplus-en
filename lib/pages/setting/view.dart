@@ -45,32 +45,32 @@ class _SettingPageState extends State<SettingPage> {
   static const List<_SettingsModel> _items = [
     _SettingsModel(
       type: SettingType.privacySetting,
-      subtitle: '黑名单',
+      subtitle: 'blacklist',
       icon: Icon(Icons.privacy_tip_outlined),
     ),
     _SettingsModel(
       type: SettingType.recommendSetting,
-      subtitle: '推荐来源（web/app）、刷新保留内容、过滤器',
+      subtitle: 'Recommended sources (web/app), refresh retained content, filters',
       icon: Icon(Icons.explore_outlined),
     ),
     _SettingsModel(
       type: SettingType.videoSetting,
-      subtitle: '画质、音质、解码、缓冲、音频输出等',
+      subtitle: 'Picture quality, sound quality, decoding, buffering, audio output, etc.',
       icon: Icon(Icons.video_settings_outlined),
     ),
     _SettingsModel(
       type: SettingType.playSetting,
-      subtitle: '双击/长按、全屏、后台播放、弹幕、字幕、底部进度条等',
+      subtitle: 'Double click/long press, full screen, background playback, barrage, subtitles, bottom progress bar, etc.',
       icon: Icon(Icons.touch_app_outlined),
     ),
     _SettingsModel(
       type: SettingType.styleSetting,
-      subtitle: '横屏适配（平板）、侧栏、列宽、首页、动态红点、主题、字号、图片、帧率等',
+      subtitle: 'Horizontal screen adaptation (tablet), sidebar, column width, homepage, dynamic red dot, theme, font size, picture, frame rate, etc.',
       icon: Icon(Icons.style_outlined),
     ),
     _SettingsModel(
       type: SettingType.extraSetting,
-      subtitle: '震动、搜索、收藏、ai、评论、动态、代理、更新检查等',
+      subtitle: 'Vibrate, search, favorites, ai, comments, updates, agents, update checks, etc.',
       icon: Icon(Icons.extension_outlined),
     ),
     _SettingsModel(
@@ -95,7 +95,7 @@ class _SettingPageState extends State<SettingPage> {
   Widget build(BuildContext context) {
     return SimpleScaffold(
       appBar: AppBar(
-        title: _isPortrait ? const Text('设置') : Text(_type.title),
+        title: _isPortrait ? const Text('set up') : Text(_type.title),
       ),
       body: ViewSafeArea(
         child: _isPortrait
@@ -195,7 +195,7 @@ class _SettingPageState extends State<SettingPage> {
         ListTile(
           onTap: () => LoginPageController.switchAccountDialog(context),
           leading: const Icon(Icons.switch_account_outlined),
-          title: Text('切换账号', style: titleStyle),
+          title: Text('Switch account', style: titleStyle),
         ),
         Obx(
           () => _noAccount.value
@@ -203,7 +203,7 @@ class _SettingPageState extends State<SettingPage> {
               : ListTile(
                   leading: const Icon(Icons.logout_outlined),
                   onTap: () => _logoutDialog(context),
-                  title: Text('退出登录', style: titleStyle),
+                  title: Text('Log out', style: titleStyle),
                 ),
         ),
         ListTile(
@@ -235,7 +235,7 @@ class _SettingPageState extends State<SettingPage> {
     final result = await showDialog<Set<LoginAccount>>(
       context: context,
       builder: (context) => MultiSelectDialog<LoginAccount>(
-        title: '选择要登出的账号uid',
+        title: 'Select the account uid to log out',
         initValues: const Iterable.empty(),
         values: {
           for (final i in Accounts.account.values) i: i.mid.toString(),
@@ -248,7 +248,7 @@ class _SettingPageState extends State<SettingPage> {
       context: context,
       builder: (context) {
         return AlertDialog(
-          title: const Text('提示'),
+          title: const Text('hint'),
           content: Text(
             "确认要退出以下账号登录吗\n\n${result.map((i) => i.mid).join('\n')}",
           ),
@@ -256,7 +256,7 @@ class _SettingPageState extends State<SettingPage> {
             TextButton(
               onPressed: Get.back,
               child: Text(
-                '点错了',
+                'Wrong click',
                 style: TextStyle(color: theme.colorScheme.outline),
               ),
             ),
@@ -266,7 +266,7 @@ class _SettingPageState extends State<SettingPage> {
                 _removeAccounts(result);
               },
               child: Text(
-                '仅登出',
+                'Log out only',
                 style: TextStyle(color: theme.colorScheme.error),
               ),
             ),
@@ -277,7 +277,7 @@ class _SettingPageState extends State<SettingPage> {
                 SmartDialog.dismiss();
                 final logoutAccounts = res.nonNulls.toSet();
                 if (logoutAccounts.isEmpty) {
-                  SmartDialog.showToast('所选账号均退出登录失败');
+                  SmartDialog.showToast('All selected accounts failed to log out or log in.');
                 } else {
                   Get.back();
                   _removeAccounts(logoutAccounts);
@@ -289,7 +289,7 @@ class _SettingPageState extends State<SettingPage> {
                   }
                 }
               },
-              child: const Text('确认'),
+              child: const Text('confirm'),
             ),
           ],
         );
@@ -321,7 +321,7 @@ class _SettingPageState extends State<SettingPage> {
                   Icons.search,
                 ),
                 Text(
-                  ' 搜索',
+                  'search',
                   style: TextStyle(height: 1),
                   strutStyle: StrutStyle(height: 1, leading: 0),
                 ),

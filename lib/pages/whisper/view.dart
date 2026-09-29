@@ -30,10 +30,10 @@ class _WhisperPageState extends State<WhisperPage> {
     final padding = MediaQuery.viewPaddingOf(context);
     return SimpleScaffold(
       appBar: AppBar(
-        title: const Text('消息'),
+        title: const Text('information'),
         actions: [
           IconButton(
-            tooltip: '新增粉丝',
+            tooltip: 'Add new fans',
             onPressed: () => Get.toNamed(
               '/webview',
               parameters: {
@@ -205,7 +205,7 @@ class _WhisperPageState extends State<WhisperPage> {
               ),
               onTap: () {
                 if (!item.enabled) {
-                  SmartDialog.showToast('已禁用');
+                  SmartDialog.showToast('Disabled');
                   return;
                 }
                 _controller.unreadCounts[index] = 0;

@@ -59,7 +59,7 @@ class SearchUserItem extends StatelessWidget {
                   ],
                 ),
                 Text(
-                  '粉丝：${NumUtils.numFormat(item.fans)}  视频：${NumUtils.numFormat(item.videos)}',
+                  'Fans: ${NumUtils.numFormat(item.fans)} Videos: ${NumUtils.numFormat(item.videos)}',
                   style: style,
                 ),
                 if (item.officialVerify?.desc?.isNotEmpty == true)

@@ -124,13 +124,13 @@ abstract final class DanmakuHttp {
 
     /// res.data['data']['block']
     /// {
-    ///       0: "举报已提交",
-    ///       "-1": "举报失败，请先激活账号。",
-    ///       "-2": "举报失败，系统拒绝受理您的举报请求。",
-    ///       "-3": "举报失败，您已经被禁言。",
-    ///       "-4": "您的操作过于频繁，请稍后再试。",
-    ///       "-5": "您已经举报过这条弹幕了。",
-    ///       "-6": "举报失败，系统错误。"
+    ///       0: "Report submitted",
+    ///       "-1": "Report failed, please activate your account first.",
+    ///       "-2": "The report failed and the system refused to accept your report request.",
+    ///       "-3": "Report failed, you have been banned.",
+    ///       "-4": "Your operation is too frequent, please try again later.",
+    ///       "-5": "You have already reported this barrage.",
+    ///       "-6": "Report failed, system error."
     /// }
   }
 

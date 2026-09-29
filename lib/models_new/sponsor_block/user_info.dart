@@ -24,10 +24,10 @@ class UserInfo {
       Duration(minutes: minutesSaved.round()),
     );
     if (minutes.isEmpty) {
-      minutes = '0分钟';
+      minutes = '0 minutes';
     }
-    return ('您提交了 ${NumUtils.formatPositiveDecimal(segmentCount)} 片段\n'
-        '您为大家节省了 ${NumUtils.formatPositiveDecimal(viewCount)} 片段\n'
-        '($minutes 的生命)');
+    return ('You submitted ${NumUtils.formatPositiveDecimal(segmentCount)} fragment\n'
+        'You saved everyone the ${NumUtils.formatPositiveDecimal(viewCount)} fragment\n'
+        '($minutes of life)');
   }
 }

@@ -493,7 +493,7 @@ class VideoDetailController extends GetxController
                   );
                   if (res.isSuccess) {
                     mediaList.removeAt(index);
-                    SmartDialog.showToast('取消收藏');
+                    SmartDialog.showToast('Cancel favorites');
                   } else {
                     res.toast();
                   }
@@ -576,8 +576,8 @@ class VideoDetailController extends GetxController
               padding: const .symmetric(horizontal: 8, vertical: 4),
               fontSize: 14,
               text: item is SegmentModel
-                  ? '跳过: ${item.segmentType.shortTitle}'
-                  : '上次看到第${(item as int) + 1}P，点击跳转',
+                  ? 'Skip: ${item.segmentType.shortTitle}'
+                  : 'Last time I saw the ${(item as int) + 1}P, click to jump',
               onTap: (_) {
                 if (item is int) {
                   try {
@@ -586,10 +586,10 @@ class VideoDetailController extends GetxController
                     Part part =
                         ugcIntroController.videoDetail.value.pages![item];
                     ugcIntroController.onChangeEpisode(part);
-                    SmartDialog.showToast('已跳至第${item + 1}P');
+                    SmartDialog.showToast('Jumped to page ${item + 1}P');
                   } catch (e) {
                     if (kDebugMode) debugPrint('$e');
-                    SmartDialog.showToast('跳转失败');
+                    SmartDialog.showToast('Jump failed');
                   }
                   onRemoveItem(listData.indexOf(item), item);
                 } else if (item is SegmentModel) {
@@ -610,7 +610,7 @@ class VideoDetailController extends GetxController
   /// 发送弹幕
   Future<void> showShootDanmakuSheet() async {
     if (plPlayerController.dmState.contains(cid.value)) {
-      SmartDialog.showToast('UP主已关闭弹幕');
+      SmartDialog.showToast('The UP owner has closed the barrage');
       return;
     }
     final isPlaying =
@@ -786,7 +786,7 @@ class VideoDetailController extends GetxController
   void setLanguage(String language) {
     if (currLang.value == language) return;
     if (!isLoginVideo) {
-      SmartDialog.showToast('账号未登录');
+      SmartDialog.showToast('Account not logged in');
       return;
     }
     currLang.value = language;
@@ -882,9 +882,9 @@ class VideoDetailController extends GetxController
         }
       }
 
-      if (data.acceptDesc?.contains('试看') == true) {
+      if (data.acceptDesc?.contains('Try it out') == true) {
         SmartDialog.showToast(
-          '该视频为专属视频，仅提供试看',
+          'This video is an exclusive video and is only available for preview',
           displayTime: const Duration(seconds: 3),
         );
       }
@@ -919,7 +919,7 @@ class VideoDetailController extends GetxController
           await _initPlayerIfNeeded(autoFullScreenFlag);
           return;
         } else {
-          SmartDialog.showToast('视频资源不存在');
+          SmartDialog.showToast('Video resource does not exist');
           _autoPlay.value = false;
           videoState.value = false;
           if (plPlayerController.isFullScreen.value) {
@@ -1537,7 +1537,7 @@ class VideoDetailController extends GetxController
       context: Get.context!,
       builder: (context) => AlertDialog(
         constraints: Style.dialogFixedConstraints,
-        title: const Text('播放地址'),
+        title: const Text('Play address'),
         content: Column(
           spacing: 20,
           mainAxisSize: MainAxisSize.min,
@@ -1563,7 +1563,7 @@ class VideoDetailController extends GetxController
               this.audioUrl = audioUrl;
               playerInit();
             },
-            child: const Text('确定'),
+            child: const Text('Sure'),
           ),
         ],
       ),
@@ -1583,7 +1583,7 @@ class VideoDetailController extends GetxController
     if (res case Success(:final response)) {
       final first = response.durl?.firstOrNull;
       if (first == null || first.playUrls.isEmpty) {
-        SmartDialog.showToast('不支持投屏');
+        SmartDialog.showToast('Screencasting is not supported');
         return;
       }
       final url = VideoUtils.getCdnUrl(first.playUrls);

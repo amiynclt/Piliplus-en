@@ -1,7 +1,7 @@
 import 'package:material_ui/material_ui.dart';
 
 Widget moreTextButton({
-  String text = '查看更多',
+  String text = 'View more',
   required VoidCallback onTap,
   EdgeInsets? padding,
   Color? color,

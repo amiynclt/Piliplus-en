@@ -276,7 +276,7 @@ class _MusicDetailPageState extends CommonDynPageState<MusicDetailPage> {
                 // Expanded(
                 //   child: textIconButton(
                 //     icon: FontAwesomeIcons.shareFromSquare,
-                //     text: '转发',
+                //     text: 'Forward',
                 //     count: item.musicShares,
                 //     onPressed: () {
                 //       final data = controller.infoState.value.dataOrNull;
@@ -299,7 +299,7 @@ class _MusicDetailPageState extends CommonDynPageState<MusicDetailPage> {
                 Expanded(
                   child: textIconButton(
                     icon: CustomIcons.share_node,
-                    text: '分享',
+                    text: 'share',
                     onPressed: () => ShareUtils.shareText(controller.shareUrl),
                   ),
                 ),
@@ -308,12 +308,12 @@ class _MusicDetailPageState extends CommonDynPageState<MusicDetailPage> {
                     builder: (context) => textIconButton(
                       icon: FontAwesomeIcons.thumbsUp,
                       activatedIcon: FontAwesomeIcons.solidThumbsUp,
-                      text: '点赞',
+                      text: 'Like',
                       count: item.wishCount,
                       status: item.wishListen ?? false,
                       onPressed: () async {
                         if (!Accounts.main.isLogin) {
-                          SmartDialog.showToast('请先登录');
+                          SmartDialog.showToast('Please log in first');
                           return;
                         }
                         final hasLike = item.wishListen ?? false;
@@ -466,7 +466,7 @@ class _MusicDetailPageState extends CommonDynPageState<MusicDetailPage> {
                                 _buildArtist(artist, textTheme.bodySmall),
                             if (!item.musicPublish.isNullOrEmpty)
                               Text(
-                                '发行日期：${item.musicPublish}',
+                                'Release date: ${item.musicPublish}',
                                 style: textTheme.bodySmall!.copyWith(
                                   color: theme.colorScheme.outline,
                                 ),
@@ -515,7 +515,7 @@ class _MusicDetailPageState extends CommonDynPageState<MusicDetailPage> {
                                               .onSecondaryContainer,
                                         ),
                                         Text(
-                                          '看MV',
+                                          'Watch the MV',
                                           style: TextStyle(
                                             color: theme
                                                 .colorScheme
@@ -548,21 +548,21 @@ class _MusicDetailPageState extends CommonDynPageState<MusicDetailPage> {
                 [
                   if (!(item.originArtist ?? item.originArtistList)
                       .isNullOrEmpty)
-                    '原唱：${item.originArtist ?? item.originArtistList}',
-                  if (!item.album.isNullOrEmpty) '专辑：${item.album}',
-                  if (!item.musicSource.isNullOrEmpty) '出处：${item.musicSource}',
+                    'Original song: ${item.originArtist ?? item.originArtistList}',
+                  if (!item.album.isNullOrEmpty) 'Album: ${item.album}',
+                  if (!item.musicSource.isNullOrEmpty) 'Source: ${item.musicSource}',
                 ].join('\n'),
               ),
               const Divider(),
               Row(
                 mainAxisAlignment: MainAxisAlignment.spaceBetween,
                 children: [
-                  const Text('热歌榜排名'),
-                  _buildRank(item.hotSongHeat?.lastHeat, '热度'),
-                  _buildRank(item.listenPv, '总播放量'),
+                  const Text('Hot song ranking'),
+                  _buildRank(item.hotSongHeat?.lastHeat, 'heat'),
+                  _buildRank(item.listenPv, 'Total views'),
                   _buildRank(
                     item.musicRelation,
-                    '使用稿件量',
+                    'Number of manuscripts used',
                     () => Get.to(
                       const MusicRecommendPage(),
                       arguments: (id: controller.musicId, item: item),
@@ -593,7 +593,7 @@ class _MusicDetailPageState extends CommonDynPageState<MusicDetailPage> {
       child: Column(
         spacing: 8,
         children: [
-          Text('近${heat.length}日热度趋势', style: theme.textTheme.titleMedium),
+          Text('Recent ${heat.length} daily heat trend', style: theme.textTheme.titleMedium),
           SizedBox(
             width: maxWidth,
             height: maxWidth * 0.5,

@@ -214,7 +214,7 @@ class _MemberFavoriteState extends State<MemberFavorite>
           height: 40,
           alignment: .center,
           child: Text(
-            '查看更多内容',
+            'See more',
             textAlign: TextAlign.center,
             style: TextStyle(color: theme.colorScheme.primary),
           ),

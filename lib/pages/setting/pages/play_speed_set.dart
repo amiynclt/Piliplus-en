@@ -29,7 +29,7 @@ class _PlaySpeedPageState extends State<PlaySpeedPage> {
   List<({int id, String title, Icon icon})> sheetMenu = [
     (
       id: 1,
-      title: '设置为默认倍速',
+      title: 'Set to default double speed',
       icon: const Icon(
         Icons.speed,
         size: 21,
@@ -37,7 +37,7 @@ class _PlaySpeedPageState extends State<PlaySpeedPage> {
     ),
     (
       id: 2,
-      title: '设置为默认长按倍速',
+      title: 'Set as default long press double speed',
       icon: const Icon(
         Icons.speed_sharp,
         size: 21,
@@ -45,7 +45,7 @@ class _PlaySpeedPageState extends State<PlaySpeedPage> {
     ),
     (
       id: -1,
-      title: '删除该项',
+      title: 'Delete this item',
       icon: const Icon(
         Icons.delete_outline,
         size: 21,
@@ -61,7 +61,7 @@ class _PlaySpeedPageState extends State<PlaySpeedPage> {
     showDialog(
       context: context,
       builder: (context) => AlertDialog(
-        title: const Text('添加倍速'),
+        title: const Text('Add double speed'),
         content: Column(
           mainAxisSize: MainAxisSize.min,
           children: [
@@ -71,7 +71,7 @@ class _PlaySpeedPageState extends State<PlaySpeedPage> {
               initialValue: initialValue,
               keyboardType: const .numberWithOptions(decimal: true),
               decoration: const InputDecoration(
-                labelText: '自定义倍速',
+                labelText: 'Custom speed',
                 border: OutlineInputBorder(borderRadius: .all(.circular(6))),
               ),
               onChanged: (value) => initialValue = value,
@@ -83,7 +83,7 @@ class _PlaySpeedPageState extends State<PlaySpeedPage> {
           TextButton(
             onPressed: Get.back,
             child: Text(
-              '取消',
+              'Cancel',
               style: TextStyle(color: Theme.of(context).colorScheme.outline),
             ),
           ),
@@ -92,7 +92,7 @@ class _PlaySpeedPageState extends State<PlaySpeedPage> {
               try {
                 final val = double.parse(initialValue);
                 if (speedList.contains(val)) {
-                  SmartDialog.showToast('该倍速已存在');
+                  SmartDialog.showToast('The speed already exists');
                 } else {
                   Get.back();
                   speedList
@@ -105,7 +105,7 @@ class _PlaySpeedPageState extends State<PlaySpeedPage> {
                 SmartDialog.showToast(e.toString());
               }
             },
-            child: const Text('确认'),
+            child: const Text('confirm'),
           ),
         ],
       ),
@@ -170,7 +170,7 @@ class _PlaySpeedPageState extends State<PlaySpeedPage> {
         playSpeedDefault,
         longPressSpeedDefault,
       ].contains(speed)) {
-        SmartDialog.showToast('不支持删除默认倍速');
+        SmartDialog.showToast('Deletion of default double speed is not supported');
         return;
       }
       speedList.removeAt(index);
@@ -184,7 +184,7 @@ class _PlaySpeedPageState extends State<PlaySpeedPage> {
     final theme = Theme.of(context);
     return SimpleScaffold(
       appBar: AppBar(
-        title: const Text('倍速设置'),
+        title: const Text('Double speed setting'),
         actions: [
           TextButton(
             onPressed: () async {
@@ -192,7 +192,7 @@ class _PlaySpeedPageState extends State<PlaySpeedPage> {
               speedList = Pref.speedList;
               setState(() {});
             },
-            child: const Text('重置'),
+            child: const Text('reset'),
           ),
           const SizedBox(width: 16),
         ],
@@ -211,17 +211,17 @@ class _PlaySpeedPageState extends State<PlaySpeedPage> {
                 bottom: 0,
               ),
               child: Text(
-                '点击下方按钮设置默认（长按）倍速',
+                'Click the button below to set the default (long press) double speed',
                 style: TextStyle(color: theme.colorScheme.outline),
               ),
             ),
             ListTile(
-              title: const Text('默认倍速'),
+              title: const Text('Default double speed'),
               subtitle: Text(playSpeedDefault.toString()),
             ),
             SetSwitchItem(
-              title: '动态长按倍速',
-              subtitle: '根据默认倍速长按时自动双倍',
+              title: 'Dynamic long press double speed',
+              subtitle: 'Automatically doubles according to the default double speed when long pressing',
               setKey: SettingBoxKey.enableAutoLongPressSpeed,
               defaultVal: enableAutoLongPressSpeed,
               onChanged: (val) =>
@@ -229,7 +229,7 @@ class _PlaySpeedPageState extends State<PlaySpeedPage> {
             ),
             if (!enableAutoLongPressSpeed)
               ListTile(
-                title: const Text('默认长按倍速'),
+                title: const Text('Default long press double speed'),
                 subtitle: Text(longPressSpeedDefault.toString()),
               ),
             Padding(
@@ -242,13 +242,13 @@ class _PlaySpeedPageState extends State<PlaySpeedPage> {
               child: Row(
                 children: [
                   Text(
-                    '倍速列表',
+                    'Double speed list',
                     style: theme.textTheme.titleMedium,
                   ),
                   const SizedBox(width: 12),
                   TextButton(
                     onPressed: onAddSpeed,
-                    child: const Text('添加'),
+                    child: const Text('Add to'),
                   ),
                 ],
               ),

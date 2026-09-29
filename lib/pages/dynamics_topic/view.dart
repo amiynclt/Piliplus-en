@@ -159,11 +159,11 @@ class _DynTopicPageState extends State<DynTopicPage>
                   ),
                 );
               } else {
-                SmartDialog.showToast('账号未登录');
+                SmartDialog.showToast('Account not logged in');
               }
             },
             icon: const Icon(CustomIcons.topic_tag, size: 20),
-            label: const Text('参与话题'),
+            label: const Text('Participate in the topic'),
           ),
         ),
       ),
@@ -227,7 +227,7 @@ class _DynTopicPageState extends State<DynTopicPage>
                         ),
                       ),
                       Text(
-                        ' 发起',
+                        'initiate',
                         style: TextStyle(color: colorScheme.outline),
                       ),
                     ],
@@ -250,7 +250,7 @@ class _DynTopicPageState extends State<DynTopicPage>
               Row(
                 children: [
                   Text(
-                    '${NumUtils.numFormat(response.topicItem!.view)}浏览 · ${NumUtils.numFormat(response.topicItem!.discuss)}讨论',
+                    '${NumUtils.numFormat(response.topicItem!.view)}View · ${NumUtils.numFormat(response.topicItem!.discuss)}Discuss',
                     style: TextStyle(
                       fontSize: 13,
                       color: colorScheme.outline,
@@ -327,14 +327,14 @@ class _DynTopicPageState extends State<DynTopicPage>
                 PopupMenuItem(
                   onTap: _controller.onFav,
                   child: Text(
-                    '${_controller.isFav.value ? '取消' : ''}收藏',
+                    '${_controller.isFav.value ? 'Cancel' : ''}collect',
                   ),
                 ),
                 PopupMenuItem(
-                  child: const Text('举报'),
+                  child: const Text('report'),
                   onTap: () {
                     if (!_controller.isLogin) {
-                      SmartDialog.showToast('账号未登录');
+                      SmartDialog.showToast('Account not logged in');
                       return;
                     }
                     PageUtils.inAppWebview(

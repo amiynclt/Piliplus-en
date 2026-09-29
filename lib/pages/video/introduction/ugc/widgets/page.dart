@@ -110,10 +110,10 @@ class _PagesPanelState extends State<PagesPanel> {
             child: Row(
               mainAxisAlignment: .spaceBetween,
               children: [
-                const Text('视频选集 '),
+                const Text('Video selection'),
                 Expanded(
                   child: Text(
-                    ' 正在播放：${pages[pageIndex].part}',
+                    'Now playing: ${pages[pageIndex].part}',
                     overflow: .ellipsis,
                     style: TextStyle(fontSize: 12, color: colorScheme.outline),
                   ),
@@ -134,7 +134,7 @@ class _PagesPanelState extends State<PagesPanel> {
                       cid,
                     ),
                     child: Text(
-                      '共${pages.length}集',
+                      'A total of ${pages.length} sets',
                       style: const TextStyle(fontSize: 13),
                     ),
                   ),
@@ -248,7 +248,7 @@ class _PagesPanelState extends State<PagesPanel> {
                                           cacheHeight: 12.cacheSize(
                                             context,
                                           ),
-                                          semanticLabel: "正在播放：",
+                                          semanticLabel: "Now playing:",
                                         ),
                                       ),
                                     )

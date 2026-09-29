@@ -112,7 +112,7 @@ class _SuperChatCardState extends State<SuperChatCard> {
           height: 38,
           onTap: () => Get.toNamed('/member?mid=${item.uid}'),
           child: Text(
-            '访问: ${item.userInfo.uname}',
+            'Access: ${item.userInfo.uname}',
             style: const TextStyle(fontSize: 13),
           ),
         ),
@@ -120,7 +120,7 @@ class _SuperChatCardState extends State<SuperChatCard> {
           height: 38,
           onTap: () => Utils.copyText(Utils.jsonEncoder.convert(item.toJson())),
           child: const Text(
-            '复制 SC 信息',
+            'Copy SC information',
             style: TextStyle(fontSize: 13),
           ),
         ),
@@ -131,7 +131,7 @@ class _SuperChatCardState extends State<SuperChatCard> {
             _screenShot(context, item);
           },
           child: const Text(
-            '保存为图片',
+            'save as picture',
             style: TextStyle(fontSize: 13),
           ),
         ),
@@ -139,7 +139,7 @@ class _SuperChatCardState extends State<SuperChatCard> {
           height: 38,
           onTap: widget.onReport,
           child: const Text(
-            '举报',
+            'report',
             style: TextStyle(fontSize: 13),
           ),
         ),

@@ -92,7 +92,7 @@ class _AboutPageState extends State<AboutPage> {
     final showAppBar = widget.showAppBar;
     final padding = MediaQuery.viewPaddingOf(context);
     return SimpleScaffold(
-      appBar: showAppBar ? AppBar(title: const Text('关于')) : null,
+      appBar: showAppBar ? AppBar(title: const Text('about')) : null,
       body: ListView(
         padding: EdgeInsets.only(
           left: showAppBar ? padding.left : 0,
@@ -126,13 +126,13 @@ class _AboutPageState extends State<AboutPage> {
               mainAxisAlignment: MainAxisAlignment.center,
               children: [
                 Text(
-                  '使用Flutter开发的B站第三方客户端',
+                  'Bilibili third-party client developed using Flutter',
                   style: TextStyle(color: outline),
-                  semanticsLabel: '与你一起，发现不一样的世界',
+                  semanticsLabel: 'Together with you, discover a different world',
                 ),
                 const Icon(
                   Icons.accessibility_new,
-                  semanticLabel: "无障碍适配",
+                  semanticLabel: "Accessibility adaptation",
                   size: 18,
                 ),
               ],
@@ -144,7 +144,7 @@ class _AboutPageState extends State<AboutPage> {
             onSecondaryTap: PlatformUtils.isMobile
                 ? null
                 : () => Utils.copyText(currentVersion),
-            title: const Text('当前版本'),
+            title: const Text('Current version'),
             leading: const Icon(Icons.commit_outlined),
             trailing: Text(
               currentVersion,
@@ -182,14 +182,14 @@ Commit Hash: ${BuildConfig.commitHash}''',
             ListTile(
               onTap: PiliAndroidHelper.openLinkVerifySettings,
               leading: const Icon(MdiIcons.linkBoxOutline),
-              title: const Text('打开受支持的链接'),
+              title: const Text('Open a supported link'),
               trailing: Icon(Icons.arrow_forward, size: 16, color: outline),
             ),
           ListTile(
             onTap: () =>
                 PageUtils.launchURL('${Constants.sourceCodeUrl}/issues'),
             leading: const Icon(Icons.feedback_outlined),
-            title: const Text('问题反馈'),
+            title: const Text('Problem feedback'),
             trailing: Icon(Icons.arrow_forward, size: 16, color: outline),
           ),
           ListTile(
@@ -199,8 +199,8 @@ Commit Hash: ${BuildConfig.commitHash}''',
                 ? null
                 : LoggerUtils.clearLogs,
             leading: const Icon(Icons.bug_report_outlined),
-            title: const Text('错误日志'),
-            subtitle: Text('长按清除日志', style: subTitleStyle),
+            title: const Text('error log'),
+            subtitle: Text('Long press to clear logs', style: subTitleStyle),
             trailing: Icon(Icons.arrow_forward, size: 16, color: outline),
           ),
           ListTile(
@@ -208,13 +208,13 @@ Commit Hash: ${BuildConfig.commitHash}''',
               if (cacheSize.value.isNotEmpty) {
                 showConfirmDialog(
                   context: context,
-                  title: const Text('提示'),
-                  content: const Text('该操作将清除图片及网络请求缓存数据，确认清除？'),
+                  title: const Text('hint'),
+                  content: const Text('This operation will clear the image and network request cache data. Are you sure to clear it?'),
                   onConfirm: () async {
-                    SmartDialog.showLoading(msg: '正在清除...');
+                    SmartDialog.showLoading(msg: 'Clearing...');
                     try {
                       await CacheManager.clearLibraryCache();
-                      SmartDialog.showToast('清除成功');
+                      SmartDialog.showToast('Clear successfully');
                     } catch (err) {
                       SmartDialog.showToast(err.toString());
                     } finally {
@@ -226,20 +226,20 @@ Commit Hash: ${BuildConfig.commitHash}''',
               }
             },
             leading: const Icon(Icons.delete_outline),
-            title: const Text('清除缓存'),
+            title: const Text('clear cache'),
             subtitle: Obx(
               () => Text(
-                '图片及网络缓存 ${cacheSize.value}',
+                'Image and network cache ${cacheSize.value}',
                 style: subTitleStyle,
               ),
             ),
           ),
           ListTile(
-            title: const Text('导入/导出登录信息'),
+            title: const Text('Import/export login information'),
             leading: const Icon(Icons.import_export_outlined),
             onTap: () => showImportExportDialog<Map>(
               context,
-              title: '登录信息',
+              title: 'Login information',
               localFileName: () => 'account',
               onExport: () =>
                   Utils.jsonEncoder.convert(Accounts.account.toMap()),
@@ -257,26 +257,26 @@ Commit Hash: ${BuildConfig.commitHash}''',
             ),
           ),
           ListTile(
-            title: const Text('导入/导出设置'),
+            title: const Text('Import/export settings'),
             dense: false,
             leading: const Icon(Icons.import_export_outlined),
             onTap: () => showImportExportDialog<Map<String, dynamic>>(
               context,
-              title: '设置',
+              title: 'set up',
               localFileName: () => 'setting_${DeviceUtils.platformName}',
               onExport: GStorage.exportAllSettings,
               onImport: GStorage.importAllJsonSettings,
             ),
           ),
           ListTile(
-            title: const Text('重置所有设置'),
+            title: const Text('Reset all settings'),
             leading: const Icon(Icons.settings_backup_restore_outlined),
             onTap: () => showDialog(
               context: context,
               builder: (context) {
                 return SimpleDialog(
                   clipBehavior: Clip.hardEdge,
-                  title: const Text('是否重置所有设置？'),
+                  title: const Text('Reset all settings?'),
                   children: [
                     DialogOption(
                       onPressed: () async {
@@ -285,17 +285,17 @@ Commit Hash: ${BuildConfig.commitHash}''',
                           GStorage.setting.clear(),
                           GStorage.video.clear(),
                         ]);
-                        SmartDialog.showToast('重置成功');
+                        SmartDialog.showToast('Reset successful');
                       },
-                      child: const Text('重置可导出的设置', style: style),
+                      child: const Text('Reset exportable settings', style: style),
                     ),
                     DialogOption(
                       onPressed: () async {
                         Get.back();
                         await GStorage.clear();
-                        SmartDialog.showToast('重置成功');
+                        SmartDialog.showToast('Reset successful');
                       },
-                      child: const Text('重置所有数据（含登录信息）', style: style),
+                      child: const Text('Reset all data (including login information)', style: style),
                     ),
                   ],
                 );

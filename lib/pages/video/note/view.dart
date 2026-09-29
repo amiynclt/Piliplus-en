@@ -76,13 +76,13 @@ class _NoteListPageState extends State<NoteListPage>
                     child: Obx(() {
                       final count = _controller.count.value;
                       return Text(
-                        '笔记${count == -1 ? '' : '($count)'}',
+                        'Notes ${count == -1 ?'' : '($count)'}',
                         style: const TextStyle(fontSize: 16),
                       );
                     }),
                   ),
                   IconButton(
-                    tooltip: '关闭',
+                    tooltip: 'closure',
                     icon: const Icon(Icons.close, size: 20),
                     onPressed: Get.back,
                   ),
@@ -156,7 +156,7 @@ class _NoteListPageState extends State<NoteListPage>
                 ),
               ),
               onPressed: () => _onTakeNote(context),
-              child: const Text('开始记笔记'),
+              child: const Text('Start taking notes'),
             ),
           ),
         ),
@@ -279,7 +279,7 @@ class _NoteListPageState extends State<NoteListPage>
                         ),
                       ),
                       Text(
-                        '查看全部',
+                        'View all',
                         style: TextStyle(
                           color: theme.colorScheme.primary,
                           height: 1.75,

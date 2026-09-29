@@ -78,22 +78,22 @@ class _DownloadPageState extends State<DownloadPage> with GridMixin {
                   _controller.handleSelect();
                   final res = await Future.wait(future);
                   if (res.every((e) => e)) {
-                    SmartDialog.showToast('更新成功');
+                    SmartDialog.showToast('Update successful');
                   } else {
-                    SmartDialog.showToast('更新失败');
+                    SmartDialog.showToast('Update failed');
                   }
                 },
                 child: Text(
-                  '更新',
+                  'renew',
                   style: TextStyle(color: theme.colorScheme.onSurface),
                 ),
               ),
             ],
             child: AppBar(
-              title: const Text('离线缓存'),
+              title: const Text('Offline caching'),
               actions: [
                 IconButton(
-                  tooltip: '搜索',
+                  tooltip: 'search',
                   onPressed: () async {
                     await _downloadService.waitForInitialization;
                     if (!mounted) return;
@@ -102,7 +102,7 @@ class _DownloadPageState extends State<DownloadPage> with GridMixin {
                   icon: const Icon(Icons.search),
                 ),
                 IconButton(
-                  tooltip: '多选',
+                  tooltip: 'Multiple choice',
                   onPressed: () {
                     if (enableMultiSelect) {
                       _controller.handleSelect();
@@ -133,7 +133,7 @@ class _DownloadPageState extends State<DownloadPage> with GridMixin {
                           padding: const EdgeInsets.only(left: 12, bottom: 7),
                           sliver: SliverToBoxAdapter(
                             child: Text(
-                              '正在缓存 (${_downloadService.waitDownloadQueue.length})',
+                              'Caching (${_downloadService.waitDownloadQueue.length})',
                             ),
                           ),
                         ),
@@ -168,7 +168,7 @@ class _DownloadPageState extends State<DownloadPage> with GridMixin {
                                 : 7,
                           ),
                           sliver: const SliverToBoxAdapter(
-                            child: Text('已缓存视频'),
+                            child: Text('Cached video'),
                           ),
                         ),
                         SliverGrid.builder(
@@ -237,7 +237,7 @@ class _DownloadPageState extends State<DownloadPage> with GridMixin {
                     Get.back();
                     showConfirmDialog(
                       context: context,
-                      title: const Text('确定删除？'),
+                      title: const Text('Are you sure to delete?'),
                       onConfirm: () async {
                         await GStorage.watchProgress.deleteAll(
                           pageInfo.entries.map((e) => e.cid.toString()),
@@ -248,7 +248,7 @@ class _DownloadPageState extends State<DownloadPage> with GridMixin {
                       },
                     );
                   },
-                  child: const Text('删除', style: TextStyle(fontSize: 14)),
+                  child: const Text('delete', style: TextStyle(fontSize: 14)),
                 ),
                 DialogOption(
                   onPressed: () async {
@@ -262,12 +262,12 @@ class _DownloadPageState extends State<DownloadPage> with GridMixin {
                       ),
                     );
                     if (res.every((e) => e)) {
-                      SmartDialog.showToast('更新成功');
+                      SmartDialog.showToast('Update successful');
                     } else {
-                      SmartDialog.showToast('更新失败');
+                      SmartDialog.showToast('Update failed');
                     }
                   },
-                  child: const Text('更新弹幕', style: TextStyle(fontSize: 14)),
+                  child: const Text('Update barrages', style: TextStyle(fontSize: 14)),
                 ),
               ],
             ),
@@ -313,7 +313,7 @@ class _DownloadPageState extends State<DownloadPage> with GridMixin {
                     ),
                   ),
                   PBadge(
-                    text: '${pageInfo.entries.length}个视频',
+                    text: '${pageInfo.entries.length} videos',
                     right: 6.0,
                     bottom: 6.0,
                     isBold: false,
@@ -322,13 +322,13 @@ class _DownloadPageState extends State<DownloadPage> with GridMixin {
                   if (pageInfo.seasonType case final pgcType?)
                     PBadge(
                       text: switch (pgcType) {
-                        -1 => '课程',
-                        1 => '番剧',
-                        2 => '电影',
-                        3 => '纪录片',
-                        4 => '国创',
-                        5 => '电视剧',
-                        7 => '综艺',
+                        -1 => 'course',
+                        1 => 'Fan drama',
+                        2 => 'Movie',
+                        3 => 'documentary',
+                        4 => 'Guochuang',
+                        5 => 'TV drama',
+                        7 => 'variety show',
                         _ => null,
                       },
                       right: 6.0,

@@ -52,7 +52,7 @@ class SeasonSeriesCard extends StatelessWidget {
                         ),
                         PBadge(
                           text:
-                              '${item.meta!.seasonId != null ? '合集' : '列表'}: ${item.meta!.total}',
+                              '${item.meta!.seasonId != null ? 'Collection' : 'list'}: ${item.meta!.total}',
                           bottom: 6.0,
                           right: 6.0,
                         ),

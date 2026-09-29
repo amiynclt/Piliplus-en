@@ -88,7 +88,7 @@ class SearchArchiveGrpc extends StatelessWidget {
                             ),
                             if (item.isPugv)
                               const PBadge(
-                                text: '课堂',
+                                text: 'classroom',
                                 top: 6.0,
                                 right: 6.0,
                               ),
@@ -144,7 +144,7 @@ class SearchArchiveGrpc extends StatelessWidget {
                     spacing: 6,
                     children: [
                       Icon(MdiIcons.clockTimeEightOutline, size: 16),
-                      Text('稍后再看', style: TextStyle(fontSize: 13)),
+                      Text('See you later', style: TextStyle(fontSize: 13)),
                     ],
                   ),
                 ),

@@ -101,7 +101,7 @@ class _MusicRecommendPageState extends State<MusicRecommendPage>
                 return count == null
                     ? const SizedBox.shrink()
                     : Text(
-                        '共$count条视频',
+                        'Total $count videos',
                         style: theme.textTheme.labelMedium,
                       );
               }),

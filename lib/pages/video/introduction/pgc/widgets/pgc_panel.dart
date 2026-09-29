@@ -98,10 +98,10 @@ class _PgcPanelState extends State<PgcPanel> {
           child: Row(
             mainAxisAlignment: MainAxisAlignment.spaceBetween,
             children: [
-              const Text('合集 '),
+              const Text('Collection'),
               Expanded(
                 child: Text(
-                  ' 正在播放：${currEpisode.longTitle ?? currEpisode.title}',
+                  'Now playing: ${currEpisode.longTitle ?? currEpisode.title}',
                   overflow: TextOverflow.ellipsis,
                   style: TextStyle(fontSize: 12, color: theme.outline),
                 ),
@@ -122,9 +122,9 @@ class _PgcPanelState extends State<PgcPanel> {
                     cid,
                   ),
                   child: Text(
-                    widget.newEp?.desc?.contains('连载') == true
-                        ? '连载中，更新至${Utils.isStringNumeric(widget.newEp!.title!) ? '第${widget.newEp!.title}话' : '${widget.newEp!.title}'}'
-                        : widget.newEp?.desc ?? '查看全部',
+                    widget.newEp?.desc?.contains('serialization') == true
+                        ? 'Serializing, updated to ${Utils.isStringNumeric(widget.newEp!.title!)?'第${widget.newEp!.title}话' : '${widget.newEp!.title}'}'
+                        : widget.newEp?.desc ?? 'View all',
                     style: const TextStyle(fontSize: 13),
                   ),
                 ),
@@ -165,8 +165,8 @@ class _PgcPanelState extends State<PgcPanel> {
         child: InkWell(
           borderRadius: const BorderRadius.all(Radius.circular(6)),
           onTap: () {
-            if (item.badge == '会员' && Accounts.mainEqVideo && vipStatus) {
-              SmartDialog.showToast('需要大会员');
+            if (item.badge == 'member' && Accounts.mainEqVideo && vipStatus) {
+              SmartDialog.showToast('Need big membership');
             }
             widget.onChangeEpisode(item);
           },
@@ -193,12 +193,12 @@ class _PgcPanelState extends State<PgcPanel> {
                                     color: theme.primary,
                                     height: 12,
                                     cacheHeight: 12.cacheSize(context),
-                                    semanticLabel: "正在播放：",
+                                    semanticLabel: "Now playing:",
                                   ),
                                 ),
                               ),
                             TextSpan(
-                              text: item.title ?? '第${index + 1}话',
+                              text: item.title ?? 'Chapter ${index + 1}',
                               style: TextStyle(
                                 fontSize: 13,
                                 color: color,
@@ -210,11 +210,11 @@ class _PgcPanelState extends State<PgcPanel> {
                     ),
                     if (item.badge?.isNotEmpty == true) ...[
                       const SizedBox(width: 2),
-                      if (item.badge == '会员')
+                      if (item.badge == 'member')
                         SvgPicture.asset(
                           Assets.vipIcon,
                           height: 16,
-                          semanticsLabel: "大会员",
+                          semanticsLabel: "big member",
                         )
                       else
                         Text(
@@ -222,8 +222,8 @@ class _PgcPanelState extends State<PgcPanel> {
                           style: TextStyle(
                             fontSize: 11,
                             color: switch (item.badge) {
-                              '限免' => theme.freeColor,
-                              '预告' => theme.onSurfaceVariant,
+                              'Limited exemption' => theme.freeColor,
+                              'Preview' => theme.onSurfaceVariant,
                               _ => theme.primary,
                             },
                           ),

@@ -101,14 +101,14 @@ class VideoCardHLater extends StatelessWidget {
                         ),
                         if (videoItem.isCharging == true)
                           const PBadge(
-                            text: '充电专属',
+                            text: 'Exclusive for charging',
                             top: 6.0,
                             right: 6.0,
                             type: PBadgeType.error,
                           )
                         else if (videoItem.rights?.isCooperation == 1)
                           const PBadge(
-                            text: '合作',
+                            text: 'cooperate',
                             top: 6.0,
                             right: 6.0,
                           )
@@ -120,14 +120,14 @@ class VideoCardHLater extends StatelessWidget {
                           )
                         else if (videoItem.isPugv ?? false)
                           const PBadge(
-                            text: '课堂',
+                            text: 'classroom',
                             top: 6.0,
                             right: 6.0,
                           ),
                         if (progress != null && progress != 0) ...[
                           PBadge(
                             text: progress == -1
-                                ? '已看完'
+                                ? 'Already finished reading'
                                 : '${DurationUtils.formatDuration(progress)}/${DurationUtils.formatDuration(videoItem.duration)}',
                             right: 6,
                             bottom: 8,
@@ -253,7 +253,7 @@ class VideoCardHLater extends StatelessWidget {
             right: 0,
             bottom: -8,
             child: iconButton(
-              tooltip: '移除',
+              tooltip: 'Remove',
               onPressed: () => ctr.toViewDel(context, index, videoItem.aid),
               icon: const Icon(Icons.clear),
               iconColor: theme.colorScheme.outline,

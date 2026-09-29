@@ -319,8 +319,8 @@ abstract final class PageUtils {
         break;
 
       case 'DYNAMIC_TYPE_PGC':
-        // if (kDebugMode) debugPrint('番剧');
-        SmartDialog.showToast('暂未支持的类型，请联系开发者');
+        // if (kDebugMode) debugPrint('Fan drama');
+        SmartDialog.showToast('Types not yet supported, please contact the developer');
         break;
 
       case 'DYNAMIC_TYPE_LIVE':
@@ -367,7 +367,7 @@ abstract final class PageUtils {
 
       /// 番剧查看
       case 'DYNAMIC_TYPE_PGC_UNION':
-        // if (kDebugMode) debugPrint('DYNAMIC_TYPE_PGC_UNION 番剧');
+        // if (kDebugMode) debugPrint('DYNAMIC_TYPE_PGC_UNION drama');
         final pgc = item.modules.moduleDynamic!.major!.pgc!;
         if (pgc.epid != null) {
           viewPgc(epId: pgc.epid);
@@ -609,7 +609,7 @@ abstract final class PageUtils {
     bool off = false,
   }) async {
     try {
-      SmartDialog.showLoading(msg: '资源获取中');
+      SmartDialog.showLoading(msg: 'Obtaining resources');
       final res = await SearchHttp.pgcInfo(seasonId: seasonId, epId: epId);
       SmartDialog.dismiss();
       if (res case Success(:final response)) {
@@ -692,7 +692,7 @@ abstract final class PageUtils {
           }
         }
 
-        SmartDialog.showToast('资源加载失败');
+        SmartDialog.showToast('Resource loading failed');
       } else {
         res.toast();
       }
@@ -711,7 +711,7 @@ abstract final class PageUtils {
     bool off = false,
   }) async {
     try {
-      SmartDialog.showLoading(msg: '资源获取中');
+      SmartDialog.showLoading(msg: 'Obtaining resources');
       final res = await SearchHttp.pugvInfo(seasonId: seasonId, epId: epId);
       SmartDialog.dismiss();
       if (res case Success(:final response)) {
@@ -740,7 +740,7 @@ abstract final class PageUtils {
             off: off,
           );
         } else {
-          SmartDialog.showToast('资源加载失败');
+          SmartDialog.showToast('Resource loading failed');
         }
       } else {
         res.toast();

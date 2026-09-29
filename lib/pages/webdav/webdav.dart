@@ -84,7 +84,7 @@ class WebDav {
     try {
       client = await _connect(config);
     } catch (e) {
-      SmartDialog.showToast('备份失败，请检查配置: $e');
+      SmartDialog.showToast('Backup failed, please check configuration: $e');
       return;
     }
     try {
@@ -93,9 +93,9 @@ class WebDav {
         await client.remove(path);
       } catch (_) {}
       await client.write(path, utf8.encode(data));
-      SmartDialog.showToast('备份成功');
+      SmartDialog.showToast('Backup successful');
     } catch (e) {
-      SmartDialog.showToast('备份失败: $e');
+      SmartDialog.showToast('Backup failed: $e');
     }
   }
 
@@ -105,16 +105,16 @@ class WebDav {
     try {
       client = await _connect(config);
     } catch (e) {
-      SmartDialog.showToast('恢复失败，请检查配置: $e');
+      SmartDialog.showToast('Restore failed, please check configuration: $e');
       return;
     }
     try {
       final path = '${config.directory}/${_getFileName()}';
       final data = await client.read(path);
       await GStorage.importAllSettings(utf8.decode(data));
-      SmartDialog.showToast('恢复成功');
+      SmartDialog.showToast('Recovery successful');
     } catch (e) {
-      SmartDialog.showToast('恢复失败: $e');
+      SmartDialog.showToast('Recovery failed: $e');
     }
   }
 }

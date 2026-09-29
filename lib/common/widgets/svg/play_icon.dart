@@ -61,7 +61,7 @@ class RenderPlay extends RenderBox {
     super.describeSemanticsConfiguration(config);
     config
       ..textDirection = .ltr
-      ..label = '播放';
+      ..label = 'play';
   }
 
   /// [SvgPicture] can not parse mask filter

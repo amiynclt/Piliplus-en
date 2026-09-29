@@ -109,7 +109,7 @@ abstract final class RequestUtils {
     String tagName = '';
     final onCreate = await showConfirmDialog(
       context: context,
-      title: const Text('新建分组'),
+      title: const Text('Create new group'),
       content: TextFormField(
         autofocus: true,
         initialValue: tagName,
@@ -124,7 +124,7 @@ abstract final class RequestUtils {
       final res = await MemberHttp.createFollowTag(tagName);
       if (res case Success(:final response)) {
         onSuccess((tagid: response, tagName: tagName));
-        SmartDialog.showToast('创建成功');
+        SmartDialog.showToast('Created successfully');
       } else {
         res.toast();
       }
@@ -149,7 +149,7 @@ abstract final class RequestUtils {
         reSrc: 11,
       );
       if (res.isSuccess) {
-        SmartDialog.showToast('关注成功');
+        SmartDialog.showToast('focus on success');
         afterMod?.call(2);
       } else {
         res.toast();
@@ -167,7 +167,7 @@ abstract final class RequestUtils {
 
       if (context.mounted) {
         bool isSpecialFollowed = followStatus!.special == 1;
-        String text = isSpecialFollowed ? '移除特别关注' : '加入特别关注';
+        String text = isSpecialFollowed ? 'Remove special attention' : 'Add special attention';
         showDialog(
           context: context,
           builder: (context) => SimpleDialog(
@@ -182,7 +182,7 @@ abstract final class RequestUtils {
                     isAdd: !isSpecialFollowed,
                   );
                   if (res.isSuccess) {
-                    SmartDialog.showToast('$text成功');
+                    SmartDialog.showToast('$text successful');
                     afterMod?.call(isSpecialFollowed ? 2 : -10);
                   } else {
                     res.toast();
@@ -228,7 +228,7 @@ abstract final class RequestUtils {
                     afterMod?.call(result.contains(-10) ? -10 : 2);
                   }
                 },
-                child: const Text('设置分组', style: TextStyle(fontSize: 14)),
+                child: const Text('Set up groups', style: TextStyle(fontSize: 14)),
               ),
               DialogOption(
                 onPressed: () async {
@@ -239,13 +239,13 @@ abstract final class RequestUtils {
                     reSrc: 11,
                   );
                   if (res.isSuccess) {
-                    SmartDialog.showToast('取消关注成功');
+                    SmartDialog.showToast('Unfollow successfully');
                     afterMod?.call(0);
                   } else {
                     res.toast();
                   }
                 },
-                child: const Text('取消关注', style: TextStyle(fontSize: 14)),
+                child: const Text('Unfollow', style: TextStyle(fontSize: 14)),
               ),
             ],
           ),
@@ -350,13 +350,13 @@ abstract final class RequestUtils {
                         },
                       );
                     },
-                    child: const Text('申诉'),
+                    child: const Text('Appeal'),
                   ),
                 if (!isManual)
                   TextButton(
                     onPressed: Get.back,
                     child: Text(
-                      '关闭',
+                      'closure',
                       style: TextStyle(color: colorScheme.outline),
                     ),
                   ),
@@ -380,14 +380,14 @@ abstract final class RequestUtils {
                               ),
                       ),
                       TextSpan(
-                        text: ' 动态检查结果',
+                        text: 'Dynamic check results',
                         style: TextStyle(color: color),
                       ),
                     ],
                   ),
                 ),
                 content: SelectionText(
-                  '${isSuccess ? '无账号状态下找到了你的动态，动态正常！' : '你的动态被shadow ban（仅自己可见）！'}${dynText != null ? ' \n\n动态内容: $dynText' : ''}',
+                  '${isSuccess ? 'I found your updates without an account. Your updates are normal!' : 'Your activity is shadow banned (only visible to you)!'}${dynText != null ? '\n\nDynamic content: $dynText' : ''}',
                 ),
                 actions: actions.isEmpty ? null : actions,
               );
@@ -412,7 +412,7 @@ abstract final class RequestUtils {
     final status = like?.status ?? false;
 
     if (status ^ uiStatus) {
-      SmartDialog.showToast(status ? '点赞成功' : '取消赞');
+      SmartDialog.showToast(status ? 'Like successfully' : 'Unlike');
       onSuccess();
       return;
     }
@@ -422,7 +422,7 @@ abstract final class RequestUtils {
       up: status ? 2 : 1, // 1 已点赞 2 不喜欢 0 未操作
     );
     if (res.isSuccess) {
-      SmartDialog.showToast(status ? '取消赞' : '点赞成功');
+      SmartDialog.showToast(status ? 'Unlike' : 'Like successfully');
       like
         ?..count = (like.count ?? 0) + (status ? -1 : 1)
         ..status = !status;
@@ -449,7 +449,7 @@ abstract final class RequestUtils {
           context: context,
           builder: (context) {
             return AlertDialog(
-              title: Text('${isCopy ? '复制' : '移动'}到'),
+              title: Text('${isCopy ? 'copy' : 'move'}到'),
               contentPadding: const EdgeInsets.only(top: 5),
               content: SingleChildScrollView(
                 child: RadioGroup(
@@ -473,7 +473,7 @@ abstract final class RequestUtils {
                 TextButton(
                   onPressed: Get.back,
                   child: Text(
-                    '取消',
+                    'Cancel',
                     style: TextStyle(
                       color: Theme.of(context).colorScheme.outline,
                     ),
@@ -516,7 +516,7 @@ abstract final class RequestUtils {
                             }
                           }
                           SmartDialog.dismiss();
-                          SmartDialog.showToast('${isCopy ? '复制' : '移动'}成功');
+                          SmartDialog.showToast('${isCopy ? 'copy' : 'move'}成功');
                           Get.back();
                         } else {
                           SmartDialog.dismiss();
@@ -525,7 +525,7 @@ abstract final class RequestUtils {
                       });
                     }
                   },
-                  child: const Text('确认'),
+                  child: const Text('confirm'),
                 ),
               ],
             );
@@ -567,7 +567,7 @@ abstract final class RequestUtils {
     }
 
     if (!isGeeArgumentValid()) {
-      SmartDialog.showToast("参数为空");
+      SmartDialog.showToast("Parameter is empty");
       return;
     }
 
@@ -619,7 +619,7 @@ abstract final class RequestUtils {
           actions: [
             TextButton(
               onPressed: Get.back,
-              child: const Text('关闭'),
+              child: const Text('closure'),
             ),
           ],
         ),

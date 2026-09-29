@@ -100,7 +100,7 @@ class _AtMePageState extends State<AtMePage> {
               final item = response[index];
               void onLongPress() => showConfirmDialog(
                 context: context,
-                title: const Text('确定删除该通知?'),
+                title: const Text('Are you sure you want to delete this notification?'),
                 onConfirm: () => _atMeController.onRemove(item.id!, index),
               );
               return ListTile(
@@ -135,7 +135,7 @@ class _AtMePageState extends State<AtMePage> {
                         ),
                       ),
                       TextSpan(
-                        text: " 在${item.item?.business}中@了我",
+                        text: "@me in ${item.item?.business}",
                         style: theme.textTheme.titleSmall!.copyWith(
                           color: theme.colorScheme.onSurfaceVariant,
                         ),

@@ -84,7 +84,7 @@ class _SettingsSearchPageState
           onChanged: ctr!.add,
           decoration: const InputDecoration(
             isDense: true,
-            hintText: '搜索',
+            hintText: 'search',
             visualDensity: .standard,
             border: InputBorder.none,
           ),

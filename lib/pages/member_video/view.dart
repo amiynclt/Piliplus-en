@@ -186,7 +186,7 @@ class _MemberVideoState extends State<MemberVideo>
                           _jumpToIndex(locatedIndex);
                         }
                       },
-                      label: const Text('定位至上次观看'),
+                      label: const Text('Go to last viewed'),
                     ),
                   ),
                 )
@@ -264,7 +264,7 @@ class _MemberVideoState extends State<MemberVideo>
     final count = _controller.count;
     if (count != null) {
       return Text(
-        '共$count视频',
+        'Total $count videos',
         style: const TextStyle(fontSize: 13),
       );
     }
@@ -287,7 +287,7 @@ class _MemberVideoState extends State<MemberVideo>
             color: theme.colorScheme.secondary,
           ),
           label: Text(
-            episodicButton?.text ?? '播放全部',
+            episodicButton?.text ?? 'Play all',
             style: TextStyle(
               fontSize: 13,
               color: theme.colorScheme.secondary,

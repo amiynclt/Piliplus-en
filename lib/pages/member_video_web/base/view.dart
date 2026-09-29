@@ -49,7 +49,7 @@ abstract class BaseVideoWebState<
             () {
               final order = controller.order.value;
               return PopupMenuButton<V>(
-                tooltip: '排序',
+                tooltip: 'sort',
                 icon: const Icon(Icons.sort),
                 initialValue: order,
                 onSelected: controller.queryBySort,
@@ -137,7 +137,7 @@ abstract class BaseVideoWebState<
     final count = controller.count;
     if (count == null) return null;
     return Text(
-      '共 $count 视频',
+      'Total $count videos',
       style: const TextStyle(height: 1),
       strutStyle: const StrutStyle(leading: 0, height: 1),
     );
@@ -155,7 +155,7 @@ abstract class BaseVideoWebState<
     final backwardBtn = iconButton(
       size: size,
       iconSize: iconSize,
-      tooltip: canBackward ? '上一页' : null,
+      tooltip: canBackward ? 'Previous page' : null,
       icon: const Icon(Icons.keyboard_arrow_left),
       onPressed: canBackward ? () => controller.jumpToPage(page - 1) : null,
     );
@@ -163,7 +163,7 @@ abstract class BaseVideoWebState<
     final forwardBtn = iconButton(
       size: size,
       iconSize: iconSize,
-      tooltip: canForward ? '下一页' : null,
+      tooltip: canForward ? 'Next page' : null,
       icon: const Icon(Icons.keyboard_arrow_right),
       onPressed: canForward ? () => controller.jumpToPage(page + 1) : null,
     );
@@ -202,13 +202,13 @@ abstract class BaseVideoWebState<
 
     showConfirmDialog(
       context: context,
-      title: const Text('跳至: '),
+      title: const Text('Jump to:'),
       content: TextFormField(
         autofocus: true,
         initialValue: pageStr,
         onChanged: (value) => pageStr = value,
         decoration: const InputDecoration(
-          labelText: '页数',
+          labelText: 'Number of pages',
           border: OutlineInputBorder(),
         ),
         inputFormatters: [FilteringTextInputFormatter.digitsOnly],

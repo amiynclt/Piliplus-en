@@ -509,7 +509,7 @@ class _LiveRoomPageState extends State<LiveRoomPage>
     child: Obx(() {
       if (_liveRoomController.onlineCount.value case final onlineCount?) {
         return Text(
-          '高能观众($onlineCount)',
+          'High energy audience($onlineCount)',
           style: const TextStyle(fontSize: 12, color: Colors.white),
         );
       }
@@ -608,7 +608,7 @@ class _LiveRoomPageState extends State<LiveRoomPage>
             ),
       actions: [
         // IconButton(
-        //   tooltip: '刷新',
+        //   tooltip: 'refresh',
         //   onPressed: _liveRoomController.queryLiveUrl,
         //   icon: const Icon(Icons.refresh, size: 20),
         // ),
@@ -625,7 +625,7 @@ class _LiveRoomPageState extends State<LiveRoomPage>
                   mainAxisSize: .min,
                   children: [
                     Icon(Icons.copy, size: 19),
-                    Text('复制链接'),
+                    Text('Copy link'),
                   ],
                 ),
               ),
@@ -637,7 +637,7 @@ class _LiveRoomPageState extends State<LiveRoomPage>
                     mainAxisSize: .min,
                     children: [
                       Icon(Icons.share, size: 19),
-                      Text('分享直播间'),
+                      Text('Share live broadcast room'),
                     ],
                   ),
                 ),
@@ -648,7 +648,7 @@ class _LiveRoomPageState extends State<LiveRoomPage>
                   mainAxisSize: .min,
                   children: [
                     Icon(Icons.open_in_browser, size: 19),
-                    Text('浏览器打开'),
+                    Text('Browser opens'),
                   ],
                 ),
               ),
@@ -666,7 +666,7 @@ class _LiveRoomPageState extends State<LiveRoomPage>
                           "title": roomInfo.roomInfo!.title!,
                           "url": liveUrl,
                           "authorID": roomInfo.roomInfo!.uid.toString(),
-                          "source": "直播",
+                          "source": "live streaming",
                           "desc": roomInfo.roomInfo!.title!,
                           "author": roomInfo.anchorInfo!.baseInfo!.uname,
                         },
@@ -680,7 +680,7 @@ class _LiveRoomPageState extends State<LiveRoomPage>
                     mainAxisSize: .min,
                     children: [
                       Icon(Icons.forward_to_inbox, size: 19),
-                      Text('分享至消息'),
+                      Text('Share to message'),
                     ],
                   ),
                 ),
@@ -822,7 +822,7 @@ class _LiveRoomPageState extends State<LiveRoomPage>
                   },
                 ),
                 const Expanded(
-                  child: Text('发送弹幕', style: TextStyle(color: baseWhite)),
+                  child: Text('Send barrages', style: TextStyle(color: baseWhite)),
                 ),
                 Builder(
                   builder: (context) {

@@ -51,7 +51,7 @@ class _DanmakuBlockPageState extends State<DanmakuBlockPage> {
   @override
   Widget build(BuildContext context) {
     return SimpleScaffold(
-      appBar: AppBar(title: const Text('弹幕屏蔽')),
+      appBar: AppBar(title: const Text('Barrage blocking')),
       body: Column(
         children: [
           TabBar(
@@ -89,7 +89,7 @@ class _DanmakuBlockPageState extends State<DanmakuBlockPage> {
           bottom: kFloatingActionButtonMargin + padding.bottom,
         ),
         child: FloatingActionButton(
-          tooltip: '添加',
+          tooltip: 'Add to',
           onPressed: () => _showAddDialog(
             DmBlockType.values[_controller.tabController.index],
           ),
@@ -110,11 +110,11 @@ class _DanmakuBlockPageState extends State<DanmakuBlockPage> {
         final SimpleRule item = list[itemIndex];
         final child = iconButton(
           iconSize: 20,
-          tooltip: '删除',
+          tooltip: 'delete',
           icon: const Icon(Icons.delete_outlined),
           onPressed: () => showConfirmDialog(
             context: context,
-            title: const Text('确定删除该规则？'),
+            title: const Text('Are you sure you want to delete this rule?'),
             onConfirm: () => _controller.danmakuFilterDel(
               tabIndex,
               itemIndex,
@@ -134,7 +134,7 @@ class _DanmakuBlockPageState extends State<DanmakuBlockPage> {
                   children: [
                     iconButton(
                       iconSize: 20,
-                      tooltip: '编辑',
+                      tooltip: 'edit',
                       icon: const Icon(Icons.edit_outlined),
                       onPressed: () => _showAddDialog(
                         DmBlockType.values[_controller.tabController.index],
@@ -160,15 +160,15 @@ class _DanmakuBlockPageState extends State<DanmakuBlockPage> {
     assert((itemIndex == null) == (itemId == null));
     String filter = initFilter;
     final hintText = switch (type) {
-      DmBlockType.keyword => '输入过滤的关键词，其它类别请切换标签页后添加',
+      DmBlockType.keyword => 'Enter the filtered keywords. For other categories, please switch the tab and add them.',
       DmBlockType.regex => '输入//之间的正则表达式，无需包含头尾的"/"',
-      DmBlockType.uid => '输入用户UID',
+      DmBlockType.uid => 'Enter user UID',
     };
     final isUid = type == DmBlockType.uid;
     showDialog(
       context: context,
       builder: (context) => AlertDialog(
-        title: Text('${itemId != null ? "编辑" : "添加新的"}${type.label}规则'),
+        title: Text('${itemId != null ? "edit" : "add new"}${type.label}规则'),
         content: Column(
           mainAxisSize: MainAxisSize.min,
           crossAxisAlignment: CrossAxisAlignment.start,
@@ -189,12 +189,12 @@ class _DanmakuBlockPageState extends State<DanmakuBlockPage> {
           TextButton(
             onPressed: Get.back,
             child: Text(
-              '取消',
+              'Cancel',
               style: TextStyle(color: Theme.of(context).colorScheme.outline),
             ),
           ),
           TextButton(
-            child: const Text('确定'),
+            child: const Text('Sure'),
             onPressed: () async {
               if (filter != initFilter) {
                 Get.back();
@@ -211,7 +211,7 @@ class _DanmakuBlockPageState extends State<DanmakuBlockPage> {
                 );
               } else {
                 SmartDialog.showToast(
-                  '输入内容${filter.isEmpty ? "不能为空" : "与上次相同"}',
+                  '输入内容${filter.isEmpty ? "cannot be empty" : "Same as last time"}',
                 );
               }
             },

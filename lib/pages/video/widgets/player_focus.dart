@@ -199,7 +199,7 @@ class PlayerFocus extends StatelessWidget {
               isMuted ? 0 : plPlayerController.volume.value * 100,
             );
             plPlayerController.isMuted = isMuted;
-            SmartDialog.showToast('${isMuted ? '' : '取消'}静音');
+            SmartDialog.showToast('${isMuted ? '' : 'Cancel'}静音');
           }
           return true;
 
@@ -233,7 +233,7 @@ class PlayerFocus extends StatelessWidget {
             if (speed != plPlayerController.playbackSpeed) {
               plPlayerController.setPlaybackSpeed(speed);
             }
-            SmartDialog.showToast('${speed}x播放');
+            SmartDialog.showToast('${speed}x play');
           }
           return true;
         }
@@ -271,7 +271,7 @@ class PlayerFocus extends StatelessWidget {
           case LogicalKeyboardKey.bracketLeft:
             if (introController case final introController?) {
               if (!introController.prevPlay()) {
-                SmartDialog.showToast('已经是第一集了');
+                SmartDialog.showToast('It’s already the first episode');
               }
             }
             return true;
@@ -279,7 +279,7 @@ class PlayerFocus extends StatelessWidget {
           case LogicalKeyboardKey.bracketRight:
             if (introController case final introController?) {
               if (!introController.nextPlay()) {
-                SmartDialog.showToast('已经是最后一集了');
+                SmartDialog.showToast('It's already the last episode');
               }
             }
             return true;

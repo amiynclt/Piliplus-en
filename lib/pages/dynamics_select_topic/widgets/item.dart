@@ -43,7 +43,7 @@ class DynTopicItem extends StatelessWidget {
         subtitle: Padding(
           padding: const EdgeInsets.only(left: 23),
           child: Text(
-            '${NumUtils.numFormat(item.view)}浏览 · ${NumUtils.numFormat(item.discuss)}讨论',
+            '${NumUtils.numFormat(item.view)}View · ${NumUtils.numFormat(item.discuss)}Discuss',
             style: TextStyle(color: Theme.of(context).colorScheme.outline),
           ),
         ),

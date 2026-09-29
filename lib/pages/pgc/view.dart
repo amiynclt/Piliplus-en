@@ -101,7 +101,7 @@ class _PgcPageState extends State<PgcPage> with AutomaticKeepAliveClientMixin {
                         children: [
                           const SizedBox(width: 16),
                           Text(
-                            '追番时间表',
+                            'Follow-up schedule',
                             style: theme.textTheme.titleMedium,
                           ),
                           const SizedBox(width: 16),
@@ -138,7 +138,7 @@ class _PgcPageState extends State<PgcPage> with AutomaticKeepAliveClientMixin {
                                 (item) {
                                   return Tab(
                                     text:
-                                        '${item.date} ${item.isToday == 1 ? '今天' : '周${const [
+                                        '${item.date} ${item.isToday == 1 ? 'today' : '周${const [
                                                 '一',
                                                 '二',
                                                 '三',
@@ -231,7 +231,7 @@ class _PgcPageState extends State<PgcPage> with AutomaticKeepAliveClientMixin {
         mainAxisAlignment: MainAxisAlignment.spaceBetween,
         children: [
           Text(
-            '推荐',
+            'recommend',
             style: theme.textTheme.titleMedium,
           ),
           moreTextButton(
@@ -241,16 +241,16 @@ class _PgcPageState extends State<PgcPage> with AutomaticKeepAliveClientMixin {
                 Get.to(const PgcIndexPage());
               } else {
                 List<String> titles = const [
-                  '全部',
-                  '电影',
-                  '电视剧',
-                  '纪录片',
-                  '综艺',
+                  'all',
+                  'Movie',
+                  'TV drama',
+                  'documentary',
+                  'variety show',
                 ];
                 List<int> types = const [102, 2, 5, 3, 7];
                 Get.to(
                   SimpleScaffold(
-                    appBar: AppBar(title: const Text('索引')),
+                    appBar: AppBar(title: const Text('index')),
                     body: DefaultTabController(
                       length: types.length,
                       child: Builder(
@@ -357,13 +357,13 @@ class _PgcPageState extends State<PgcPage> with AutomaticKeepAliveClientMixin {
       children: [
         Obx(
           () => Text(
-            '最近${widget.tabType == HomeTabType.bangumi ? '追番' : '追剧'}${controller.followCount.value == -1 ? '' : ' ${controller.followCount.value}'}',
+            'Recently ${widget.tabType == HomeTabType.bangumi?'追番' : 'Catch up on dramas'}${controller.followCount.value == -1 ? '' : ' ${controller.followCount.value}'}',
             style: theme.textTheme.titleMedium,
           ),
         ),
         const Spacer(),
         IconButton(
-          tooltip: '刷新',
+          tooltip: 'refresh',
           onPressed: () => controller
             ..followPage = 1
             ..followEnd = false
@@ -378,7 +378,7 @@ class _PgcPageState extends State<PgcPage> with AutomaticKeepAliveClientMixin {
               ? Padding(
                   padding: const EdgeInsets.symmetric(horizontal: 10),
                   child: moreTextButton(
-                    text: '查看全部',
+                    text: 'View all',
                     onTap: () => Get.toNamed(
                       '/fav',
                       arguments: widget.tabType == HomeTabType.bangumi
@@ -421,7 +421,7 @@ class _PgcPageState extends State<PgcPage> with AutomaticKeepAliveClientMixin {
               )
             : Center(
                 child: Text(
-                  '还没有${widget.tabType == HomeTabType.bangumi ? '追番' : '追剧'}',
+                  'No ${widget.tabType == HomeTabType.bangumi yet?'追番' : 'Catch up on dramas'}',
                 ),
               ),
       Error(:final errMsg) => Container(

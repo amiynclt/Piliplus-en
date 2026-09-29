@@ -52,13 +52,13 @@ class _BarSetPageState extends State<BarSetPage> with ReorderMixin {
       key,
       list.where((e) => e.second).map((e) => e.first.index).toList(),
     );
-    SmartDialog.showToast('保存成功，下次启动时生效');
+    SmartDialog.showToast('Saved successfully, it will take effect the next time you start it');
   }
 
   void onReset() {
     Get.back();
     GStorage.setting.delete(key);
-    SmartDialog.showToast('重置成功，下次启动时生效');
+    SmartDialog.showToast('The reset is successful and will take effect the next time you start it.');
   }
 
   void onReorderItem(int oldIndex, int newIndex) {
@@ -70,10 +70,10 @@ class _BarSetPageState extends State<BarSetPage> with ReorderMixin {
   Widget build(BuildContext context) {
     return SimpleScaffold(
       appBar: AppBar(
-        title: Text('$title编辑'),
+        title: Text('$titleedit'),
         actions: [
-          TextButton(onPressed: onReset, child: const Text('重置')),
-          TextButton(onPressed: saveEdit, child: const Text('保存')),
+          TextButton(onPressed: onReset, child: const Text('reset')),
+          TextButton(onPressed: saveEdit, child: const Text('save')),
           const SizedBox(width: 12),
         ],
       ),
@@ -84,7 +84,7 @@ class _BarSetPageState extends State<BarSetPage> with ReorderMixin {
           padding: padding,
           child: const Align(
             alignment: Alignment.centerRight,
-            child: Text('*长按拖动排序'),
+            child: Text('*Long press and drag to sort'),
           ),
         ),
         children: list

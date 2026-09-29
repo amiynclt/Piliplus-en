@@ -55,9 +55,9 @@ abstract final class MemberHttp {
       options: Options(contentType: Headers.formUrlEncodedContentType),
     );
     if (res.data['status'] == true) {
-      SmartDialog.showToast('举报成功');
+      SmartDialog.showToast('Report successful');
     } else {
-      SmartDialog.showToast('举报失败');
+      SmartDialog.showToast('Report failed');
     }
   }
 
@@ -568,7 +568,7 @@ abstract final class MemberHttp {
     int? tagid,
     int? pn,
     int ps = 20,
-    String orderType = '', // ''=>最近关注，'attention'=>最常访问
+    String orderType = '', // ''=>Recently followed,'attention'=>最常访问
   }) async {
     final res = await Request().get(
       Api.followUpGroup,

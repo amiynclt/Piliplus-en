@@ -20,9 +20,9 @@ class MemberOpusController
 
   String offset = '';
   Rx<SpaceTabFilter> type = const SpaceTabFilter(
-    text: "全部图文",
+    text: "All pictures and texts",
     meta: "all",
-    tabName: "图文",
+    tabName: "Graphics and text",
   ).obs;
   List<SpaceTabFilter>? filter;
 

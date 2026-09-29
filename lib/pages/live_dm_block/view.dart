@@ -32,8 +32,8 @@ class _LiveDmBlockPageState extends State<LiveDmBlockPage> {
     Widget tabBar = TabBar(
       controller: _controller.tabController,
       tabs: const [
-        Tab(text: '关键词'),
-        Tab(text: '用户'),
+        Tab(text: 'keywords'),
+        Tab(text: 'user'),
       ],
     );
 
@@ -51,7 +51,7 @@ class _LiveDmBlockPageState extends State<LiveDmBlockPage> {
     );
 
     return SimpleScaffold(
-      appBar: AppBar(title: const Text('弹幕屏蔽')),
+      appBar: AppBar(title: const Text('Barrage blocking')),
       body: Padding(
         padding: .only(left: padding.left, right: padding.right),
         child: Column(
@@ -67,7 +67,7 @@ class _LiveDmBlockPageState extends State<LiveDmBlockPage> {
           bottom: kFloatingActionButtonMargin + padding.bottom,
         ),
         child: FloatingActionButton(
-          tooltip: '添加',
+          tooltip: 'Add to',
           onPressed: _addShieldKeyword,
           child: const Icon(Icons.add),
         ),
@@ -95,7 +95,7 @@ class _LiveDmBlockPageState extends State<LiveDmBlockPage> {
               text: e is ShieldUserList ? e.uname : e as String,
               onTap: (value) => showConfirmDialog(
                 context: context,
-                title: const Text('确定删除该规则？'),
+                title: const Text('Are you sure you want to delete this rule?'),
                 onConfirm: () => _controller.onRemove(i, e),
               ),
             );
@@ -110,7 +110,7 @@ class _LiveDmBlockPageState extends State<LiveDmBlockPage> {
     String value = '';
     showConfirmDialog(
       context: context,
-      title: Text('${isKeyword ? '关键词' : '用户'}屏蔽'),
+      title: Text('${isKeyword ? 'keywords' : 'user'}屏蔽'),
       content: TextFormField(
         autofocus: true,
         initialValue: value,

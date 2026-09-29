@@ -50,7 +50,7 @@ class WhisperDetailController extends CommonListController<RspSessionMsg, Msg> {
       if (msgs.length == 1 &&
           msgs.last.msgType == 18 &&
           msgs.last.msgSource == 18) {
-        //{content: [{"text":"对方主动回复或关注你前，最多发送1条消息","color_day":"#9499A0","color_nig":"#9499A0"}]}
+        //{content: [{"text":"Before the other party takes the initiative to reply or follow you, you can send at most 1 message.","color_day":"#9499A0","color_nig":"#9499A0"}]}
       } else {
         ackSessionMsg(msgs.last.msgSeqno.toInt());
       }
@@ -102,7 +102,7 @@ class WhisperDetailController extends CommonListController<RspSessionMsg, Msg> {
     // }
     // onClearText();
     // scrollController.jumpToTop();
-    // SmartDialog.showToast('发送成功');
+    // SmartDialog.showToast('Sent successfully');
     // return;
     assert((message != null) ^ (picMsg != null));
     if (_isSending) return;
@@ -110,7 +110,7 @@ class WhisperDetailController extends CommonListController<RspSessionMsg, Msg> {
     feedBack();
     SmartDialog.dismiss();
     if (!account.isLogin) {
-      SmartDialog.showToast('请先登录');
+      SmartDialog.showToast('Please log in first');
       return;
     }
     final res = await ImGrpc.sendMsg(
@@ -128,11 +128,11 @@ class WhisperDetailController extends CommonListController<RspSessionMsg, Msg> {
         loadingState
           ..value.data![index!].msgStatus = 1
           ..refresh();
-        SmartDialog.showToast('撤回成功');
+        SmartDialog.showToast('Withdrawal successful');
       } else {
         onRefresh();
         onClearText();
-        SmartDialog.showToast('发送成功');
+        SmartDialog.showToast('Sent successfully');
       }
     } else {
       res.toast();

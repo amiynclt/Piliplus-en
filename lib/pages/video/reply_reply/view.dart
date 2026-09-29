@@ -72,10 +72,10 @@ class VideoReplyReplyPanel extends CommonSlidePage {
       },
       () => SimpleScaffold(
         appBar: AppBar(
-          title: const Text('评论详情'),
+          title: const Text('Comment details'),
           actions: [
             IconButton(
-              tooltip: '前往',
+              tooltip: 'Go to',
               onPressed: uri == null
                   ? null
                   : () => PiliScheme.routePush(uri, businessId: type),
@@ -164,9 +164,9 @@ class _VideoReplyReplyPanelState extends State<VideoReplyReplyPanel>
                     child: Row(
                       mainAxisAlignment: MainAxisAlignment.spaceBetween,
                       children: <Widget>[
-                        Text(isDialogue ? '对话列表' : '评论详情'),
+                        Text(isDialogue ? 'Conversation list' : 'Comment details'),
                         IconButton(
-                          tooltip: '关闭',
+                          tooltip: 'closure',
                           icon: const Icon(Icons.close, size: 20),
                           onPressed: Get.back,
                         ),
@@ -256,7 +256,7 @@ class _VideoReplyReplyPanelState extends State<VideoReplyReplyPanel>
                 final count = _controller.count.value;
                 return count != -1
                     ? Text(
-                        '相关回复共${NumUtils.numFormat(count)}条',
+                        'There are a total of ${NumUtils.numFormat(count)} related replies.',
                         style: const TextStyle(fontSize: 13),
                       )
                     : const SizedBox.shrink();
@@ -302,7 +302,7 @@ class _VideoReplyReplyPanelState extends State<VideoReplyReplyPanel>
               alignment: Alignment.center,
               margin: .only(bottom: MediaQuery.viewPaddingOf(context).bottom),
               child: Text(
-                _controller.isEnd ? '没有更多了' : '加载中...',
+                _controller.isEnd ? 'no more' : 'loading...',
                 textAlign: TextAlign.center,
                 style: TextStyle(
                   fontSize: 12,
@@ -355,7 +355,7 @@ class _VideoReplyReplyPanelState extends State<VideoReplyReplyPanel>
       ),
       jumpToDialogue: () {
         if (!_controller.setIndexById(replyItem.parent)) {
-          SmartDialog.showToast('评论可能已被删除');
+          SmartDialog.showToast('Comment may have been deleted');
         }
       },
       onCheckReply: _controller.onCheckReply,

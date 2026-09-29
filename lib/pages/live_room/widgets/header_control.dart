@@ -119,7 +119,7 @@ class _LiveHeaderControlState extends State<LiveHeaderControl>
           if (isFullScreen || plPlayerController.isDesktopPip)
             ComBtn(
               height: btnHeight,
-              tooltip: '返回',
+              tooltip: 'return',
               icon: const Icon(FontAwesomeIcons.arrowLeft, size: 15),
               onTap: () {
                 if (plPlayerController.isDesktopPip) {
@@ -137,7 +137,7 @@ class _LiveHeaderControlState extends State<LiveHeaderControl>
               final isAlwaysOnTop = plPlayerController.isAlwaysOnTop.value;
               return ComBtn(
                 height: btnHeight,
-                tooltip: '${isAlwaysOnTop ? '取消' : ''}置顶',
+                tooltip: '${isAlwaysOnTop ? 'Cancel' : ''}Top',
                 icon: isAlwaysOnTop
                     ? const Icon(
                         size: 18,
@@ -155,7 +155,7 @@ class _LiveHeaderControlState extends State<LiveHeaderControl>
           if (isFullScreen || PlatformUtils.isDesktop)
             ComBtn(
               height: btnHeight,
-              tooltip: '发弹幕',
+              tooltip: 'Post barrages',
               icon: const Icon(
                 size: 18,
                 Icons.comment_outlined,
@@ -166,7 +166,7 @@ class _LiveHeaderControlState extends State<LiveHeaderControl>
           if (Platform.isAndroid || (PlatformUtils.isDesktop && !isFullScreen))
             ComBtn(
               height: btnHeight,
-              tooltip: '画中画',
+              tooltip: 'picture within picture',
               onTap: () {
                 if (PlatformUtils.isDesktop) {
                   plPlayerController.toggleDesktopPip();
@@ -185,7 +185,7 @@ class _LiveHeaderControlState extends State<LiveHeaderControl>
           Obx(
             () => ComBtn(
               height: btnHeight,
-              tooltip: '仅播放音频',
+              tooltip: 'Play audio only',
               onTap: () {
                 plPlayerController.onlyPlayAudio.toggle();
                 widget.onPlayAudio();
@@ -209,7 +209,7 @@ class _LiveHeaderControlState extends State<LiveHeaderControl>
                   plPlayerController.continuePlayInBackground.value;
               return ComBtn(
                 height: btnHeight,
-                tooltip: '${continuePlayInBackground ? '关闭' : ''}后台播放',
+                tooltip: '${continuePlayInBackground ? 'closure' : ''}Play in background',
                 onTap: plPlayerController.setContinuePlayInBackground,
                 icon: continuePlayInBackground
                     ? const Icon(
@@ -226,7 +226,7 @@ class _LiveHeaderControlState extends State<LiveHeaderControl>
             }),
           ComBtn(
             height: btnHeight,
-            tooltip: '定时关闭',
+            tooltip: 'Scheduled shutdown',
             onTap: () => shutdownTimerService.showScheduleExitDialog(
               context,
               isFullScreen: isFullScreen,
@@ -253,7 +253,7 @@ class _LiveHeaderControlState extends State<LiveHeaderControl>
                       spacing: 8,
                       children: [
                         Icon(Icons.alt_route, size: 17),
-                        Text('切换路线', style: TextStyle(fontSize: 14)),
+                        Text('switch route', style: TextStyle(fontSize: 14)),
                       ],
                     ),
                   ),
@@ -263,7 +263,7 @@ class _LiveHeaderControlState extends State<LiveHeaderControl>
                       spacing: 8,
                       children: [
                         Icon(Icons.info_outline, size: 17),
-                        Text('播放信息', style: TextStyle(fontSize: 14)),
+                        Text('Play information', style: TextStyle(fontSize: 14)),
                       ],
                     ),
                     onTap: () => HeaderControlState.showPlayerInfo(
@@ -279,7 +279,7 @@ class _LiveHeaderControlState extends State<LiveHeaderControl>
                         children: [
                           const Icon(Icons.volume_up, size: 17),
                           Text(
-                            '播放器音量: ${player.getProperty('volume').subLength(3)}%',
+                            'Player volume: ${player.getProperty('volume').subLength(3)}%',
                             style: const TextStyle(fontSize: 14),
                           ),
                         ],

@@ -65,7 +65,7 @@ Widget videoSeasonWidget(
                   bottom: null,
                   left: null,
                   type: switch (badge) {
-                    '充电专属' => PBadgeType.error,
+                    'Exclusive for charging' => PBadgeType.error,
                     _ => PBadgeType.primary,
                   },
                 ),
@@ -107,9 +107,9 @@ Widget videoSeasonWidget(
                           const SizedBox(width: 6),
                         ],
                         if (video.stat case final stat?) ...[
-                          Text('${NumUtils.numFormat(stat.play)}播放'),
+                          Text('${NumUtils.numFormat(stat.play)}Play'),
                           const SizedBox(width: 6),
-                          Text('${NumUtils.numFormat(stat.danmu)}弹幕'),
+                          Text('${NumUtils.numFormat(stat.danmu)}Barrage'),
                         ],
                         const Spacer(),
                         const PlayIcon(size: 50),

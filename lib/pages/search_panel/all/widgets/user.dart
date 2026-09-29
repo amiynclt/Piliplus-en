@@ -76,7 +76,7 @@ class SearchAllUserItem extends StatelessWidget {
                         Text.rich(
                           TextSpan(
                             text:
-                                '${NumUtils.numFormat(item.fans)}粉丝 · ${NumUtils.numFormat(item.videos)}个视频',
+                                '${NumUtils.numFormat(item.fans)} fans · ${NumUtils.numFormat(item.videos)} videos',
                             children: item.officialVerify?.desc != null
                                 ? [
                                     TextSpan(

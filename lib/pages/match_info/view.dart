@@ -41,7 +41,7 @@ class _MatchInfoPageState extends CommonDynPageState<MatchInfoPage> {
   Widget build(BuildContext context) {
     return fabAnimWrapper(
       child: SimpleScaffold(
-        appBar: AppBar(title: const Text('比赛详情')),
+        appBar: AppBar(title: const Text('Competition details')),
         body: ViewSafeArea(
           child: refreshIndicator(
             onRefresh: controller.onRefresh,
@@ -144,11 +144,11 @@ class _MatchInfoPageState extends CommonDynPageState<MatchInfoPage> {
                             ),
                             onPressed: () =>
                                 PageUtils.toLiveRoom(response.liveRoom),
-                            child: const Text('看直播'),
+                            child: const Text('watch live broadcast'),
                           )
                         else if (response.contestStatus == 3)
                           Text(
-                            '${DateFormatUtils.dateFormat(response.stime)}${response.contestStatus == 3 ? ' 已结束' : ''}',
+                            '${DateFormatUtils.dateFormat(response.stime)}${response.contestStatus == 3 ? 'ended' : ''}',
                             style: TextStyle(
                               color: theme.colorScheme.outline,
                             ),
@@ -193,7 +193,7 @@ class _MatchInfoPageState extends CommonDynPageState<MatchInfoPage> {
       Get.to(
         SimpleScaffold(
           appBar: AppBar(
-            title: const Text('评论详情'),
+            title: const Text('Comment details'),
             shape: Border(
               bottom: BorderSide(
                 color: theme.colorScheme.outline.withValues(alpha: 0.1),

@@ -2,7 +2,7 @@ import 'package:PiliPlus/utils/extension/num_ext.dart';
 import 'package:flutter/foundation.dart' show kDebugMode, debugPrint;
 
 abstract final class NumUtils {
-  static final _numRegExp = RegExp(r'([\d\.]+)([千万亿])?');
+  static final _numRegExp = RegExp(r'([\d\.]+)([quadrillion])?');
 
   static int _getUnit(String? unit) {
     switch (unit) {

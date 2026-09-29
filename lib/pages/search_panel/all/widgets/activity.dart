@@ -41,7 +41,7 @@ class SearchActivityItem extends StatelessWidget {
                         height: 100,
                       ),
                       if (item.status == 1)
-                        const PBadge(text: '直播', top: 6.0, right: 6.0),
+                        const PBadge(text: 'live streaming', top: 6.0, right: 6.0),
                     ],
                   ),
                   Expanded(

@@ -54,7 +54,7 @@ class _FavPageState extends State<FavPage> with SingleTickerProviderStateMixin {
   Widget build(BuildContext context) {
     return SimpleScaffold(
       appBar: AppBar(
-        title: const Text('我的收藏'),
+        title: const Text('my collection'),
         actions: [
           Obx(
             () => _showVideoFavMenu.value
@@ -74,7 +74,7 @@ class _FavPageState extends State<FavPage> with SingleTickerProviderStateMixin {
                       },
                     ),
                     icon: const Icon(Icons.add),
-                    tooltip: '新建收藏夹',
+                    tooltip: 'Create new favorites',
                   )
                 : const SizedBox.shrink(),
           ),
@@ -84,7 +84,7 @@ class _FavPageState extends State<FavPage> with SingleTickerProviderStateMixin {
                     onPressed: () {
                       if (_favController.loadingState.value.isSuccess) {
                         if (!_favController.isEnd) {
-                          SmartDialog.showToast('加载全部收藏夹再排序');
+                          SmartDialog.showToast('Load all favorites and sort them');
                           return;
                         }
                         Get.to(
@@ -93,7 +93,7 @@ class _FavPageState extends State<FavPage> with SingleTickerProviderStateMixin {
                       }
                     },
                     icon: const Icon(Icons.sort),
-                    tooltip: '收藏夹排序',
+                    tooltip: 'Sort favorites',
                   )
                 : const SizedBox.shrink(),
           ),
@@ -120,7 +120,7 @@ class _FavPageState extends State<FavPage> with SingleTickerProviderStateMixin {
                       }
                     },
                     icon: const Icon(Icons.search_outlined),
-                    tooltip: '搜索',
+                    tooltip: 'search',
                   )
                 : const SizedBox.shrink(),
           ),

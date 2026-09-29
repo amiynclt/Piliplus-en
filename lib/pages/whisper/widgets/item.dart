@@ -46,7 +46,7 @@ class WhisperSessionItem extends StatelessWidget {
         ackSeqno: response.ackSeqno.toInt(),
       );
       if (res.isSuccess) {
-        SmartDialog.showToast('已标为已读');
+        SmartDialog.showToast('Marked as read');
         item.clearUnread();
         if (context.mounted) {
           (context as Element).markNeedsBuild();
@@ -92,7 +92,7 @@ class WhisperSessionItem extends StatelessWidget {
                 Get.back();
                 onSetTop(item.isPinned, item.id);
               },
-              child: Text(item.isPinned ? '移除置顶' : '置顶'),
+              child: Text(item.isPinned ? 'Remove pin' : 'pin to top'),
             ),
             if (item.id.privateId.hasTalkerUid()) ...[
               if (kDebugMode || item.hasUnread())
@@ -101,26 +101,26 @@ class WhisperSessionItem extends StatelessWidget {
                     Get.back();
                     _updateAck(context);
                   },
-                  child: const Text('标为已读'),
+                  child: const Text('Mark as read'),
                 ),
               DialogOption(
                 onPressed: () {
                   Get.back();
                   onSetMute(item.isMuted, item.id.privateId.talkerUid);
                 },
-                child: Text('${item.isMuted ? '关闭' : '开启'}免打扰'),
+                child: Text('${item.isMuted ? 'closure' : 'turn on'}免打扰'),
               ),
               DialogOption(
                 onPressed: () {
                   Get.back();
                   showConfirmDialog(
                     context: context,
-                    title: const Text('确定删除该对话？'),
+                    title: const Text('Are you sure you want to delete this conversation?'),
                     onConfirm: () =>
                         onRemove(item.id.privateId.talkerUid.toInt()),
                   );
                 },
-                child: const Text('删除'),
+                child: const Text('delete'),
               ),
             ],
           ],
@@ -134,14 +134,14 @@ class WhisperSessionItem extends StatelessWidget {
                 PopupMenuItem(
                   height: 42,
                   onTap: () => onSetTop(item.isPinned, item.id),
-                  child: Text(item.isPinned ? '移除置顶' : '置顶'),
+                  child: Text(item.isPinned ? 'Remove pin' : 'pin to top'),
                 ),
                 if (item.id.privateId.hasTalkerUid()) ...[
                   if (kDebugMode || item.hasUnread())
                     PopupMenuItem(
                       height: 42,
                       onTap: () => _updateAck(context),
-                      child: const Text('标为已读'),
+                      child: const Text('Mark as read'),
                     ),
                   // if (kDebugMode)
                   //   PopupMenuItem(
@@ -153,25 +153,25 @@ class WhisperSessionItem extends StatelessWidget {
                   //       );
                   //       (context as Element).markNeedsBuild();
                   //     },
-                  //     child: const Text('标为未读'),
+                  //     child: const Text('Mark as unread'),
                   //   ),
                   PopupMenuItem(
                     height: 42,
                     onTap: () =>
                         onSetMute(item.isMuted, item.id.privateId.talkerUid),
-                    child: Text('${item.isMuted ? '关闭' : '开启'}免打扰'),
+                    child: Text('${item.isMuted ? 'closure' : 'turn on'}免打扰'),
                   ),
                   const PopupMenuDivider(height: 10),
                   PopupMenuItem(
                     height: 42,
                     onTap: () => showConfirmDialog(
                       context: context,
-                      title: const Text('确定删除该对话？'),
+                      title: const Text('Are you sure you want to delete this conversation?'),
                       onConfirm: () =>
                           onRemove(item.id.privateId.talkerUid.toInt()),
                     ),
                     child: Text(
-                      '删除',
+                      'delete',
                       style: TextStyle(color: theme.colorScheme.error),
                     ),
                   ),

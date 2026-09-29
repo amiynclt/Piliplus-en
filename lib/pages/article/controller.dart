@@ -193,7 +193,7 @@ class ArticleController extends CommonDynController {
         ..status = !isFav
         ..count = (favorite.count ?? 0) + (isFav ? -1 : 1);
       stats.refresh();
-      SmartDialog.showToast('${isFav ? '取消' : ''}收藏成功');
+      SmartDialog.showToast('${isFav ? 'Cancel' : ''}Collection successful');
     } else {
       res.toast();
     }
@@ -212,7 +212,7 @@ class ArticleController extends CommonDynController {
         ..status = !isLike
         ..count = (like.count ?? 0) + (isLike ? -1 : 1);
       stats.refresh();
-      SmartDialog.showToast(!isLike ? '点赞成功' : '取消赞');
+      SmartDialog.showToast(!isLike ? 'Like successfully' : 'Unlike');
     } else {
       res.toast();
     }

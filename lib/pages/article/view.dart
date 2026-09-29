@@ -257,7 +257,7 @@ class _ArticlePageState extends CommonDynPageState<ArticlePage> {
       const SizedBox(width: 4),
       if (!isPortrait) ratioWidget(maxWidth),
       IconButton(
-        tooltip: '浏览器打开',
+        tooltip: 'Browser opens',
         onPressed: () => PageUtils.inAppWebview(controller.url),
         icon: const Icon(Icons.open_in_browser_outlined, size: 19),
       ),
@@ -271,7 +271,7 @@ class _ArticlePageState extends CommonDynPageState<ArticlePage> {
               mainAxisSize: .min,
               children: [
                 Icon(Icons.share_outlined, size: 19),
-                Text('分享'),
+                Text('share'),
               ],
             ),
           ),
@@ -282,7 +282,7 @@ class _ArticlePageState extends CommonDynPageState<ArticlePage> {
               mainAxisSize: .min,
               children: [
                 Icon(Icons.copy_rounded, size: 19),
-                Text('复制链接'),
+                Text('Copy link'),
               ],
             ),
           ),
@@ -303,7 +303,7 @@ class _ArticlePageState extends CommonDynPageState<ArticlePage> {
                       this.context,
                       content: {
                         "id": controller.commentId,
-                        "title": "- 哔哩哔哩专栏",
+                        "title": "- Bilibili column",
                         "headline": summary.title!, // throw
                         "source": 6,
                         "thumb": summary.cover!,
@@ -321,7 +321,7 @@ class _ArticlePageState extends CommonDynPageState<ArticlePage> {
                 mainAxisSize: .min,
                 children: [
                   Icon(Icons.forward_to_inbox, size: 19),
-                  Text('分享至消息'),
+                  Text('Share to message'),
                 ],
               ),
             ),
@@ -410,7 +410,7 @@ class _ArticlePageState extends CommonDynPageState<ArticlePage> {
                       builder: (btnContext) {
                         final forward = stats.forward;
                         return textIconButton(
-                          text: '转发',
+                          text: 'Forward',
                           icon: FontAwesomeIcons.shareFromSquare,
                           stat: forward,
                           onPressed: () {
@@ -451,7 +451,7 @@ class _ArticlePageState extends CommonDynPageState<ArticlePage> {
                   ),
                   Expanded(
                     child: textIconButton(
-                      text: '分享',
+                      text: 'share',
                       icon: CustomIcons.share_node,
                       stat: null,
                       onPressed: () => ShareUtils.shareText(controller.url),
@@ -461,7 +461,7 @@ class _ArticlePageState extends CommonDynPageState<ArticlePage> {
                     child: textIconButton(
                       icon: FontAwesomeIcons.star,
                       activatedIcon: FontAwesomeIcons.solidStar,
-                      text: '收藏',
+                      text: 'collect',
                       stat: stats.favorite,
                       onPressed: controller.onFav,
                     ),
@@ -470,7 +470,7 @@ class _ArticlePageState extends CommonDynPageState<ArticlePage> {
                     child: textIconButton(
                       icon: FontAwesomeIcons.thumbsUp,
                       activatedIcon: FontAwesomeIcons.solidThumbsUp,
-                      text: '点赞',
+                      text: 'Like',
                       stat: stats.like,
                       onPressed: controller.onLike,
                     ),
@@ -551,7 +551,7 @@ class _ArticlePageState extends CommonDynPageState<ArticlePage> {
                         const PBadge(
                           right: 12,
                           bottom: 12,
-                          text: '长图',
+                          text: 'Long picture',
                           type: .primary,
                         ),
                     ],

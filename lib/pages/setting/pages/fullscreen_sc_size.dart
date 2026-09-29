@@ -72,9 +72,9 @@ class _FullScreenScSizeState extends State<FullScreenScSize> {
   Widget build(BuildContext context) {
     return SimpleScaffold(
       appBar: AppBar(
-        title: const Text('全屏 SC 大小设置'),
+        title: const Text('Full screen SC size settings'),
         actions: [
-          TextButton(onPressed: _onReset, child: const Text('重置')),
+          TextButton(onPressed: _onReset, child: const Text('reset')),
         ],
       ),
       body: Padding(padding: _padding, child: _buildBody),

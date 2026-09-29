@@ -72,11 +72,11 @@ class DetailItem extends StatelessWidget {
                     Get.back();
                     showConfirmDialog(
                       context: context,
-                      title: const Text('确定删除该视频？'),
+                      title: const Text('Are you sure you want to delete this video?'),
                       onConfirm: onDelete,
                     );
                   },
-                  child: const Text('删除', style: TextStyle(fontSize: 14)),
+                  child: const Text('delete', style: TextStyle(fontSize: 14)),
                 ),
                 DialogOption(
                   onPressed: () async {
@@ -86,12 +86,12 @@ class DetailItem extends StatelessWidget {
                       isUpdate: true,
                     );
                     if (res) {
-                      SmartDialog.showToast('更新成功');
+                      SmartDialog.showToast('Update successful');
                     } else {
-                      SmartDialog.showToast('更新失败');
+                      SmartDialog.showToast('Update failed');
                     }
                   },
-                  child: const Text('更新弹幕', style: TextStyle(fontSize: 14)),
+                  child: const Text('Update barrages', style: TextStyle(fontSize: 14)),
                 ),
               ],
             ),
@@ -227,7 +227,7 @@ class DetailItem extends StatelessWidget {
                                   child: PBadge(
                                     isStack: false,
                                     text: progress >= entry.totalTimeMilli - 400
-                                        ? '已看完'
+                                        ? 'Already finished reading'
                                         : '${DurationUtils.formatDuration(
                                                 progress ~/ 1000,
                                               )}/'

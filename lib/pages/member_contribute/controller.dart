@@ -31,7 +31,7 @@ class MemberContributeCtr extends GetxController
       if (contribute.items!.length > 1) {
         // show if exist
         if (_ctr.hasSeasonOrSeries == true) {
-          items.add(const SpaceTab2Item(param: 'ugcSeason', title: '全部合集/列表'));
+          items.add(const SpaceTab2Item(param: 'ugcSeason', title: 'All collections/lists'));
         }
         tabs = items.map((item) => Tab(text: item.title)).toList();
         tabController = TabController(

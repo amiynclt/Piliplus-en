@@ -248,21 +248,21 @@ class AccountManager extends Interceptor {
   static Future<String> dioError(DioException error) async {
     switch (error.type) {
       case .badCertificate:
-        return '证书有误！';
+        return 'The certificate is wrong!';
       case .badResponse:
-        return '服务器异常，请稍后重试！';
+        return 'Server exception, please try again later!';
       case .cancel:
-        return '请求已被取消，请重新请求';
+        return 'The request has been canceled, please request again';
       case .connectionError:
-        return '连接错误，请检查网络设置';
+        return 'Connection error, please check network settings';
       case .connectionTimeout:
-        return '网络连接超时，请检查网络设置';
+        return 'Network connection timed out, please check network settings';
       case .receiveTimeout:
-        return '响应超时，请稍后重试！';
+        return 'Response timed out, please try again later!';
       case .sendTimeout:
-        return '发送请求超时，请检查网络设置';
+        return 'Sending request timed out, please check network settings';
       case .transformTimeout:
-        return '转换响应数据超时！';
+        return 'Conversion response data timed out!';
       case .unknown:
         String desc;
         try {
@@ -272,11 +272,11 @@ class AccountManager extends Interceptor {
         } catch (_) {
           desc = '';
         }
-        return '$desc网络异常 ${error.error}';
+        return '$descNetwork exception ${error.error}';
     }
   }
 }
 
 extension _ConnectivityResultExt on ConnectivityResult {
-  String get desc => const ['蓝牙', 'Wi-Fi', '局域', '流量', '无', '代理', '其他'][index];
+  String get desc => const ['Bluetooth', 'Wi-Fi', 'local area', 'flow', '无', 'acting', 'other'][index];
 }

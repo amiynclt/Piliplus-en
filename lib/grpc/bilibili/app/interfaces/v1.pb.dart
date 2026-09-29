@@ -738,7 +738,7 @@ class CardArticle extends $pb.GeneratedMessage {
   @$pb.TagNumber(3)
   void clearMid() => $_clearField(3);
 
-  /// 是否展示 "关注" 按钮
+  /// 是否展示 "focus on" 按钮
   @$pb.TagNumber(4)
   $core.bool get displayAttention => $_getBF(3);
   @$pb.TagNumber(4)
@@ -996,7 +996,7 @@ class CardLive extends $pb.GeneratedMessage {
   @$pb.TagNumber(5)
   void clearStatus() => $_clearField(5);
 
-  /// 是否展示 "关注" 按钮
+  /// 是否展示 "focus on" 按钮
   @$pb.TagNumber(6)
   $core.bool get displayAttention => $_getBF(5);
   @$pb.TagNumber(6)
@@ -1291,7 +1291,7 @@ class CardUGC extends $pb.GeneratedMessage {
   @$pb.TagNumber(5)
   void clearMid() => $_clearField(5);
 
-  /// 是否展示 "关注" 按钮
+  /// 是否展示 "focus on" 按钮
   @$pb.TagNumber(6)
   $core.bool get displayAttention => $_getBF(5);
   @$pb.TagNumber(6)

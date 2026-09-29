@@ -168,7 +168,7 @@ class SearchVideoController
               crossAxisAlignment: CrossAxisAlignment.stretch,
               children: [
                 const SizedBox(height: 10),
-                const Text('发布时间', style: TextStyle(fontSize: 16)),
+                const Text('Release time', style: TextStyle(fontSize: 16)),
                 const SizedBox(height: 10),
                 Wrap(
                   spacing: 8,
@@ -233,7 +233,7 @@ class SearchVideoController
                   ],
                 ),
                 const SizedBox(height: 20),
-                const Text('内容时长', style: TextStyle(fontSize: 16)),
+                const Text('Content duration', style: TextStyle(fontSize: 16)),
                 const SizedBox(height: 10),
                 Wrap(
                   spacing: 8,
@@ -258,7 +258,7 @@ class SearchVideoController
                   ).toList(),
                 ),
                 const SizedBox(height: 20),
-                const Text('内容分区', style: TextStyle(fontSize: 16)),
+                const Text('content partition', style: TextStyle(fontSize: 16)),
                 const SizedBox(height: 10),
                 Wrap(
                   spacing: 8,

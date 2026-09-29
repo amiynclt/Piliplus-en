@@ -17,7 +17,7 @@ Future<bool> showConfirmDialog({
             TextButton(
               onPressed: Get.back,
               child: Text(
-                '取消',
+                'Cancel',
                 style: TextStyle(color: ColorScheme.of(context).outline),
               ),
             ),
@@ -26,7 +26,7 @@ Future<bool> showConfirmDialog({
                 Get.back(result: true);
                 onConfirm?.call();
               },
-              child: const Text('确认'),
+              child: const Text('confirm'),
             ),
           ],
         ),
@@ -45,7 +45,7 @@ Widget _statusItem({
     title: Padding(
       padding: const EdgeInsets.only(left: 10),
       child: Text(
-        '标记为 $text',
+        'Marked with $text',
         style: const TextStyle(fontSize: 14),
       ),
     ),
@@ -67,9 +67,9 @@ void showPgcFollowDialog({
       contentPadding: const EdgeInsets.symmetric(vertical: 12),
       children: [
         ...const [
-          (followStatus: 3, title: '看过'),
-          (followStatus: 2, title: '在看'),
-          (followStatus: 1, title: '想看'),
+          (followStatus: 3, title: 'Saw it'),
+          (followStatus: 2, title: 'look in'),
+          (followStatus: 1, title: 'Want to see'),
         ].map(
           (item) => _statusItem(
             enabled: followStatus != item.followStatus,
@@ -85,7 +85,7 @@ void showPgcFollowDialog({
           title: Padding(
             padding: const EdgeInsets.only(left: 10),
             child: Text(
-              '取消$type',
+              'Cancel $type',
               style: const TextStyle(fontSize: 14),
             ),
           ),

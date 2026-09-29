@@ -32,7 +32,7 @@ abstract final class Utils {
     String? toastText,
   }) {
     if (needToast) {
-      SmartDialog.showToast(toastText ?? '已复制');
+      SmartDialog.showToast(toastText ?? 'Copied');
     }
     return Clipboard.setData(ClipboardData(text: text));
   }

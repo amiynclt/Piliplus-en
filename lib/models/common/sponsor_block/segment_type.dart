@@ -6,9 +6,9 @@ import 'package:PiliPlus/models/common/sponsor_block/action_type.dart';
 
 enum SegmentType {
   sponsor(
-    '赞助/恰饭',
-    '赞助',
-    '付费推广、推荐和直接广告。不是自我推广或免费提及他们喜欢的商品/创作者/网站/产品。',
+    'Sponsorship/lunch',
+    'sponsor',
+    'Paid promotion, referrals and direct advertising. Not self-promotion or free mentions of merchandise/creators/sites/products they like.',
     Color(0xFF00d400),
     [
       ActionType.skip,
@@ -17,9 +17,9 @@ enum SegmentType {
     ],
   ),
   selfpromo(
-    '无偿/自我推广',
-    '推广',
-    '类似于 “赞助广告” ，但无报酬或是自我推广。包括有关商品、捐赠的部分或合作者的信息。',
+    'Unpaid/self-promotion',
+    'promotion',
+    'Similar to "sponsored advertising" but without compensation or self-promotion. Include information about merchandise, donated parts, or collaborators.',
     Color(0xFFffff00),
     [
       ActionType.skip,
@@ -28,16 +28,16 @@ enum SegmentType {
     ],
   ),
   exclusive_access(
-    '独家访问/抢先体验',
-    '品牌合作',
-    '仅用于对整个视频进行标记。适用于展示UP主免费或获得补贴后使用的产品、服务或场地的视频。',
+    'Exclusive access/early access',
+    'Brand cooperation',
+    'Only used to mark the entire video. Suitable for videos showing products, services or venues used by UP owners for free or with subsidies.',
     Color(0xFF008a5c),
     [ActionType.full],
   ),
   interaction(
-    '三连/互动提醒',
-    '三连提醒',
-    '视频中间简短提醒观众来一键三连或关注。 如果片段较长，或是有具体内容，则应分类为自我推广。',
+    'Three consecutive/interactive reminders',
+    'Three consecutive reminders',
+    'In the middle of the video, there is a brief reminder to the audience to click three times or follow. If the clip is long or has specific content, it should be classified as self-promotion.',
     Color(0xFFcc00ff),
     [
       ActionType.skip,
@@ -45,16 +45,16 @@ enum SegmentType {
     ],
   ),
   poi_highlight(
-    '精彩时刻/重点',
-    '精彩时刻',
-    '大部分人都在寻找的空降时间。类似于“封面在12:34”的评论。',
+    'Highlights/Highlights',
+    'Highlights',
+    'Airborne time is what most people are looking for. Comments similar to "Cover at 12:34".',
     Color(0xFFff1684),
     [ActionType.poi],
   ),
   intro(
-    '过场/开场动画',
-    '开场动画',
-    '没有实际内容的间隔片段。可以是暂停、静态帧或重复动画。不适用于包含内容的过场。',
+    'Cut scene/opening animation',
+    'opening animation',
+    'Interval segments with no actual content. Can be paused, static frame, or repeating animation. Not applicable to cutscenes that contain content.',
     Color(0xFF00ffff),
     [
       ActionType.skip,
@@ -62,9 +62,9 @@ enum SegmentType {
     ],
   ),
   outro(
-    '鸣谢/结束画面',
-    '片尾',
-    '致谢画面或片尾画面。不包含内容的结尾。',
+    'Acknowledgments/end screen',
+    'Ending',
+    'Credits screen or end screen. Does not include the end of the content.',
     Color(0xFF0202ed),
     [
       ActionType.skip,
@@ -72,9 +72,9 @@ enum SegmentType {
     ],
   ),
   preview(
-    '回顾/概要',
-    '预览',
-    '展示此视频或同系列视频将出现的画面集锦，片段中所有内容都将在之后的正片中再次出现。',
+    'Review/Summary',
+    'Preview',
+    'Shows a collection of scenes that will appear in this video or a video in the same series. All content in the clip will appear again in the subsequent feature film.',
     Color(0xFF008fd6),
     [
       ActionType.skip,
@@ -82,16 +82,16 @@ enum SegmentType {
     ],
   ),
   padding(
-    '填充内容/前黑/后黑',
-    '填充内容',
-    '搬运视频片头片尾的纯粹填充内容，如黑屏或无关画面，与视频主体内容无实际意义和关联。',
+    'Fill content/front black/back black',
+    'fill content',
+    'Pure filler content that carries the beginning and end of a video, such as a black screen or irrelevant images, has no actual meaning or relevance to the main content of the video.',
     Color(0xFF222222),
     [ActionType.skip],
   ),
   filler(
-    '离题闲聊/玩笑',
-    '离题',
-    "仅作为填充内容或增添趣味而添加的离题片段，这些内容对理解视频的主要内容并非必需。这不包括提供背景信息或上下文的片段。这是一个非常激进的分类，适用于当你不想看'娱乐性'内容的时候。",
+    'Off-topic small talk/jokes',
+    'digress',
+    "仅作为填充内容或增添趣味而添加的离题片段，这些内容对理解视频的主要内容并非必需。这不包括提供背景信息或上下文的片段。这是一个非常激进的分类，适用于当你不想看'Entertainment'内容的时候。",
     Color(0xFF7300FF),
     [
       ActionType.skip,
@@ -99,9 +99,9 @@ enum SegmentType {
     ],
   ),
   music_offtopic(
-    '音乐:非音乐部分',
-    '非音乐',
-    '仅用于音乐视频。此分类只能用于音乐视频中未包括于其他分类的部分。',
+    'Music: Non-Musical Parts',
+    'non-music',
+    'For music videos only. This category can only be used for parts of the music video that are not included in other categories.',
     Color(0xFFff9900),
     [ActionType.skip],
   ),

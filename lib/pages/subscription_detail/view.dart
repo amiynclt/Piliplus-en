@@ -146,7 +146,7 @@ class _SubDetailPageState extends State<SubDetailPage> with GridMixin {
             style: theme.textTheme.titleMedium,
           ),
           Text(
-            '共${info.mediaCount}条视频',
+            'Total ${info.mediaCount} videos',
             style: theme.textTheme.labelMedium,
           ),
         ],
@@ -195,10 +195,10 @@ class _SubDetailPageState extends State<SubDetailPage> with GridMixin {
                       ),
                     ),
                     const SizedBox(height: 4),
-                    Text('共${info.mediaCount}条视频', style: style),
+                    Text('Total ${info.mediaCount} videos', style: style),
                     const SizedBox(height: 4),
                     Text(
-                      '${NumUtils.numFormat(info.viewCount ?? info.cntInfo?.play)}次播放',
+                      '${NumUtils.numFormat(info.viewCount ?? info.cntInfo?.play)} times played',
                       style: style,
                     ),
                   ],

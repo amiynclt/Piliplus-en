@@ -67,7 +67,7 @@ Widget livePanelSub(
               )
             else
               const PBadge(
-                text: '直播结束',
+                text: 'Live broadcast ends',
                 top: 6,
                 right: 6,
               ),

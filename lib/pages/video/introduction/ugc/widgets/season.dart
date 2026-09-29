@@ -120,7 +120,7 @@ class _SeasonPanelState extends State<SeasonPanel> {
               children: <Widget>[
                 Expanded(
                   child: Text(
-                    '合集：${videoDetail.ugcSeason!.title!}',
+                    'Collection: ${videoDetail.ugcSeason!.title!}',
                     style: theme.textTheme.labelMedium,
                     overflow: TextOverflow.ellipsis,
                   ),
@@ -131,7 +131,7 @@ class _SeasonPanelState extends State<SeasonPanel> {
                   color: theme.colorScheme.primary,
                   height: 12,
                   cacheHeight: 12.cacheSize(context),
-                  semanticLabel: "正在播放：",
+                  semanticLabel: "Now playing:",
                 ),
                 const SizedBox(width: 10),
                 Obx(
@@ -139,14 +139,14 @@ class _SeasonPanelState extends State<SeasonPanel> {
                     '${currentIndex.value + 1}/${episodes.length}',
                     style: theme.textTheme.labelMedium,
                     semanticsLabel:
-                        '第${currentIndex.value + 1}集，共${episodes.length}集',
+                        'Episode ${currentIndex.value + 1}, total episodes ${episodes.length}',
                   ),
                 ),
                 const SizedBox(width: 6),
                 const Icon(
                   Icons.arrow_forward_ios_outlined,
                   size: 13,
-                  semanticLabel: '查看',
+                  semanticLabel: 'Check',
                 ),
               ],
             ),

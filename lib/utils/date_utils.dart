@@ -22,20 +22,20 @@ abstract final class DateFormatUtils {
     final diff = now.difference(date);
 
     final diffInMins = diff.inMinutes;
-    if (diffInMins < 1) return '刚刚';
-    if (diffInMins < 60) return '$diffInMins分钟前';
+    if (diffInMins < 1) return 'just';
+    if (diffInMins < 60) return '$diffInMins minutes ago';
 
     final diffInHours = diff.inHours;
-    if (diffInHours < 24) return '$diffInHours小时前';
+    if (diffInHours < 24) return '$diffInHours hours ago';
 
     final today = DateTime(now.year, now.month, now.day);
     final dateDay = DateTime(date.year, date.month, date.day);
     final dayDiff = today.difference(dateDay).inDays;
     if (dayDiff == 1) {
-      return '昨天 ${_twoDigits(date.hour)}:${_twoDigits(date.minute)}';
+      return 'Yesterday ${_twoDigits(date.hour)}:${_twoDigits(date.minute)}';
     }
     if (dayDiff < 4) {
-      return '$dayDiff天前';
+      return '$dayDiff days ago';
     }
     final DateFormat sdf = now.year == date.year
         ? short ?? shortFormat
@@ -56,11 +56,11 @@ abstract final class DateFormatUtils {
     final today = DateTime(now.year, now.month, now.day);
     final dateDay = DateTime(date.year, date.month, date.day);
     if (today == dateDay) {
-      return '${isHistory ? '今天 ' : ''}${_twoDigits(date.hour)}:${_twoDigits(date.minute)}';
+      return '${isHistory ? 'today' : ''}${_twoDigits(date.hour)}:${_twoDigits(date.minute)}';
     }
     final isYesterday = today.subtract(const Duration(days: 1)) == dateDay;
     if (isYesterday) {
-      return '昨天 ${_twoDigits(date.hour)}:${_twoDigits(date.minute)}';
+      return 'Yesterday ${_twoDigits(date.hour)}:${_twoDigits(date.minute)}';
     }
     if (isHistory) {
       final DateFormat sdf = now.year == date.year

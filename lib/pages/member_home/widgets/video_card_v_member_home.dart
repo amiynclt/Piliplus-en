@@ -120,19 +120,19 @@ class VideoCardVMemberHome extends StatelessWidget {
                               .join('|'),
                           top: 6,
                           right: 6,
-                          type: videoItem.badges!.first.text == '充电专属'
+                          type: videoItem.badges!.first.text == 'Exclusive for charging'
                               ? PBadgeType.error
                               : PBadgeType.primary,
                         )
                       else if (videoItem.isCooperation == true)
                         const PBadge(
-                          text: '合作',
+                          text: 'cooperate',
                           top: 6,
                           right: 6,
                         )
                       else if (videoItem.isSteins == true)
                         const PBadge(
-                          text: '互动',
+                          text: 'interactive',
                           top: 6,
                           right: 6,
                         ),

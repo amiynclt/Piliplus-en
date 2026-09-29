@@ -119,12 +119,12 @@ class _PgcReviewPostPanelState extends State<PgcReviewPostPanel> {
               final score = _score.value;
               return Text(
                 switch (score) {
-                  1 => '很差',
-                  2 => '较差',
-                  3 => '还行',
-                  4 => '很好',
-                  5 => '佳作',
-                  _ => '轻触评分',
+                  1 => 'Very bad',
+                  2 => 'Poor',
+                  3 => 'good',
+                  4 => 'very good',
+                  5 => 'excellent work',
+                  _ => 'Tap to rate',
                 },
                 style: TextStyle(
                   fontSize: 16,
@@ -173,7 +173,7 @@ class _PgcReviewPostPanelState extends State<PgcReviewPostPanel> {
                             : Icons.check_box_outline_blank_outlined,
                         color: color,
                       ),
-                      Text(' 分享到动态', style: TextStyle(color: color)),
+                      Text('Share to news', style: TextStyle(color: color)),
                     ],
                   );
                 },
@@ -208,7 +208,7 @@ class _PgcReviewPostPanelState extends State<PgcReviewPostPanel> {
                   ),
                 ),
                 onPressed: _enablePost.value ? _onPost : null,
-                child: _isMod ? const Text('编辑') : const Text('发布'),
+                child: _isMod ? const Text('edit') : const Text('release'),
               ),
             ),
           ),
@@ -227,14 +227,14 @@ class _PgcReviewPostPanelState extends State<PgcReviewPostPanel> {
       );
       if (res.isSuccess) {
         Get.back();
-        SmartDialog.showToast('编辑成功');
+        SmartDialog.showToast('Edited successfully');
       } else {
         res.toast();
       }
       return;
     }
     if (!Accounts.main.isLogin) {
-      SmartDialog.showToast('账号未登录');
+      SmartDialog.showToast('Account not logged in');
       return;
     }
     final res = await PgcHttp.pgcReviewPost(
@@ -245,7 +245,7 @@ class _PgcReviewPostPanelState extends State<PgcReviewPostPanel> {
     );
     if (res.isSuccess) {
       Get.back();
-      SmartDialog.showToast('点评成功');
+      SmartDialog.showToast('Review successful');
     } else {
       res.toast();
     }

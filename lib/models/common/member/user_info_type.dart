@@ -1,9 +1,9 @@
 import 'package:material_ui/material_ui.dart' show Alignment;
 
 enum UserInfoType {
-  fan('粉丝', .centerLeft),
-  follow('关注', .center),
-  like('获赞', .centerRight),
+  fan('fan', .centerLeft),
+  follow('focus on', .center),
+  like('Liked', .centerRight),
   ;
 
   final String title;

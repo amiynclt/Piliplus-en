@@ -76,13 +76,13 @@ class MemberFavItem extends StatelessWidget {
                     const PBadge(
                       right: 6,
                       top: 6,
-                      text: '合集',
+                      text: 'Collection',
                     )
                   else if (item.type == 11)
                     const PBadge(
                       right: 6,
                       top: 6,
-                      text: '收藏夹',
+                      text: 'Favorites',
                     ),
                 ],
               ),
@@ -100,12 +100,12 @@ class MemberFavItem extends StatelessWidget {
                     const Spacer(),
                     Text(
                       item.type == 0
-                          ? '${item.mediaCount}个内容 · ${BiliUtils.isPublicFavText(item.attr)}'
+                          ? '${item.mediaCount} contents · ${BiliUtils.isPublicFavText(item.attr)}'
                           : item.type == 11
-                          ? '${item.mediaCount}个内容 · ${item.upper?.name}'
+                          ? '${item.mediaCount} content · ${item.upper?.name}'
                           : item.type == 21
-                          ? '创建者: ${item.upper?.name}\n${item.mediaCount}个视频 · ${NumUtils.numFormat(item.viewCount)}播放'
-                          : '${item.mediaCount}个内容',
+                          ? 'Created by: ${item.upper?.name}\n${item.mediaCount} videos · ${NumUtils.numFormat(item.viewCount)} played'
+                          : '${item.mediaCount} content',
                       style: TextStyle(
                         fontSize: 12,
                         color: theme.colorScheme.outline,

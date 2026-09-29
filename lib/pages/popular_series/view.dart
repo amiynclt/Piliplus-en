@@ -37,7 +37,7 @@ class _PopularSeriesPageState extends State<PopularSeriesPage> with GridMixin {
           if (config != null) {
             return Text(config.name!);
           }
-          return const Text('每周必看');
+          return const Text('Must-see every week');
         }),
       ),
       body: refreshIndicator(
@@ -76,7 +76,7 @@ class _PopularSeriesPageState extends State<PopularSeriesPage> with GridMixin {
                     dimension: item.dimension,
                     extraArguments: {
                       'sourceType': SourceType.playlist,
-                      'favTitle': '每周必看 ${config?.label ?? ''}',
+                      'favTitle': 'Must-see every week ${config?.label ??''}',
                       'mediaId': config?.mediaId,
                       'desc': true,
                       'oid': item.aid,

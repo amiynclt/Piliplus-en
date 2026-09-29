@@ -44,7 +44,7 @@ class ReplyMeController
         loadingState
           ..value.data!.removeAt(index)
           ..refresh();
-        SmartDialog.showToast('删除成功');
+        SmartDialog.showToast('Delete successfully');
       } else {
         res.toast();
       }

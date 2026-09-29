@@ -69,8 +69,8 @@ class _FavNotePageState extends State<FavNotePage>
                 labelColor: theme.colorScheme.onSecondaryContainer,
                 unselectedLabelColor: theme.colorScheme.outline,
                 tabs: const [
-                  Tab(text: '未发布笔记'),
-                  Tab(text: '公开笔记'),
+                  Tab(text: 'Unpublished notes'),
+                  Tab(text: 'public notes'),
                 ],
                 onTap: (index) {
                   try {
@@ -102,7 +102,7 @@ class _FavNotePageState extends State<FavNotePage>
             //       }
             //     }
             //   },
-            //   child: const Text('管理'),
+            //   child: const Text('manage'),
             // ),
             // const SizedBox(width: 12),
           ],

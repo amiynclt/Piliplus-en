@@ -29,7 +29,7 @@ class _WhisperBlockPageState extends State<WhisperBlockPage> {
   Widget build(BuildContext context) {
     final ThemeData theme = Theme.of(context);
     return SimpleScaffold(
-      appBar: AppBar(title: const Text('消息屏蔽词')),
+      appBar: AppBar(title: const Text('Message blocking words')),
       body: Obx(() => _buildBody(theme, _controller.loadingState.value)),
     );
   }
@@ -51,7 +51,7 @@ class _WhisperBlockPageState extends State<WhisperBlockPage> {
                       mainAxisAlignment: MainAxisAlignment.spaceBetween,
                       children: [
                         Text(
-                          '点击屏蔽词即可删除',
+                          'Click on the blocked word to delete it',
                           style: TextStyle(
                             fontSize: 13,
                             color: theme.colorScheme.outline,
@@ -83,8 +83,8 @@ class _WhisperBlockPageState extends State<WhisperBlockPage> {
                                 onTap: (keyword) {
                                   showConfirmDialog(
                                     context: context,
-                                    title: const Text('删除屏蔽词？'),
-                                    content: const Text('该屏蔽词将不再生效'),
+                                    title: const Text('Remove blocked words?'),
+                                    content: const Text('This blocking word will no longer be in effect'),
                                     onConfirm: () => _controller.onRemove(e),
                                   );
                                 },
@@ -104,7 +104,7 @@ class _WhisperBlockPageState extends State<WhisperBlockPage> {
                       onPressed: _onAdd,
                       child: const Row(
                         mainAxisAlignment: MainAxisAlignment.center,
-                        children: [Icon(Icons.add, size: 22), Text('添加消息屏蔽词')],
+                        children: [Icon(Icons.add, size: 22), Text('Add message blocking words')],
                       ),
                     ),
                   ),
@@ -118,13 +118,13 @@ class _WhisperBlockPageState extends State<WhisperBlockPage> {
                   children: [
                     SvgPicture.asset(Assets.error, height: 156),
                     const Text(
-                      '还未添加屏蔽词',
+                      'No blocking words added yet',
                       style: TextStyle(
                         fontSize: 15,
                         fontWeight: FontWeight.bold,
                       ),
                     ),
-                    const Text('添加后，将不再接受包含屏蔽词的消息'),
+                    const Text('Once added, messages containing blocked words will no longer be accepted'),
                     FilledButton.tonal(
                       onPressed: _onAdd,
                       style: FilledButton.styleFrom(
@@ -134,7 +134,7 @@ class _WhisperBlockPageState extends State<WhisperBlockPage> {
                         mainAxisSize: MainAxisSize.min,
                         children: [
                           Icon(Icons.add, size: 22),
-                          Text('添加'),
+                          Text('Add to'),
                         ],
                       ),
                     ),
@@ -170,7 +170,7 @@ class _WhisperBlockPageState extends State<WhisperBlockPage> {
                   mainAxisAlignment: MainAxisAlignment.spaceBetween,
                   children: [
                     const Text(
-                      '添加消息屏蔽词',
+                      'Add message blocking words',
                       style: TextStyle(
                         fontSize: 14,
                         fontWeight: FontWeight.bold,
@@ -192,7 +192,7 @@ class _WhisperBlockPageState extends State<WhisperBlockPage> {
                   maxLength: _controller.charLimit,
                   decoration: InputDecoration(
                     isDense: true,
-                    hintText: '请输入',
+                    hintText: 'Please enter',
                     visualDensity: .standard,
                     hintStyle: const TextStyle(fontSize: 14),
                     contentPadding: const EdgeInsets.symmetric(
@@ -218,7 +218,7 @@ class _WhisperBlockPageState extends State<WhisperBlockPage> {
                   },
                   child: const Row(
                     mainAxisAlignment: MainAxisAlignment.center,
-                    children: [Icon(Icons.add, size: 22), Text('添加消息屏蔽词')],
+                    children: [Icon(Icons.add, size: 22), Text('Add message blocking words')],
                   ),
                 ),
               ],

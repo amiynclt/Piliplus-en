@@ -14,12 +14,12 @@ import 'package:get/get.dart';
 import 'package:material_ui/material_ui.dart';
 
 enum HomeTabType implements EnumWithLabel {
-  live('直播'),
-  rcmd('推荐'),
-  hot('热门'),
-  rank('分区'),
-  bangumi('番剧'),
-  cinema('影视'),
+  live('live streaming'),
+  rcmd('recommend'),
+  hot('Popular'),
+  rank('Partition'),
+  bangumi('Fan drama'),
+  cinema('Film and television'),
   ;
 
   @override

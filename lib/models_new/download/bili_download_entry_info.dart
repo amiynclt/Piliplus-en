@@ -71,7 +71,7 @@ class BiliDownloadEntryInfo with MultiSelectData {
       itemBuilder: (_) => [
         PopupMenuItem(
           height: 38,
-          child: const Text('查看详情页', style: TextStyle(fontSize: 13)),
+          child: const Text('View details page', style: TextStyle(fontSize: 13)),
           onTap: () {
             if (ep case final ep?) {
               if (ep.from == VideoType.pugv.name) {
@@ -101,20 +101,20 @@ class BiliDownloadEntryInfo with MultiSelectData {
         if (PlatformUtils.isDesktop)
           PopupMenuItem(
             height: 38,
-            child: const Text('打开本地文件夹', style: TextStyle(fontSize: 13)),
+            child: const Text('Open local folder', style: TextStyle(fontSize: 13)),
             onTap: () => PathUtils.openDir(entryDirPath),
           )
         else
           PopupMenuItem(
             height: 38,
-            child: const Text('复制缓存路径', style: TextStyle(fontSize: 13)),
+            child: const Text('Copy cache path', style: TextStyle(fontSize: 13)),
             onTap: () => Utils.copyText(entryDirPath),
           ),
         if (ownerId case final mid?)
           PopupMenuItem(
             height: 38,
             child: Text(
-              '访问${ownerName != null ? '：$ownerName' : '用户主页'}',
+              'Access ${ownerName != null ?'：$ownerName' : 'User homepage'}',
               style: const TextStyle(fontSize: 13),
             ),
             onTap: () => Get.toNamed('/member?mid=$mid'),
@@ -397,18 +397,18 @@ class EpInfo {
 }
 
 enum DownloadStatus {
-  downloading('正在下载'),
-  audioDownloading('正在下载音频'),
-  getDanmaku('获取弹幕'),
-  getPlayUrl('获取播放地址'),
+  downloading('Downloading'),
+  audioDownloading('Downloading audio'),
+  getDanmaku('Get barrage'),
+  getPlayUrl('Get playback address'),
   //
-  completed('下载完成'),
-  failDownload('下载失败'),
-  failDownloadAudio('音频下载失败'),
-  failDanmaku('获取弹幕失败'),
-  failPlayUrl('获取播放地址失败'),
-  pause('暂停中'),
-  wait('等待中'),
+  completed('Download completed'),
+  failDownload('Download failed'),
+  failDownloadAudio('Audio download failed'),
+  failDanmaku('Failed to obtain barrage'),
+  failPlayUrl('Failed to obtain playback address'),
+  pause('Paused'),
+  wait('Waiting'),
   ;
 
   final String message;

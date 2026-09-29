@@ -416,7 +416,7 @@ class _PLVideoPlayerState extends State<PLVideoPlayer>
       BottomControlType.pre => ComBtn(
         width: widgetWidth,
         height: 30,
-        tooltip: '上一集',
+        tooltip: 'Previous episode',
         icon: const Icon(
           Icons.skip_previous,
           size: 22,
@@ -424,7 +424,7 @@ class _PLVideoPlayerState extends State<PLVideoPlayer>
         ),
         onTap: () {
           if (!introController.prevPlay()) {
-            SmartDialog.showToast('已经是第一集了');
+            SmartDialog.showToast('It’s already the first episode');
           }
         },
       ),
@@ -433,7 +433,7 @@ class _PLVideoPlayerState extends State<PLVideoPlayer>
       BottomControlType.next => ComBtn(
         width: widgetWidth,
         height: 30,
-        tooltip: '下一集',
+        tooltip: 'next episode',
         icon: const Icon(
           Icons.skip_next,
           size: 22,
@@ -441,7 +441,7 @@ class _PLVideoPlayerState extends State<PLVideoPlayer>
         ),
         onTap: () {
           if (!introController.nextPlay()) {
-            SmartDialog.showToast('已经是最后一集了');
+            SmartDialog.showToast('It's already the last episode');
           }
         },
       ),
@@ -467,7 +467,7 @@ class _PLVideoPlayerState extends State<PLVideoPlayer>
             return ComBtn(
               width: widgetWidth,
               height: 30,
-              tooltip: '高能进度条',
+              tooltip: 'High energy progress bar',
               icon: DisabledIcon(
                 disable: !show,
                 child: const Icon(
@@ -488,7 +488,7 @@ class _PLVideoPlayerState extends State<PLVideoPlayer>
         () {
           final type = plPlayerController.superResolutionType.value;
           return PopupMenuButton<SuperResolutionType>(
-            tooltip: '超分辨率',
+            tooltip: 'super resolution',
             requestFocus: false,
             initialValue: type,
             color: Colors.black.withValues(alpha: 0.8),
@@ -529,7 +529,7 @@ class _PLVideoPlayerState extends State<PLVideoPlayer>
             return ComBtn(
               width: widgetWidth,
               height: 30,
-              tooltip: '分段信息',
+              tooltip: 'Segmentation information',
               icon: DisabledIcon(
                 disable: !videoDetailController.showVP.value,
                 child: const Icon(
@@ -556,7 +556,7 @@ class _PLVideoPlayerState extends State<PLVideoPlayer>
       BottomControlType.episode => ComBtn(
         width: widgetWidth,
         height: 30,
-        tooltip: '选集',
+        tooltip: 'anthology',
         icon: const Icon(
           Icons.list,
           size: 22,
@@ -612,7 +612,7 @@ class _PLVideoPlayerState extends State<PLVideoPlayer>
         () {
           final fit = plPlayerController.videoFit.value;
           return PopupMenuButton<VideoFitType>(
-            tooltip: '画面比例',
+            tooltip: 'aspect ratio',
             requestFocus: false,
             initialValue: fit,
             color: Colors.black.withValues(alpha: 0.8),
@@ -651,7 +651,7 @@ class _PLVideoPlayerState extends State<PLVideoPlayer>
           final list = videoDetailController.languages.value;
           if (list != null && list.isNotEmpty) {
             return PopupMenuButton<String>(
-              tooltip: '翻译',
+              tooltip: 'translate',
               requestFocus: false,
               initialValue: videoDetailController.currLang.value,
               onSelected: videoDetailController.setLanguage,
@@ -661,7 +661,7 @@ class _PLVideoPlayerState extends State<PLVideoPlayer>
                   height: 35,
                   value: '',
                   child: Text(
-                    "关闭翻译",
+                    "Turn off translation",
                     style: TextStyle(color: Colors.white, fontSize: 13),
                   ),
                 ),
@@ -697,7 +697,7 @@ class _PLVideoPlayerState extends State<PLVideoPlayer>
           if (videoDetailController.subtitles.isNotEmpty) {
             final val = videoDetailController.vttSubtitlesIndex.value;
             return PopupMenuButton<int>(
-              tooltip: '字幕',
+              tooltip: 'subtitle',
               requestFocus: false,
               initialValue: val,
               color: Colors.black.withValues(alpha: 0.8),
@@ -708,7 +708,7 @@ class _PLVideoPlayerState extends State<PLVideoPlayer>
                     height: 35,
                     onTap: () => videoDetailController.setSubtitle(0),
                     child: const Text(
-                      "关闭字幕",
+                      "Close subtitles",
                       style: TextStyle(
                         color: Colors.white,
                         fontSize: 13,
@@ -754,7 +754,7 @@ class _PLVideoPlayerState extends State<PLVideoPlayer>
       /// 播放速度
       BottomControlType.speed => Obx(
         () => PopupMenuButton<double>(
-          tooltip: '倍速',
+          tooltip: 'Double speed',
           requestFocus: false,
           initialValue: plPlayerController.playbackSpeed,
           color: Colors.black.withValues(alpha: 0.8),
@@ -769,7 +769,7 @@ class _PLVideoPlayerState extends State<PLVideoPlayer>
                     child: Text(
                       "${speed}X",
                       style: const TextStyle(color: Colors.white, fontSize: 13),
-                      semanticsLabel: "$speed倍速",
+                      semanticsLabel: "$speed double speed",
                     ),
                   ),
                 )
@@ -780,7 +780,7 @@ class _PLVideoPlayerState extends State<PLVideoPlayer>
             child: Text(
               "${plPlayerController.playbackSpeed}X",
               style: const TextStyle(color: Colors.white, fontSize: 13),
-              semanticsLabel: "${plPlayerController.playbackSpeed}倍速",
+              semanticsLabel: "${plPlayerController.playbackSpeed} double speed",
             ),
           ),
         ),
@@ -800,7 +800,7 @@ class _PLVideoPlayerState extends State<PLVideoPlayer>
           final videoFormat = videoInfo.supportFormats!;
           final availableQa = videoInfo.dash!.video!.availableVideoQualities;
           return PopupMenuButton<int>(
-            tooltip: '画质',
+            tooltip: 'Image quality',
             requestFocus: false,
             initialValue: currentVideoQa.code,
             color: Colors.black.withValues(alpha: 0.8),
@@ -826,7 +826,7 @@ class _PLVideoPlayerState extends State<PLVideoPlayer>
                         ..currentVideoQa.value = newQa
                         ..updatePlayer();
 
-                      SmartDialog.showToast("画质已变为：${newQa.desc}");
+                      SmartDialog.showToast("The image quality has changed to: ${newQa.desc}");
 
                       // update
                       if (!plPlayerController.tempPlayerConf) {
@@ -866,7 +866,7 @@ class _PLVideoPlayerState extends State<PLVideoPlayer>
       BottomControlType.fullscreen => ComBtn(
         width: widgetWidth,
         height: 30,
-        tooltip: isFullScreen ? '退出全屏' : '全屏',
+        tooltip: isFullScreen ? 'Exit full screen' : 'full screen',
         icon: isFullScreen
             ? const Icon(Icons.fullscreen_exit, size: 24, color: Colors.white)
             : const Icon(Icons.fullscreen, size: 24, color: Colors.white),
@@ -1062,7 +1062,7 @@ class _PLVideoPlayerState extends State<PLVideoPlayer>
                 color: colorScheme.secondaryContainer,
               ),
               child: Text(
-                '松开手指，取消进退',
+                'Release your finger to cancel advance or retreat',
                 style: TextStyle(color: colorScheme.onSecondaryContainer),
               ),
             ),
@@ -1422,7 +1422,7 @@ class _PLVideoPlayerState extends State<PLVideoPlayer>
                       ),
                       child: Obx(
                         () => Text(
-                          '${plPlayerController.enableAutoLongPressSpeed ? (plPlayerController.longPressStatus.value ? plPlayerController.lastPlaybackSpeed : plPlayerController.playbackSpeed) * 2 : plPlayerController.longPressSpeed}倍速中',
+                          '${plPlayerController.enableAutoLongPressSpeed ​​? (plPlayerController.longPressStatus.value ? plPlayerController.lastPlaybackSpeed ​​: plPlayerController.playbackSpeed) * 2 : plPlayerController.longPressSpeed} double speed',
                           style: const TextStyle(
                             color: Colors.white,
                             fontSize: 13,
@@ -1693,7 +1693,7 @@ class _PLVideoPlayerState extends State<PLVideoPlayer>
                           ..removeListener(listener)
                           ..dispose();
                       },
-                      child: const Text('还原屏幕'),
+                      child: const Text('restore screen'),
                     ),
                   ),
                 )
@@ -1820,7 +1820,7 @@ class _PLVideoPlayerState extends State<PLVideoPlayer>
                           final controlsLock =
                               plPlayerController.controlsLock.value;
                           return ComBtn(
-                            tooltip: controlsLock ? '解锁' : '锁定',
+                            tooltip: controlsLock ? 'Unlock' : 'locking',
                             icon: controlsLock
                                 ? const Icon(
                                     FontAwesomeIcons.lock,
@@ -1861,7 +1861,7 @@ class _PLVideoPlayerState extends State<PLVideoPlayer>
                           borderRadius: BorderRadius.all(Radius.circular(8)),
                         ),
                         child: ComBtn(
-                          tooltip: '截图',
+                          tooltip: 'screenshot',
                           icon: const Icon(
                             Icons.photo_camera,
                             size: 20,
@@ -1903,7 +1903,7 @@ class _PLVideoPlayerState extends State<PLVideoPlayer>
                         Assets.buffering,
                         height: 25,
                         cacheHeight: 25.cacheSize(context),
-                        semanticLabel: "加载中",
+                        semanticLabel: "loading",
                         color: Colors.white,
                       ),
                       if (plPlayerController.isBuffering.value)
@@ -1911,7 +1911,7 @@ class _PLVideoPlayerState extends State<PLVideoPlayer>
                           final buffered = plPlayerController.buffered.value;
                           if (buffered == 0) {
                             return const Text(
-                              '加载中...',
+                              'loading...',
                               style: TextStyle(
                                 color: Colors.white,
                                 fontSize: 12,
@@ -2095,7 +2095,7 @@ class _PLVideoPlayerState extends State<PLVideoPlayer>
         await showDialog<bool>(
           context: context,
           builder: (context) => AlertDialog(
-            title: const Text('动态截图'),
+            title: const Text('Dynamic screenshot'),
             content: Column(
               spacing: 12,
               mainAxisSize: MainAxisSize.min,
@@ -2107,7 +2107,7 @@ class _PLVideoPlayerState extends State<PLVideoPlayer>
                   videoDuration: duration,
                 ),
                 PopupMenuText(
-                  title: '选择画质',
+                  title: 'Select image quality',
                   value: () => qa.code,
                   onSelected: (value) {
                     final video = videoDetailController.findVideoByQa(value);
@@ -2127,7 +2127,7 @@ class _PLVideoPlayerState extends State<PLVideoPlayer>
                   getSelectTitle: (_) => qa.shortDesc,
                 ),
                 PopupMenuText(
-                  title: 'webp预设',
+                  title: 'webp default',
                   value: () => preset,
                   onSelected: (value) {
                     preset = value;
@@ -2139,7 +2139,7 @@ class _PLVideoPlayerState extends State<PLVideoPlayer>
                   getSelectTitle: (i) => '${i.name}(${i.desc})',
                 ),
                 Text(
-                  '*转码使用CPU，速度可能慢于播放，请不要选择过长的时间段或过高画质',
+                  '*Transcoding uses CPU and may be slower than playback. Please do not select a too long time period or too high quality.',
                   style: theme.textTheme.bodySmall,
                 ),
               ],
@@ -2148,7 +2148,7 @@ class _PLVideoPlayerState extends State<PLVideoPlayer>
               TextButton(
                 onPressed: Get.back,
                 child: Text(
-                  '取消',
+                  'Cancel',
                   style: TextStyle(
                     color: theme.colorScheme.outline,
                   ),
@@ -2160,7 +2160,7 @@ class _PLVideoPlayerState extends State<PLVideoPlayer>
                     Get.back(result: true);
                   }
                 },
-                child: const Text('确定'),
+                child: const Text('Sure'),
               ),
             ],
           ),
@@ -2187,7 +2187,7 @@ class _PLVideoPlayerState extends State<PLVideoPlayer>
 
     SmartDialog.showLoading(
       backType: SmartBackType.normal,
-      builder: (_) => LoadingWidget(progress: progress, msg: '正在保存，可能需要较长时间'),
+      builder: (_) => LoadingWidget(progress: progress, msg: 'Saving, may take a long time'),
       onDismiss: () async {
         if (progress.value < 1.0) {
           mpv.dispose();
@@ -2199,7 +2199,7 @@ class _PLVideoPlayerState extends State<PLVideoPlayer>
             needToast: true,
           );
         } else {
-          SmartDialog.showToast('转码出现错误或已取消');
+          SmartDialog.showToast('An error occurred or the transcoding was cancelled.');
         }
         if (isPlay) ctr.play();
       },

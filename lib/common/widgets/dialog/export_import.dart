@@ -54,7 +54,7 @@ Future<void> importFromClipBoard<T>(
       json = jsonDecode(text);
       formatText = Utils.jsonEncoder.convert(json);
     } catch (e) {
-      SmartDialog.showToast('解析json失败：$e');
+      SmartDialog.showToast('Failed to parse json: $e');
       return;
     }
     bool? executeImport;
@@ -80,18 +80,18 @@ Future<void> importFromClipBoard<T>(
             result.render(renderer);
           }
           return AlertDialog(
-            title: Text('是否导入如下$title？'),
+            title: Text('Do you want to import the following $title?'),
             content: SingleChildScrollView(
               child: Text.rich(renderer.span!),
             ),
             actions: [
               TextButton(
                 onPressed: Get.back,
-                child: Text('取消', style: TextStyle(color: colorScheme.outline)),
+                child: Text('Cancel', style: TextStyle(color: colorScheme.outline)),
               ),
               TextButton(
                 onPressed: () => Get.back(result: true),
-                child: const Text('确定'),
+                child: const Text('Sure'),
               ),
             ],
           );
@@ -103,13 +103,13 @@ Future<void> importFromClipBoard<T>(
     if (executeImport ?? false) {
       try {
         await onImport(json);
-        SmartDialog.showToast('导入成功');
+        SmartDialog.showToast('Import successful');
       } catch (e) {
-        SmartDialog.showToast('导入失败：$e');
+        SmartDialog.showToast('Import failed: $e');
       }
     }
   } else {
-    SmartDialog.showToast('剪贴板无数据');
+    SmartDialog.showToast('Clipboard has no data');
     return;
   }
 }
@@ -127,14 +127,14 @@ Future<void> importFromLocalFile<T>({
     try {
       json = jsonDecode(data);
     } catch (e) {
-      SmartDialog.showToast('解析json失败：$e');
+      SmartDialog.showToast('Failed to parse json: $e');
       return;
     }
     try {
       await onImport(json);
-      SmartDialog.showToast('导入成功');
+      SmartDialog.showToast('Import successful');
     } catch (e) {
-      SmartDialog.showToast('导入失败：$e');
+      SmartDialog.showToast('Import failed: $e');
     }
   }
 }
@@ -151,7 +151,7 @@ void importFromInput<T>(
   showDialog(
     context: context,
     builder: (context) => AlertDialog(
-      title: Text('输入$title'),
+      title: Text('Enter $title'),
       constraints: Style.dialogFixedConstraints,
       content: TextFormField(
         key: key,
@@ -168,7 +168,7 @@ void importFromInput<T>(
             json = jsonDecode(value!) as T;
             return null;
           } catch (e) {
-            return '解析json失败：$e';
+            return 'Failed to parse json: $e';
           }
         },
       ),
@@ -176,7 +176,7 @@ void importFromInput<T>(
         TextButton(
           onPressed: Get.back,
           child: Text(
-            '取消',
+            'Cancel',
             style: TextStyle(
               color: ColorScheme.of(context).outline,
             ),
@@ -188,16 +188,16 @@ void importFromInput<T>(
               try {
                 await onImport(json);
                 Get.back();
-                SmartDialog.showToast('导入成功');
+                SmartDialog.showToast('Import successful');
                 return;
               } catch (e) {
-                forceErrorText = '导入失败：$e';
+                forceErrorText = 'Import failed: $e';
               }
               key.currentState?.validate();
               forceErrorText = null;
             }
           },
-          child: const Text('确定'),
+          child: const Text('Sure'),
         ),
       ],
     ),
@@ -216,17 +216,17 @@ Future<void> showImportExportDialog<T>(
     const style = TextStyle(fontSize: 15);
     return SimpleDialog(
       clipBehavior: .hardEdge,
-      title: Text('导入/导出$title'),
+      title: Text('Import/export $title'),
       children: [
         DialogOption(
-          child: const Text('导出至剪贴板', style: style),
+          child: const Text('Export to clipboard', style: style),
           onPressed: () {
             Get.back();
             exportToClipBoard(onExport: onExport);
           },
         ),
         DialogOption(
-          child: const Text('导出文件至本地', style: style),
+          child: const Text('Export files to local', style: style),
           onPressed: () {
             Get.back();
             exportToLocalFile(onExport: onExport, localFileName: localFileName);
@@ -237,14 +237,14 @@ Future<void> showImportExportDialog<T>(
           color: ColorScheme.of(context).outline.withValues(alpha: 0.1),
         ),
         DialogOption(
-          child: const Text('输入', style: style),
+          child: const Text('enter', style: style),
           onPressed: () {
             Get.back();
             importFromInput<T>(context, title: title, onImport: onImport);
           },
         ),
         DialogOption(
-          child: const Text('从剪贴板导入', style: style),
+          child: const Text('Import from clipboard', style: style),
           onPressed: () {
             Get.back();
             importFromClipBoard<T>(
@@ -256,7 +256,7 @@ Future<void> showImportExportDialog<T>(
           },
         ),
         DialogOption(
-          child: const Text('从本地文件导入', style: style),
+          child: const Text('Import from local file', style: style),
           onPressed: () {
             Get.back();
             importFromLocalFile<T>(onImport: onImport);

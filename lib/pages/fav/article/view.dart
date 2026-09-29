@@ -64,7 +64,7 @@ class _FavArticlePageState extends State<FavArticlePage>
                     item: item,
                     onDelete: () => showConfirmDialog(
                       context: context,
-                      title: const Text('确定取消收藏？'),
+                      title: const Text('Are you sure you want to cancel the collection?'),
                       onConfirm: () =>
                           _favArticleController.onRemove(index, item.opusId!),
                     ),

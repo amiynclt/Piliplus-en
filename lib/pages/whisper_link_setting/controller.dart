@@ -65,8 +65,8 @@ class WhisperLinkSettingController extends GetxController {
     if (isPush) {
       showConfirmDialog(
         context: Get.context!,
-        title: const Text('确认关闭内容推送吗？'),
-        content: const Text('若关闭此开关，你将不再收到该账号的图文消息与稿件推送，但通知类消息不受影响'),
+        title: const Text('Are you sure to turn off content push?'),
+        content: const Text('If you turn off this switch, you will no longer receive graphic messages and manuscript push from this account, but notification messages will not be affected.'),
         onConfirm: () => _setPush(isPush),
       );
       return;
@@ -133,8 +133,8 @@ class WhisperLinkSettingController extends GetxController {
     } else {
       showConfirmDialog(
         context: Get.context!,
-        title: const Text('确认拉黑该用户'),
-        content: const Text('加入黑名单后，将自动解除关注关系和对该用户的合集订阅关系，禁止该用户与我互动或查看我的空间'),
+        title: const Text('Confirm to block this user'),
+        content: const Text('After being added to the blacklist, the following relationship and collection subscription relationship with the user will be automatically cancelled, and the user will be prohibited from interacting with me or viewing my space.'),
         onConfirm: () async {
           final res = await VideoHttp.relationMod(
             mid: talkerUid,

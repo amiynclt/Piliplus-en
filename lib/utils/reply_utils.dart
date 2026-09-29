@@ -127,13 +127,13 @@ abstract final class ReplyUtils {
                     },
                   );
                 },
-                child: const Text('申诉'),
+                child: const Text('Appeal'),
               ),
             if (!isManual)
               TextButton(
                 onPressed: Get.back,
                 child: Text(
-                  '关闭',
+                  'closure',
                   style: TextStyle(color: colorScheme.outline),
                 ),
               ),
@@ -157,7 +157,7 @@ abstract final class ReplyUtils {
                           ),
                   ),
                   TextSpan(
-                    text: ' 评论检查结果',
+                    text: 'Comment check results',
                     style: TextStyle(color: color),
                   ),
                 ],
@@ -183,14 +183,14 @@ abstract final class ReplyUtils {
       );
 
       if (res case Error(:final errMsg)) {
-        SmartDialog.showToast('获取评论主列表时发生错误：$errMsg');
+        SmartDialog.showToast('An error occurred while getting the main list of comments: $errMsg');
         return;
       } else if (res case Success(:final response)) {
         final index =
             response.replies?.indexWhere((item) => item.rpid == id) ?? -1;
         if (index != -1) {
           // found
-          showReplyCheckResult('无账号状态下找到了你的评论，评论正常！\n\n你的评论：$message');
+          showReplyCheckResult('I found your comment without an account. The comment is normal! \n\nYour comment: $message');
         } else {
           // not found
 
@@ -205,7 +205,7 @@ abstract final class ReplyUtils {
 
           if (res1 is Error) {
             // not found
-            showReplyCheckResult('无法找到你的评论。\n\n你的评论：$message', isBan: true);
+            showReplyCheckResult('Your comment cannot be found. \n\nYour comment: $message', isBan: true);
           } else {
             // found
 
@@ -223,15 +223,15 @@ abstract final class ReplyUtils {
               // not found
               showReplyCheckResult(
                 res2.errMsg?.startsWith('12022') == true
-                    ? '你的评论被shadow ban（仅自己可见）！\n\n你的评论: $message'
-                    : '评论不可见(${res2.errMsg}): $message',
+                    ? 'Your comment has been shadow banned (visible only to you)! \n\nYour comment: $message'
+                    : 'Comment is not visible (${res2.errMsg}): $message',
                 isBan: true,
               );
             } else {
               // found
               showReplyCheckResult(
                 isManual
-                    ? '无账号状态下找到了你的评论，评论正常！\n\n你的评论：$message'
+                    ? 'I found your comment without an account. The comment is normal! \n\nYour comment: $message'
                     : '''
 你评论状态有点可疑，虽然无账号翻找评论区获取不到你的评论，但是无账号可通过
 https://api.bilibili.com/x/v2/reply/reply?oid=$oid&pn=1&ps=20&root=$id&type=$type
@@ -265,7 +265,7 @@ https://api.bilibili.com/x/v2/reply/reply?oid=$oid&pn=1&ps=20&root=$id&type=$typ
             // not found
           } else {
             // found
-            showReplyCheckResult('无账号状态下找到了你的评论，评论正常！\n\n你的评论：$message');
+            showReplyCheckResult('I found your comment without an account. The comment is normal! \n\nYour comment: $message');
             return;
           }
         }
@@ -293,7 +293,7 @@ https://api.bilibili.com/x/v2/reply/reply?oid=$oid&pn=1&ps=20&root=$id&type=$typ
           } else {
             // found
             showReplyCheckResult(
-              '你的评论被shadow ban（仅自己可见）！\n\n你的评论: $message',
+              'Your comment has been shadow banned (visible only to you)! \n\nYour comment: $message',
               isBan: true,
             );
             return;
@@ -301,7 +301,7 @@ https://api.bilibili.com/x/v2/reply/reply?oid=$oid&pn=1&ps=20&root=$id&type=$typ
         }
       }
 
-      showReplyCheckResult('评论不可见: $message', isBan: true);
+      showReplyCheckResult('Comment is not visible: $message', isBan: true);
     }
   }
 }

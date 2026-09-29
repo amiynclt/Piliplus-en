@@ -77,14 +77,14 @@ class VideoCardH extends StatelessWidget {
                                 top: 6.0,
                                 right: 6.0,
                                 type: switch (badge) {
-                                  '充电专属' => .error,
+                                  'Exclusive for charging' => .error,
                                   _ => .primary,
                                 },
                               ),
                             if (progress != null && progress != 0) ...[
                               PBadge(
                                 text: progress == -1
-                                    ? '已看完'
+                                    ? 'Already finished reading'
                                     : '${DurationUtils.formatDuration(progress)}/${DurationUtils.formatDuration(videoItem.duration)}',
                                 right: 6,
                                 bottom: 8,

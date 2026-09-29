@@ -3,9 +3,9 @@ import 'package:material_design_icons_flutter/material_design_icons_flutter.dart
 import 'package:material_ui/material_ui.dart';
 
 enum ThemeType implements EnumWithLabel {
-  light('浅色'),
-  dark('深色'),
-  system('跟随系统'),
+  light('light color'),
+  dark('Dark'),
+  system('Follow the system'),
   ;
 
   @override

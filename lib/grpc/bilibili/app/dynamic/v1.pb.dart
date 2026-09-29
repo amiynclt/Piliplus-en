@@ -7528,7 +7528,7 @@ class ModuleDynUpList extends $pb.GeneratedMessage {
   @$pb.TagNumber(1)
   void clearModuleTitle() => $_clearField(1);
 
-  /// "全部" 按钮文案
+  /// "all" 按钮文案
   @$pb.TagNumber(2)
   $core.String get showAll => $_getSZ(1);
   @$pb.TagNumber(2)

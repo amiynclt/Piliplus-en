@@ -57,7 +57,7 @@ class PlayOrPauseButtonState extends State<PlayOrPauseButton>
         onTap: widget.plPlayerController.onDoubleTapCenter,
         child: Center(
           child: AnimatedIcon(
-            semanticLabel: player.state.playing ? '暂停' : '播放',
+            semanticLabel: player.state.playing ? 'pause' : 'play',
             progress: controller,
             icon: AnimatedIcons.play_pause,
             color: Colors.white,

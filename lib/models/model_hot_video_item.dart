@@ -40,9 +40,9 @@ class HotVideoItemModel extends HorizontalVideoModel with MultiSelectData {
     redirectUrl = json['redirect_url'];
     progress = json['progress'];
     if (json['charging_pay']?['level'] != null) {
-      badge = '充电专属';
+      badge = 'Exclusive for charging';
     } else if (json['rights']?['is_cooperation'] == 1) {
-      badge = '合作';
+      badge = 'cooperate';
     } else {
       badge = json['pgc_label'];
     }

@@ -242,7 +242,7 @@ List<InlineSpan> _parseSummary(
                 )
                 ..add(
                   TextSpan(
-                    text: '投票：${e.rawText}',
+                    text: 'Vote: ${e.rawText}',
                     style: TextStyle(color: colorScheme.primary),
                     recognizer: (NoDeadlineTapGestureRecognizer()
                       ..onTap = () => showVoteDialog(

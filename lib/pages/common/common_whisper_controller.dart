@@ -18,7 +18,7 @@ abstract class CommonWhisperController<R>
       loadingState
         ..value.data!.removeAt(index)
         ..refresh();
-      SmartDialog.showToast('删除成功');
+      SmartDialog.showToast('Delete successfully');
     } else {
       res.toast();
     }
@@ -41,7 +41,7 @@ abstract class CommonWhisperController<R>
         list.insert(0, list.removeAt(index));
       }
       loadingState.refresh();
-      SmartDialog.showToast('${isTop ? '移除' : ''}置顶成功');
+      SmartDialog.showToast('${isTop ? 'Remove' : ''} Pinned successfully');
     } else {
       res.toast();
     }
@@ -56,7 +56,7 @@ abstract class CommonWhisperController<R>
     if (res.isSuccess) {
       item.isMuted = !isMuted;
       loadingState.refresh();
-      SmartDialog.showToast('设置成功');
+      SmartDialog.showToast('Setup successful');
     } else {
       res.toast();
     }
@@ -75,7 +75,7 @@ abstract class CommonWhisperController<R>
           loadingState.refresh();
         }
       }
-      SmartDialog.showToast('已标记为已读');
+      SmartDialog.showToast('Marked as read');
     } else {
       res.toast();
     }

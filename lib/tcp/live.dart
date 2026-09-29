@@ -49,7 +49,7 @@ class PackageHeaderRes extends PackageHeader {
 
   static PackageHeaderRes? fromBytesData(Uint8List data) {
     if (data.length < 10) {
-      logger.w('数据不足以解析PackageHeader');
+      logger.w('Insufficient data to parse PackageHeader');
       return null;
     }
     final byteData = ByteData.sublistView(data);
@@ -199,8 +199,8 @@ class LiveMessageStream {
         return;
       }
       // logger
-      //   ..d('$logTag ===> TCP连接建立')
-      //   ..d('$logTag ===> 发送认证包');
+      //   ..d('$logTag ===> TCP connection established')
+      //   ..d('$logTag ===> Send authentication package');
       _socketSubscription = _channel?.stream.listen(
         onData,
         onDone: close,
@@ -208,7 +208,7 @@ class LiveMessageStream {
       );
       _channel?.sink.add(authPackage.marshal());
     } catch (e) {
-      SmartDialog.showToast("弹幕地址链接失败: $e");
+      SmartDialog.showToast("Barrage address link failed: $e");
     }
   }
 
@@ -244,7 +244,7 @@ class LiveMessageStream {
       close();
       return;
     }
-    if (kDebugMode) logger.i("$logTag 直播间信息流认证成功 $hashCode");
+    if (kDebugMode) logger.i("$logTag Live broadcast room information flow authentication successful $hashCode");
     int heartBeatCount = 1;
     _timer ??= Timer.periodic(const Duration(seconds: 30), (timer) {
       if (!_active) {

@@ -44,7 +44,7 @@ Future<void> autoWrapReportDialog(
     }
   }
 
-  Widget title = const Text('举报');
+  Widget title = const Text('report');
   if (reportUrl != null) {
     title = Row(
       mainAxisAlignment: .spaceBetween,
@@ -52,7 +52,7 @@ Future<void> autoWrapReportDialog(
         title,
         iconButton(
           iconSize: 21,
-          tooltip: '网页举报',
+          tooltip: 'Web report',
           onPressed: () =>
               Get.toNamed('/webview', parameters: {'url': reportUrl}),
           icon: const Icon(MdiIcons.web, size: 22),
@@ -82,7 +82,7 @@ Future<void> autoWrapReportDialog(
                     children: [
                       const Padding(
                         padding: .only(left: 22, right: 22, bottom: 5),
-                        child: Text('请选择举报的理由：'),
+                        child: Text('Please select the reason for reporting:'),
                       ),
                       RadioGroup(
                         onChanged: (value) {
@@ -110,7 +110,7 @@ Future<void> autoWrapReportDialog(
                             initialValue: reasonDesc,
                             autofocus: isContentRequired,
                             decoration: const InputDecoration(
-                              labelText: '为帮助审核人员更快处理，请补充问题类型和出现位置等详细信息',
+                              labelText: 'To help reviewers process it faster, please provide detailed information such as the type of problem and where it occurs.',
                               border: OutlineInputBorder(),
                               contentPadding: .all(10),
                               labelStyle: TextStyle(fontSize: 14),
@@ -119,7 +119,7 @@ Future<void> autoWrapReportDialog(
                             onChanged: (value) => reasonDesc = value,
                             validator: (value) =>
                                 isContentRequired && value.isNullOrEmpty
-                                ? '理由不能为空'
+                                ? 'Reason cannot be empty'
                                 : null,
                           ),
                         ),
@@ -133,7 +133,7 @@ Future<void> autoWrapReportDialog(
             Padding(
               padding: const EdgeInsets.only(left: 14, top: 6),
               child: CheckBoxText(
-                text: '拉黑该用户',
+                text: 'Block this user',
                 onChanged: (value) => banUid = value,
               ),
             ),
@@ -143,7 +143,7 @@ Future<void> autoWrapReportDialog(
         TextButton(
           onPressed: Get.back,
           child: Text(
-            '取消',
+            'Cancel',
             style: TextStyle(color: ColorScheme.of(context).outline),
           ),
         ),
@@ -163,17 +163,17 @@ Future<void> autoWrapReportDialog(
               SmartDialog.dismiss();
               if (res.isSuccess) {
                 Get.back();
-                SmartDialog.showToast('举报成功');
+                SmartDialog.showToast('Report successful');
               } else {
                 res.toast();
               }
             } catch (e, s) {
               SmartDialog.dismiss();
-              SmartDialog.showToast('提交失败：$e');
+              SmartDialog.showToast('Submission failed: $e');
               Utils.reportError(e, s);
             }
           },
-          child: const Text('确定'),
+          child: const Text('Sure'),
         ),
       ],
     ),
@@ -243,19 +243,19 @@ class _CheckBoxTextState extends State<CheckBoxText> {
 abstract final class ReportOptions {
   // from https://s1.hdslb.com/bfs/seed/jinkela/comment-h5/static/js/605.chunks.js
   static Map<String, Map<int, String>> get commentReport => const {
-    '违反法律法规': {9: '违法违规', 2: '色情', 10: '低俗', 12: '赌博诈骗', 23: '违法信息外链'},
-    '谣言类不实信息': {19: '涉政谣言', 22: '虚假不实信息*', 20: '涉社会事件谣言'},
-    '侵犯个人权益': {7: '人身攻击', 15: '侵犯隐私'},
-    '有害社区环境': {
-      1: '垃圾广告',
-      4: '引战',
-      5: '剧透',
-      3: '刷屏',
-      8: '视频不相关',
-      18: '违规抽奖',
-      17: '青少年不良信息',
+    'Violate laws and regulations': {9: 'Violation of laws and regulations', 2: 'pornography', 10: 'vulgar', 12: 'gambling scam', 23: 'Illegal information external links'},
+    'Rumors and false information': {19: 'Political rumors', 22: 'False information*', 20: 'Rumors about social events'},
+    'infringement of personal rights': {7: 'personal attack', 15: 'Invasion of privacy'},
+    'harmful to community environment': {
+      1: 'spam ads',
+      4: 'start a war',
+      5: 'spoilers',
+      3: 'Refresh the screen',
+      8: 'Video is not relevant',
+      18: 'Illegal lottery',
+      17: 'Adverse information for teenagers',
     },
-    '其他': {0: '其他*'},
+    'other': {0: 'other*'},
   };
   static bool withContentReply(int? reasonType) => reasonType != null;
   static bool contentRequiredReply(int? reasonType) =>
@@ -263,60 +263,60 @@ abstract final class ReportOptions {
 
   static Map<String, Map<int, String>> get dynamicReport => const {
     '': {
-      4: '垃圾广告',
-      8: '引战',
-      1: '色情',
-      5: '人身攻击',
-      3: '违法信息',
-      9: '涉政谣言',
-      10: '涉社会事件谣言',
-      12: '虚假不实信息',
-      13: '违法信息外链',
-      0: '其他*',
+      4: 'spam ads',
+      8: 'start a war',
+      1: 'pornography',
+      5: 'personal attack',
+      3: 'Illegal information',
+      9: 'Political rumors',
+      10: 'Rumors about social events',
+      12: 'false information',
+      13: 'Illegal information external links',
+      0: 'other*',
     },
   };
 
   static Map<String, Map<int, String>> get danmakuReport => const {
     '': {
-      1: '违法违禁',
-      2: '色情低俗',
-      3: '赌博诈骗',
-      4: '人身攻击',
-      5: '侵犯隐私',
-      6: '垃圾广告',
-      7: '引战',
-      8: '剧透',
-      9: '恶意刷屏',
-      10: '视频无关',
-      12: '青少年不良信息',
-      13: '违法信息外链',
-      11: '其它*',
+      1: 'Illegal and prohibited',
+      2: 'Pornographic and vulgar',
+      3: 'gambling scam',
+      4: 'personal attack',
+      5: 'Invasion of privacy',
+      6: 'spam ads',
+      7: 'start a war',
+      8: 'spoilers',
+      9: 'Malicious screen spam',
+      10: 'Video has nothing to do with',
+      12: 'Adverse information for teenagers',
+      13: 'Illegal information external links',
+      11: 'other*',
     },
   };
   static bool danmakuReportCheck(int? reasonType) => reasonType == 11;
 
   static Map<String, Map<int, String>> get liveDanmakuReport => const {
     '': {
-      1: '违法违规',
-      2: '低俗色情',
-      3: '垃圾广告',
-      4: '辱骂引战',
-      5: '政治敏感',
-      6: '青少年不良信息',
-      0: '其他',
+      1: 'Violation of laws and regulations',
+      2: 'Vulgar porn',
+      3: 'spam ads',
+      4: 'Insults lead to war',
+      5: 'Politically sensitive',
+      6: 'Adverse information for teenagers',
+      0: 'other',
     },
   };
   static bool liveDanmakuReportCheck(int? _) => false;
 
   static Map<String, Map<int, String>> get imMsgReport => const {
     '': {
-      1: '色情低俗',
-      2: '政治敏感',
-      3: '违法有害',
-      4: '广告骚扰',
-      5: '人身攻击',
-      6: '诈骗',
-      0: '其他问题*',
+      1: 'Pornographic and vulgar',
+      2: 'Politically sensitive',
+      3: 'Illegal and harmful',
+      4: 'Advertising Harassment',
+      5: 'personal attack',
+      6: 'Scam',
+      0: 'Other questions*',
     },
   };
 }

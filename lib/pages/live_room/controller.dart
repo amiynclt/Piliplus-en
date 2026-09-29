@@ -92,7 +92,7 @@ class LiveRoomController extends GetxController {
         liveTime * 1000,
         DateTime.now().millisecondsSinceEpoch,
       );
-      text += duration.isEmpty ? '刚刚开播' : '开播$duration';
+      text += duration.isEmpty ? 'Just started broadcasting' : 'Start broadcast $duration';
     }
     if (text.isEmpty) {
       return const SizedBox.shrink();
@@ -240,12 +240,12 @@ class LiveRoomController extends GetxController {
     );
     if (res case Success(:final response)) {
       if (response.liveStatus != 1) {
-        _showDialog('当前直播间未开播');
+        _showDialog('The current live broadcast room is not open');
         return;
       }
       final playurl = response.playurlInfo?.playurl;
       if (playurl == null) {
-        _showDialog('无法获取播放地址');
+        _showDialog('Unable to obtain playback address');
         return;
       }
       ruid = response.uid;
@@ -357,7 +357,7 @@ class LiveRoomController extends GetxController {
           TextButton(
             onPressed: Get.back,
             child: Text(
-              '关闭',
+              'closure',
               style: TextStyle(color: ThemeUtils.theme.colorScheme.outline),
             ),
           ),
@@ -370,7 +370,7 @@ class LiveRoomController extends GetxController {
                 ..back()
                 ..back();
             },
-            child: const Text('退出'),
+            child: const Text('quit'),
           ),
         ],
       ),
@@ -576,7 +576,7 @@ class LiveRoomController extends GetxController {
   @pragma('vm:notify-debugger-on-exception')
   void _danmakuListener(dynamic obj) {
     try {
-      // logger.i(' 原始弹幕消息 ======> ${jsonEncode(obj)}');
+      // logger.i('Original barrage message ======> ${jsonEncode(obj)}');
       switch (obj['cmd']) {
         case 'DANMU_MSG':
           final info = obj['info'];
@@ -719,7 +719,7 @@ class LiveRoomController extends GetxController {
       anchorId: roomInfoH5.value?.roomInfo?.uid,
     );
     if (res.isSuccess) {
-      SmartDialog.showToast('点赞成功');
+      SmartDialog.showToast('Like successfully');
     } else {
       res.toast();
     }
@@ -727,7 +727,7 @@ class LiveRoomController extends GetxController {
   }
 
   void toastNotLogin() {
-    SmartDialog.showToast('账号未登录');
+    SmartDialog.showToast('Account not logged in');
   }
 
   void onSendDanmaku([bool fromEmote = false]) {

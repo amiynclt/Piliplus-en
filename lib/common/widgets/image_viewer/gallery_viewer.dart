@@ -550,21 +550,21 @@ class _GalleryViewerState extends State<GalleryViewer>
                 Get.back();
                 ImageUtils.onShareImg(item.url);
               },
-              child: const Text('分享', style: TextStyle(fontSize: 14)),
+              child: const Text('share', style: TextStyle(fontSize: 14)),
             ),
           DialogOption(
             onPressed: () {
               Get.back();
               Utils.copyText(item.url);
             },
-            child: const Text('复制链接', style: TextStyle(fontSize: 14)),
+            child: const Text('Copy link', style: TextStyle(fontSize: 14)),
           ),
           DialogOption(
             onPressed: () {
               Get.back();
               ImageUtils.downloadImg([item.url]);
             },
-            child: const Text('保存图片', style: TextStyle(fontSize: 14)),
+            child: const Text('save image', style: TextStyle(fontSize: 14)),
           ),
           if (PlatformUtils.isDesktop)
             DialogOption(
@@ -572,7 +572,7 @@ class _GalleryViewerState extends State<GalleryViewer>
                 Get.back();
                 PageUtils.launchURL(item.url);
               },
-              child: const Text('网页打开', style: TextStyle(fontSize: 14)),
+              child: const Text('Web page opens', style: TextStyle(fontSize: 14)),
             ),
           if (widget.sources.length > 1)
             DialogOption(
@@ -582,7 +582,7 @@ class _GalleryViewerState extends State<GalleryViewer>
                   widget.sources.map((item) => item.url).toList(),
                 );
               },
-              child: const Text('保存全部图片', style: TextStyle(fontSize: 14)),
+              child: const Text('Save all pictures', style: TextStyle(fontSize: 14)),
             ),
           if (item.sourceType == SourceType.livePhoto)
             DialogOption(
@@ -596,7 +596,7 @@ class _GalleryViewerState extends State<GalleryViewer>
                 );
               },
               child: Text(
-                '保存${Platform.isIOS ? ' Live Photo' : '视频'}',
+                'Save ${Platform.isIOS?' Live Photo' : 'video'}',
                 style: const TextStyle(fontSize: 14),
               ),
             ),
@@ -615,17 +615,17 @@ class _GalleryViewerState extends State<GalleryViewer>
         PopupMenuItem(
           height: 42,
           onTap: () => ImageUtils.downloadImg([item.url]),
-          child: const Text('保存图片', style: TextStyle(fontSize: 14)),
+          child: const Text('save image', style: TextStyle(fontSize: 14)),
         ),
         PopupMenuItem(
           height: 42,
           onTap: () => Utils.copyText(item.url),
-          child: const Text('复制链接', style: TextStyle(fontSize: 14)),
+          child: const Text('Copy link', style: TextStyle(fontSize: 14)),
         ),
         PopupMenuItem(
           height: 42,
           onTap: () => PageUtils.launchURL(item.url),
-          child: const Text('网页打开', style: TextStyle(fontSize: 14)),
+          child: const Text('Web page opens', style: TextStyle(fontSize: 14)),
         ),
         if (widget.sources.length > 1)
           PopupMenuItem(
@@ -633,7 +633,7 @@ class _GalleryViewerState extends State<GalleryViewer>
             onTap: () => ImageUtils.downloadImg(
               widget.sources.map((item) => item.url).toList(),
             ),
-            child: const Text('保存全部图片', style: TextStyle(fontSize: 14)),
+            child: const Text('Save all pictures', style: TextStyle(fontSize: 14)),
           ),
         if (item.sourceType == SourceType.livePhoto)
           PopupMenuItem(
@@ -644,7 +644,7 @@ class _GalleryViewerState extends State<GalleryViewer>
               width: item.width!,
               height: item.height!,
             ),
-            child: const Text('保存视频', style: TextStyle(fontSize: 14)),
+            child: const Text('save video', style: TextStyle(fontSize: 14)),
           ),
       ],
     );

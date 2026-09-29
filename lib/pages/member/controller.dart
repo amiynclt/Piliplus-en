@@ -163,14 +163,14 @@ class MemberController extends CommonDataController<SpaceData, SpaceData?>
   @override
   bool handleError(String? errMsg) {
     tab2 = const [
-      SpaceTab2(title: '动态', param: 'dynamic'),
+      SpaceTab2(title: 'dynamic', param: 'dynamic'),
       SpaceTab2(
-        title: '投稿',
+        title: 'Contribute',
         param: 'contribute',
-        items: [SpaceTab2Item(title: '视频', param: 'video')],
+        items: [SpaceTab2Item(title: 'video', param: 'video')],
       ),
-      SpaceTab2(title: '收藏', param: 'favorite'),
-      SpaceTab2(title: '追番', param: 'bangumi'),
+      SpaceTab2(title: 'collect', param: 'favorite'),
+      SpaceTab2(title: 'Chase', param: 'bangumi'),
     ];
     tabs = tab2!.map((item) => Tab(text: item.title)).toList();
     tabController?.dispose();
@@ -191,19 +191,19 @@ class MemberController extends CommonDataController<SpaceData, SpaceData?>
 
   void blockUser(BuildContext context) {
     if (!account.isLogin) {
-      SmartDialog.showToast('账号未登录');
+      SmartDialog.showToast('Account not logged in');
       return;
     }
     showDialog(
       context: context,
       builder: (context) => AlertDialog(
-        title: const Text('提示'),
-        content: Text(relation.value != 128 ? '确定拉黑UP主?' : '从黑名单移除UP主'),
+        title: const Text('hint'),
+        content: Text(relation.value != 128 ? 'Are you sure you want to block the UP owner?' : 'Remove UP master from blacklist'),
         actions: [
           TextButton(
             onPressed: Get.back,
             child: Text(
-              '点错了',
+              'Wrong click',
               style: TextStyle(color: Theme.of(context).colorScheme.outline),
             ),
           ),
@@ -212,7 +212,7 @@ class MemberController extends CommonDataController<SpaceData, SpaceData?>
               Get.back();
               _onBlock();
             },
-            child: const Text('确认'),
+            child: const Text('confirm'),
           ),
         ],
       ),
@@ -242,7 +242,7 @@ class MemberController extends CommonDataController<SpaceData, SpaceData?>
       _onBlock();
     } else {
       if (!account.isLogin) {
-        SmartDialog.showToast('账号未登录');
+        SmartDialog.showToast('Account not logged in');
         return;
       }
       RequestUtils.actionRelationMod(
@@ -267,7 +267,7 @@ class MemberController extends CommonDataController<SpaceData, SpaceData?>
       if (relation.value == 4) {
         relation.value = 2;
       }
-      SmartDialog.showToast('移除成功');
+      SmartDialog.showToast('Removed successfully');
     } else {
       res.toast();
     }
@@ -282,7 +282,7 @@ class MemberController extends CommonDataController<SpaceData, SpaceData?>
   Future<void> vipExpAdd() async {
     final res = await UserHttp.vipExpAdd();
     if (res.isSuccess) {
-      SmartDialog.showToast('领取成功');
+      SmartDialog.showToast('Received successfully');
     } else {
       res.toast();
     }

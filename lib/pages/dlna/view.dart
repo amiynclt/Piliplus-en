@@ -73,10 +73,10 @@ class _DLNAPageState extends State<DLNAPage> {
     final colorScheme = ColorScheme.of(context);
     return SimpleScaffold(
       appBar: AppBar(
-        title: const Text('投屏'),
+        title: const Text('cast screen'),
         actions: [
           IconButton(
-            tooltip: '搜索',
+            tooltip: 'search',
             onPressed: _onSearch,
             icon: const Icon(Icons.refresh),
           ),
@@ -95,7 +95,7 @@ class _DLNAPageState extends State<DLNAPage> {
   Widget _buildBody(ColorScheme colorScheme) {
     if (!_isSearching && _deviceList.isEmpty) {
       return HttpError(
-        errMsg: '没有设备',
+        errMsg: 'no equipment',
         onReload: _onSearch,
       );
     }

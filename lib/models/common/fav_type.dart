@@ -7,13 +7,13 @@ import 'package:PiliPlus/pages/fav/video/view.dart';
 import 'package:material_ui/material_ui.dart';
 
 enum FavTabType {
-  video('视频', FavVideoPage()),
-  bangumi('追番', FavPgcPage(type: 1)),
-  cinema('追剧', FavPgcPage(type: 2)),
-  article('专栏', FavArticlePage()),
-  note('笔记', FavNotePage()),
-  topic('话题', FavTopicPage()),
-  cheese('课堂', FavCheesePage()),
+  video('video', FavVideoPage()),
+  bangumi('Chase', FavPgcPage(type: 1)),
+  cinema('Catch up on dramas', FavPgcPage(type: 2)),
+  article('Column', FavArticlePage()),
+  note('notes', FavNotePage()),
+  topic('topic', FavTopicPage()),
+  cheese('classroom', FavCheesePage()),
   ;
 
   final String title;

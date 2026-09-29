@@ -287,9 +287,9 @@ class _MainAppState extends PopScopeState<MainApp>
 
     Menu trayMenu = Menu(
       items: [
-        MenuItem(key: 'show', label: '显示窗口'),
+        MenuItem(key: 'show', label: 'display window'),
         MenuItem.separator(),
-        MenuItem(key: 'exit', label: '退出 ${Constants.appName}'),
+        MenuItem(key: 'exit', label: 'Exit ${Constants.appName}'),
       ],
     );
     await trayManager.setContextMenu(trayMenu);
@@ -568,10 +568,10 @@ class _MainAppState extends PopScopeState<MainApp>
         const SizedBox(height: 8),
         msgBadge(_mainController),
         IconButton(
-          tooltip: '搜索',
+          tooltip: 'search',
           icon: const Icon(
             Icons.search_outlined,
-            semanticLabel: '搜索',
+            semanticLabel: 'search',
           ),
           onPressed: () => Get.toNamed('/search'),
         ),

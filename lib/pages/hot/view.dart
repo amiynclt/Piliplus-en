@@ -74,7 +74,7 @@ class _HotPageState extends State<HotPage>
                   children: [
                     _buildEntranceItem(
                       iconUrl: 'https://i0.hdslb.com/bfs/archive/a3f11218aaf4521b4967db2ae164ecd3052586b9.png',
-                      title: '排行榜',
+                      title: 'Ranking list',
                       onTap: () {
                         try {
                           final homeController = Get.find<HomeController>();
@@ -86,7 +86,7 @@ class _HotPageState extends State<HotPage>
                           } else {
                             Get.to(
                               SimpleScaffold(
-                                appBar: AppBar(title: const Text('排行榜')),
+                                appBar: AppBar(title: const Text('Ranking list')),
                                 body: const ViewSafeArea(child: RankPage()),
                               ),
                             );
@@ -96,12 +96,12 @@ class _HotPageState extends State<HotPage>
                     ),
                     _buildEntranceItem(
                       iconUrl: 'https://i0.hdslb.com/bfs/archive/552ebe8c4794aeef30ebd1568b59ad35f15e21ad.png',
-                      title: '每周必看',
+                      title: 'Must-see every week',
                       onTap: () => Get.toNamed('/popularSeries'),
                     ),
                     _buildEntranceItem(
                       iconUrl: 'https://i0.hdslb.com/bfs/archive/3693ec9335b78ca57353ac0734f36a46f3d179a9.png',
-                      title: '入站必刷',
+                      title: 'A must-do when entering the site',
                       onTap: () => Get.toNamed('/popularPrecious'),
                     ),
                   ],

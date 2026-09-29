@@ -147,13 +147,13 @@ class MpvConvertWebp {
 }
 
 enum WebpPreset {
-  none('none', '无', '不使用预设'),
-  def('default', '默认', '默认预设'),
-  picture('picture', '图片', '数码照片，如人像、室内拍摄'),
-  photo('photo', '照片', '户外摄影，自然光环境'),
-  drawing('drawing', '绘图', '手绘或线稿，高对比度细节'),
-  icon('icon', '图标', '小型彩色图像'),
-  text('text', '文本', '文字类'),
+  none('none', '无', 'Do not use default'),
+  def('default', 'default', 'Default preset'),
+  picture('picture', 'picture', 'Digital photos, such as portraits and indoor shots'),
+  photo('photo', 'photo', 'Outdoor photography, natural light environment'),
+  drawing('drawing', 'Drawing', 'Hand drawn or line drawing, high contrast details'),
+  icon('icon', 'icon', 'small color image'),
+  text('text', 'text', 'Text type'),
   ;
 
   final String flag;

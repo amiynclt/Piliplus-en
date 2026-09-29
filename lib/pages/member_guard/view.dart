@@ -57,7 +57,7 @@ class _MemberGuardState extends State<MemberGuard> {
   Widget build(BuildContext context) {
     return SimpleScaffold(
       appBar: AppBar(
-        title: Text('$_userName的舰队${_count == null ? '' : '($_count)'}'),
+        title: Text('Fleet${_count == null for $_userName?'' : '($_count)'}'),
       ),
       body: refreshIndicator(
         onRefresh: _controller.onRefresh,

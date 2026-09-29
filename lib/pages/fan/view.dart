@@ -55,10 +55,10 @@ class _FansPageState extends FollowTypePageState<FansPage> {
   PreferredSizeWidget? get appBar => widget.showName
       ? AppBar(
           title: controller.isOwner
-              ? const Text('我的粉丝')
+              ? const Text('my fans')
               : Obx(() {
                   final name = controller.name.value;
-                  if (name != null) return Text('$name的粉丝');
+                  if (name != null) return Text('$name's fans');
                   return const SizedBox.shrink();
                 }),
         )
@@ -68,7 +68,7 @@ class _FansPageState extends FollowTypePageState<FansPage> {
   Widget buildItem(int index, FollowItemModel item) {
     void onRemove() => showConfirmDialog(
       context: context,
-      title: Text('确定移除 ${item.uname} ？'),
+      title: Text('Are you sure you want to remove ${item.uname}?'),
       onConfirm: () => controller.onRemoveFan(index, item.mid),
     );
 

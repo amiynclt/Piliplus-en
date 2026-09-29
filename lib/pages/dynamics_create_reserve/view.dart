@@ -48,7 +48,7 @@ class _CreateReservePageState extends State<CreateReservePage> {
       const SizedBox(height: 10),
     ];
     return SimpleScaffold(
-      appBar: AppBar(title: const Text('添加直播预约')),
+      appBar: AppBar(title: const Text('Add live broadcast reservation')),
       body: ListView(
         padding: EdgeInsets.only(
           top: 16,
@@ -62,7 +62,7 @@ class _CreateReservePageState extends State<CreateReservePage> {
             children: [
               SizedBox(
                 width: 65,
-                child: Text('类型', style: _leadingStyle),
+                child: Text('type', style: _leadingStyle),
               ),
               Obx(
                 () => PopupMenuButton(
@@ -73,16 +73,16 @@ class _CreateReservePageState extends State<CreateReservePage> {
                     return const [
                       PopupMenuItem(
                         value: 0,
-                        child: Text('公开直播'),
+                        child: Text('Public live broadcast'),
                       ),
                       PopupMenuItem(
                         value: 1,
-                        child: Text('大航海直播'),
+                        child: Text('Big sailing live broadcast'),
                       ),
                     ];
                   },
                   child: Text(
-                    _controller.subType.value == 0 ? '公开直播' : '大航海直播',
+                    _controller.subType.value == 0 ? 'Public live broadcast' : 'Big sailing live broadcast',
                   ),
                 ),
               ),
@@ -94,7 +94,7 @@ class _CreateReservePageState extends State<CreateReservePage> {
             children: [
               SizedBox(
                 width: 65,
-                child: Text('时间', style: _leadingStyle),
+                child: Text('time', style: _leadingStyle),
               ),
               Expanded(
                 child: GestureDetector(
@@ -126,7 +126,7 @@ class _CreateReservePageState extends State<CreateReservePage> {
                             const Duration(minutes: 5)) {
                           _controller.date.value = newEndtime;
                         } else {
-                          SmartDialog.showToast('至少选择5分钟之后');
+                          SmartDialog.showToast('Select at least 5 minutes later');
                         }
                       }
                     }
@@ -154,8 +154,8 @@ class _CreateReservePageState extends State<CreateReservePage> {
               onChanged: (value) => _controller
                 ..title.value = value
                 ..updateCanCreate(),
-              desc: '标题',
-              hintText: '请填写标题，最多14字',
+              desc: 'title',
+              hintText: 'Please fill in the title, up to 14 words',
               inputFormatters: [LengthLimitingTextInputFormatter(14)],
             ),
           ),
@@ -166,7 +166,7 @@ class _CreateReservePageState extends State<CreateReservePage> {
               onPressed: _controller.canCreate.value
                   ? _controller.onCreate
                   : null,
-              child: const Text('添加预约'),
+              child: const Text('Add appointment'),
             );
           }),
         ],

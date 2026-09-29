@@ -76,7 +76,7 @@ class ForwardSeekIndicatorState extends State<ForwardSeekIndicator> {
               ),
               const SizedBox(height: 8.0),
               Text(
-                '快进${duration.inSeconds}秒',
+                'Fast forward ${duration.inSeconds} seconds',
                 style: const TextStyle(
                   fontSize: 12.0,
                   color: Colors.white,

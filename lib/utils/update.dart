@@ -30,7 +30,7 @@ abstract final class Update {
       );
       if (res.data is Map || res.data.isEmpty) {
         if (!isAuto) {
-          SmartDialog.showToast('检查更新失败，GitHub接口未返回数据，请检查网络');
+          SmartDialog.showToast('Checking for updates failed, the GitHub interface did not return data, please check the network');
         }
         return;
       }
@@ -39,7 +39,7 @@ abstract final class Update {
           DateTime.parse(data['created_at']).millisecondsSinceEpoch ~/ 1000;
       if (BuildConfig.buildTime >= latest) {
         if (!isAuto) {
-          SmartDialog.showToast('已是最新版本');
+          SmartDialog.showToast('Already the latest version');
         }
       } else {
         SmartDialog.show(
@@ -51,7 +51,7 @@ abstract final class Update {
               child: Text(text),
             );
             return AlertDialog(
-              title: const Text('🎉 发现新版本 '),
+              title: const Text('🎉 Discover new version'),
               content: SizedBox(
                 height: 280,
                 child: SingleChildScrollView(
@@ -69,7 +69,7 @@ abstract final class Update {
                           '${Constants.sourceCodeUrl}/commits/main',
                         ),
                         child: Text(
-                          "点此查看完整更新(即commit)内容",
+                          "Click here to view the complete update (i.e. commit) content",
                           style: TextStyle(color: colorScheme.primary),
                         ),
                       ),
@@ -85,14 +85,14 @@ abstract final class Update {
                       GStorage.setting.put(SettingBoxKey.autoUpdate, false);
                     },
                     child: Text(
-                      '不再提醒',
+                      'Don't remind again',
                       style: TextStyle(color: colorScheme.outline),
                     ),
                   ),
                 TextButton(
                   onPressed: SmartDialog.dismiss,
                   child: Text(
-                    '取消',
+                    'Cancel',
                     style: TextStyle(color: colorScheme.outline),
                   ),
                 ),

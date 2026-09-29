@@ -52,7 +52,7 @@ class SearchEsportsItem extends StatelessWidget {
           ),
         ),
         onPressed: () => PageUtils.toLiveRoom(contest.liveRoom),
-        child: const Text('观看直播'),
+        child: const Text('Watch live'),
       );
     } else {
       final style = ButtonStyle(
@@ -71,7 +71,7 @@ class SearchEsportsItem extends StatelessWidget {
       btn = OutlinedButton(
         style: style,
         onPressed: () => PageUtils.toLiveRoom(contest.liveRoom),
-        child: const Text('直播间'),
+        child: const Text('Live broadcast room'),
       );
 
       if (contest.playback?.isNotEmpty ?? false) {
@@ -83,7 +83,7 @@ class SearchEsportsItem extends StatelessWidget {
             OutlinedButton(
               style: style,
               onPressed: () => PiliScheme.routePushFromUrl(contest.playback!),
-              child: const Text('回放'),
+              child: const Text('Playback'),
             ),
             btn,
           ],
@@ -116,7 +116,7 @@ class SearchEsportsItem extends StatelessWidget {
                       if (contest.gameStage != null)
                         TextSpan(text: contest.gameStage),
                       if (contest.contestStatus == 3)
-                        const TextSpan(text: '  已结束')
+                        const TextSpan(text: 'ended')
                       else if (contest.contestStatus == 1 &&
                           contest.stime != null)
                         TextSpan(

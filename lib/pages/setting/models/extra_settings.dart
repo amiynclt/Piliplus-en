@@ -57,7 +57,7 @@ import 'package:material_ui/material_ui.dart' hide RefreshIndicator;
 List<SettingsModel> get extraSettings => [
   if (PlatformUtils.isDesktop) ...[
     SwitchModel(
-      title: '退出时最小化',
+      title: 'Minimize on exit',
       leading: const Icon(Icons.exit_to_app),
       setKey: SettingBoxKey.minimizeOnExit,
       defaultVal: true,
@@ -68,15 +68,15 @@ List<SettingsModel> get extraSettings => [
       },
     ),
     NormalModel(
-      title: '缓存路径',
+      title: 'Cache path',
       getSubtitle: () => downloadPath,
       leading: const Icon(Icons.storage),
       onTap: _showDownPathDialog,
     ),
   ] else if (Platform.isAndroid)
     SwitchModel(
-      title: '允许三方APP访问私有存储',
-      subtitle: '允许三方APP（例如MT管理器）通过访问外部存储的方式访问私有存储下的文件',
+      title: 'Allow third-party APPs to access private storage',
+      subtitle: 'Allow third-party APPs (such as MT Manager) to access files in private storage by accessing external storage',
       leading: const Icon(Icons.storage),
       setKey: SettingBoxKey.enableDocProvider,
       defaultVal: Pref.enableDocProvider,
@@ -84,8 +84,8 @@ List<SettingsModel> get extraSettings => [
     ),
   SplitModel(
     normalModel: const NormalModel.split(
-      title: '空降助手',
-      subtitle: '点击配置',
+      title: 'airborne assistant',
+      subtitle: 'Click configure',
       leading: Icon(CustomIcons.shield_play_arrow),
     ),
     switchModel: SwitchModel.split(
@@ -95,7 +95,7 @@ List<SettingsModel> get extraSettings => [
     ),
   ),
   PopupModel<SkipType>(
-    title: '番剧片头/片尾跳过类型',
+    title: 'Drama opening/ending skip type',
     leading: const Icon(MdiIcons.debugStepOver),
     value: () => Pref.pgcSkipType,
     items: SkipType.values,
@@ -105,8 +105,8 @@ List<SettingsModel> get extraSettings => [
   ),
   SplitModel(
     normalModel: const NormalModel.split(
-      title: '检查未读动态',
-      subtitle: '点击设置检查周期(min)',
+      title: 'Check unread updates',
+      subtitle: 'Click to set the inspection period (min)',
       leading: Icon(Icons.notifications_none),
     ),
     switchModel: SwitchModel.split(
@@ -117,73 +117,73 @@ List<SettingsModel> get extraSettings => [
     ),
   ),
   const SwitchModel(
-    title: '显示视频分段信息',
+    title: 'Display video segment information',
     leading: Icon(CustomIcons.view_headline_rotate_90),
     setKey: SettingBoxKey.showViewPoints,
     defaultVal: true,
   ),
   const SwitchModel(
-    title: '视频页显示相关视频',
+    title: 'Video page displays related videos',
     leading: Icon(MdiIcons.motionPlayOutline),
     setKey: SettingBoxKey.showRelatedVideo,
     defaultVal: true,
   ),
   const SwitchModel(
-    title: '显示视频评论',
+    title: 'Show video comments',
     leading: Icon(MdiIcons.commentTextOutline),
     setKey: SettingBoxKey.showVideoReply,
     defaultVal: true,
   ),
   const SwitchModel(
-    title: '显示番剧评论',
+    title: 'Show drama comments',
     leading: Icon(MdiIcons.commentTextOutline),
     setKey: SettingBoxKey.showBangumiReply,
     defaultVal: true,
   ),
   const SwitchModel(
-    title: '默认展开视频简介',
+    title: 'Expand video introduction by default',
     leading: Icon(Icons.expand_more),
     setKey: SettingBoxKey.alwaysExpandIntroPanel,
     defaultVal: false,
   ),
   const SwitchModel(
-    title: '横屏自动展开视频简介',
+    title: 'Horizontal screen automatically expands video introduction',
     leading: Icon(Icons.expand_more),
     setKey: SettingBoxKey.expandIntroPanelH,
     defaultVal: false,
   ),
   SwitchModel(
-    title: '横屏分P/合集列表显示在Tab栏',
+    title: 'Horizontal screen split P/collection list is displayed in the Tab bar',
     leading: const Icon(Icons.format_list_numbered_rtl_sharp),
     setKey: SettingBoxKey.horizontalSeasonPanel,
     defaultVal: Pref.horizontalScreen,
   ),
   SwitchModel(
-    title: '横屏播放页在侧栏打开UP主页',
+    title: 'The horizontal screen playback page opens the UP homepage in the sidebar',
     leading: const Icon(Icons.account_circle_outlined),
     setKey: SettingBoxKey.horizontalMemberPage,
     defaultVal: Pref.horizontalScreen,
   ),
   SwitchModel(
-    title: '横屏在侧栏打开图片预览',
+    title: 'Open image preview in sidebar in landscape orientation',
     leading: const Icon(Icons.photo_outlined),
     setKey: SettingBoxKey.horizontalPreview,
     defaultVal: false,
     onChanged: (value) => ImageGridView.horizontalPreview = value,
   ),
   NormalModel(
-    title: '评论折叠行数',
-    subtitle: '0行为不折叠',
+    title: 'Number of lines to collapse in comments',
+    subtitle: '0 behavior does not fold',
     leading: const Icon(Icons.compress),
     getTrailing: (theme) => Text(
-      '${ReplyItemGrpc.replyLengthLimit}行',
+      '${ReplyItemGrpc.replyLengthLimit} line',
       style: theme.textTheme.titleSmall,
     ),
     onTap: _showReplyLengthDialog,
   ),
   NormalModel(
-    title: '弹幕行高',
-    subtitle: '默认1.6',
+    title: 'barrage line height',
+    subtitle: 'Default 1.6',
     leading: const Icon(CustomIcons.dm_settings),
     getTrailing: (theme) => Text(
       Pref.danmakuLineHeight.toString(),
@@ -192,40 +192,40 @@ List<SettingsModel> get extraSettings => [
     onTap: _showDmHeightDialog,
   ),
   const SwitchModel(
-    title: '显示视频警告/争议信息',
+    title: 'Show video warning/dispute information',
     leading: Icon(Icons.warning_amber_rounded),
     setKey: SettingBoxKey.showArgueMsg,
     defaultVal: true,
   ),
   SwitchModel(
-    title: '显示动态警告/争议信息',
+    title: 'Show dynamic warning/dispute information',
     leading: const Icon(Icons.warning_amber_rounded),
     setKey: SettingBoxKey.showDynDispute,
     defaultVal: false,
     onChanged: (val) => ItemModulesModel.showDynDispute = val,
   ),
   const SwitchModel(
-    title: '分P/合集：倒序播放从首集开始播放',
-    subtitle: '开启则自动切换为倒序首集，否则保持当前集',
+    title: 'Split P/Collection: Play in reverse order starting from the first episode',
+    subtitle: 'If turned on, it will automatically switch to the first episode in reverse order, otherwise it will keep the current episode.',
     leading: Icon(MdiIcons.sort),
     setKey: SettingBoxKey.reverseFromFirst,
     defaultVal: true,
   ),
   const SwitchModel(
-    title: '禁用 SSL 证书验证',
-    subtitle: '谨慎开启，禁用容易受到中间人攻击',
+    title: 'Disable SSL certificate verification',
+    subtitle: 'Enable with caution, disabling is vulnerable to man-in-the-middle attacks',
     leading: Icon(Icons.security),
     needReboot: true,
     setKey: SettingBoxKey.badCertificateCallback,
   ),
   const SwitchModel(
-    title: '显示继续播放分P提示',
+    title: 'Display the prompt to continue playing with P points',
     leading: Icon(Icons.local_parking),
     setKey: SettingBoxKey.continuePlayingPart,
     defaultVal: true,
   ),
   getBanWordModel(
-    title: '评论关键词过滤',
+    title: 'Comment keyword filtering',
     key: SettingBoxKey.banWordForReply,
     onChanged: (value) {
       ReplyGrpc.replyRegExp = value;
@@ -233,7 +233,7 @@ List<SettingsModel> get extraSettings => [
     },
   ),
   getBanWordModel(
-    title: '动态关键词过滤',
+    title: 'Dynamic keyword filtering',
     key: SettingBoxKey.banWordForDyn,
     onChanged: (value) {
       DynamicsDataModel.banWordForDyn = value;
@@ -241,40 +241,40 @@ List<SettingsModel> get extraSettings => [
     },
   ),
   const SwitchModel(
-    title: '使用外部浏览器打开链接',
+    title: 'Open the link using an external browser',
     leading: Icon(Icons.open_in_browser),
     setKey: SettingBoxKey.openInBrowser,
     defaultVal: false,
   ),
   NormalModel(
-    title: '横向滑动阈值',
-    getSubtitle: () => '当前:「${Pref.touchSlopH}」，系统默认值: $deviceTouchSlop',
+    title: 'Lateral sliding threshold',
+    getSubtitle: () => 'Current: "${Pref.touchSlopH}", system default value: $deviceTouchSlop',
     onTap: _showTouchSlopDialog,
     leading: const Icon(Icons.pan_tool_alt_outlined),
   ),
   NormalModel(
-    title: '刷新指示器高度',
+    title: 'refresh indicator height',
     leading: const Icon(Icons.height),
     getSubtitle: () =>
-        '当前指示器高度: ${Pref.refreshDisplacement}, 刷新滑动距离: $refreshDragExtent',
+        'Current indicator height: ${Pref.refreshDisplacement}, refresh sliding distance: $refreshDragExtent',
     onTap: _showRefreshDialog,
   ),
   const SwitchModel(
-    title: '显示会员彩色弹幕',
+    title: 'Show member color barrage',
     leading: Icon(MdiIcons.gradientHorizontal),
     setKey: SettingBoxKey.showVipDanmaku,
     defaultVal: true,
   ),
   const SwitchModel(
-    title: '合并弹幕',
-    subtitle: '合并一段时间内获取到的相同弹幕',
+    title: 'Merge barrages',
+    subtitle: 'Merge the same comments obtained within a period of time',
     leading: Icon(Icons.merge),
     setKey: SettingBoxKey.mergeDanmaku,
     defaultVal: false,
   ),
   const SwitchModel(
-    title: '显示热门推荐',
-    subtitle: '热门页面显示每周必看等推荐内容入口',
+    title: 'Show popular recommendations',
+    subtitle: 'The popular page displays the entrance to recommended content such as weekly must-sees.',
     leading: Icon(Icons.local_fire_department_outlined),
     setKey: SettingBoxKey.showHotRcmd,
     defaultVal: false,
@@ -282,7 +282,7 @@ List<SettingsModel> get extraSettings => [
   ),
   if (kDebugMode || Platform.isAndroid)
     NormalModel(
-      title: '音量均衡',
+      title: 'Volume balance',
       leading: const Icon(Icons.multitrack_audio),
       getSubtitle: () {
         final audioNormalization = AudioNormalization.getTitleFromConfig(
@@ -293,104 +293,104 @@ List<SettingsModel> get extraSettings => [
           fallback = '';
         } else {
           fallback =
-              '，无参数时:「${AudioNormalization.getTitleFromConfig(fallback)}」';
+              ', when there are no parameters: "${AudioNormalization.getTitleFromConfig(fallback)}"';
         }
-        return '当前:「$audioNormalization」$fallback';
+        return 'Current: "$audioNormalization" $fallback';
       },
       onTap: audioNormalization,
     ),
   NormalModel(
-    title: '超分辨率',
+    title: 'super resolution',
     leading: const Icon(Icons.stay_current_landscape_outlined),
     getSubtitle: () =>
-        '当前:「${Pref.superResolutionType.label}」\n默认设置对番剧生效, 其他视频默认关闭\n超分辨率需要启用硬件解码, 若启用硬件解码后仍然不生效, 尝试切换硬件解码器为 auto-copy',
+        'Current: "${Pref.superResolutionType.label}"\nThe default settings are effective for TV series, and are turned off by default for other videos\nSuper resolution needs to enable hardware decoding. If it still does not take effect after enabling hardware decoding, try switching the hardware decoder to auto-copy',
     onTap: _showSuperResolutionDialog,
   ),
   const SwitchModel(
-    title: '提前初始化播放器',
-    subtitle: '相对减少手动播放加载时间',
+    title: 'Initialize the player in advance',
+    subtitle: 'Relatively reduces manual playback loading time',
     leading: Icon(Icons.play_circle_outlined),
     setKey: SettingBoxKey.preInitPlayer,
     defaultVal: false,
   ),
   const SwitchModel(
-    title: '首页切换页面动画',
+    title: 'Home page switching page animation',
     leading: Icon(Icons.home_outlined),
     setKey: SettingBoxKey.mainTabBarView,
     defaultVal: false,
     needReboot: true,
   ),
   const SwitchModel(
-    title: '搜索建议',
+    title: 'Search suggestions',
     leading: Icon(Icons.search),
     setKey: SettingBoxKey.searchSuggestion,
     defaultVal: true,
   ),
   const SwitchModel(
-    title: '记录搜索历史',
+    title: 'Record search history',
     leading: Icon(Icons.history),
     setKey: SettingBoxKey.recordSearchHistory,
     defaultVal: true,
   ),
   SwitchModel(
-    title: '展示头像/评论/动态装饰',
+    title: 'Display avatar/comments/dynamic decoration',
     leading: const Icon(MdiIcons.stickerCircleOutline),
     setKey: SettingBoxKey.showDecorate,
     defaultVal: true,
     onChanged: (value) => PendantAvatar.showDecorate = value,
   ),
   SwitchModel(
-    title: '点击表情显示 Tooltip',
+    title: 'Click to display Tooltip',
     leading: const Icon(Icons.emoji_emotions_outlined),
     setKey: SettingBoxKey.enableEmoteTooltip,
     defaultVal: false,
     onChanged: (value) => enableEmoteTooltip = value,
   ),
   SwitchModel(
-    title: '显示粉丝勋章',
+    title: 'Show fan medals',
     leading: const Icon(MdiIcons.medalOutline),
     setKey: SettingBoxKey.showMedal,
     defaultVal: true,
     onChanged: (value) => GlobalData().showMedal = value,
   ),
   SwitchModel(
-    title: '预览 Live Photo',
-    subtitle: '开启则以视频形式预览 Live Photo，否则预览静态图片',
+    title: 'Preview Live Photo',
+    subtitle: 'Turn on to preview Live Photo as video, otherwise preview as still image',
     leading: const Icon(Icons.image_outlined),
     setKey: SettingBoxKey.enableLivePhoto,
     defaultVal: true,
     onChanged: (value) => ImageModel.enableLivePhoto = value,
   ),
   const SwitchModel(
-    title: '滑动跳转预览视频缩略图',
+    title: 'Slide to jump preview video thumbnail',
     leading: Icon(Icons.preview_outlined),
     setKey: SettingBoxKey.showSeekPreview,
     defaultVal: true,
   ),
   const SwitchModel(
-    title: '显示高能进度条',
-    subtitle: '高能进度条反应了在时域上，单位时间内弹幕发送量的变化趋势',
+    title: 'Show high energy progress bar',
+    subtitle: 'The high-energy progress bar reflects the changing trend of the amount of barrages sent per unit time in the time domain.',
     leading: Icon(Icons.show_chart),
     setKey: SettingBoxKey.showDmChart,
     defaultVal: false,
   ),
   const SwitchModel(
-    title: '记录评论',
+    title: 'Record comments',
     leading: Icon(Icons.message_outlined),
     setKey: SettingBoxKey.saveReply,
     defaultVal: true,
     needReboot: true,
   ),
   const SwitchModel(
-    title: '发评反诈',
-    subtitle: '发送评论后检查评论是否可见',
+    title: 'Post comments to fight fraud',
+    subtitle: 'Check if the comment is visible after sending it',
     leading: Icon(CustomIcons.shield_reply),
     setKey: SettingBoxKey.enableCommAntifraud,
     defaultVal: false,
   ),
   if (Platform.isAndroid)
     const SwitchModel(
-      title: '使用「哔哩发评反诈」检查评论',
+      title: 'Use "Bilifa Comments Anti-Fraud" to check comments',
       leading: Icon(
         FontAwesomeIcons.b,
         size: 22,
@@ -399,68 +399,68 @@ List<SettingsModel> get extraSettings => [
       defaultVal: false,
     ),
   const SwitchModel(
-    title: '发布/转发动态反诈',
-    subtitle: '发布/转发动态后检查动态是否可见',
+    title: 'Publish/forward dynamic anti-fraud',
+    subtitle: 'Check whether the update is visible after posting/forwarding it',
     leading: Icon(CustomIcons.shield_published),
     setKey: SettingBoxKey.enableCreateDynAntifraud,
     defaultVal: false,
   ),
   SwitchModel(
-    title: '屏蔽带货动态',
+    title: 'Shield the delivery dynamics',
     leading: const Icon(CustomIcons.shopping_bag_not_interested),
     setKey: SettingBoxKey.antiGoodsDyn,
     defaultVal: false,
     onChanged: (value) => DynamicsDataModel.antiGoodsDyn = value,
   ),
   SwitchModel(
-    title: '屏蔽带货评论',
+    title: 'Blocking comments on bringing goods',
     leading: const Icon(CustomIcons.shopping_bag_not_interested),
     setKey: SettingBoxKey.antiGoodsReply,
     defaultVal: false,
     onChanged: (value) => ReplyGrpc.antiGoodsReply = value,
   ),
   SwitchModel(
-    title: '侧滑关闭二级页面',
+    title: 'Slide sideways to close the secondary page',
     leading: const Icon(CustomIcons.touch_app_rotate_270),
     setKey: SettingBoxKey.slideDismissReplyPage,
     defaultVal: Platform.isIOS,
     onChanged: (value) => CommonSlideMixin.slideDismissReplyPage = value,
   ),
   const SwitchModel(
-    title: '启用双指缩小视频',
+    title: 'Enable pinch-to-zoom video',
     leading: Icon(Icons.pinch),
     setKey: SettingBoxKey.enableShrinkVideoSize,
     defaultVal: true,
   ),
   const SwitchModel(
-    title: '动态/专栏详情页展示底部操作栏',
+    title: 'Dynamic/column details page displays bottom operation bar',
     leading: Icon(Icons.more_horiz),
     setKey: SettingBoxKey.showDynActionBar,
     defaultVal: true,
   ),
   const SwitchModel(
-    title: '启用拖拽字幕调整底部边距',
+    title: 'Enable dragging subtitles to adjust bottom margin',
     leading: Icon(MdiIcons.dragVariant),
     setKey: SettingBoxKey.enableDragSubtitle,
     defaultVal: false,
   ),
   const SwitchModel(
-    title: '展示追番时间表',
+    title: 'Show chasing schedule',
     leading: Icon(MdiIcons.chartTimelineVariantShimmer),
     setKey: SettingBoxKey.showPgcTimeline,
     defaultVal: true,
     needReboot: true,
   ),
   SwitchModel(
-    title: '静默下载图片',
-    subtitle: '不显示下载 Loading 弹窗',
+    title: 'Download pictures silently',
+    subtitle: 'Do not display the download Loading pop-up window',
     leading: const Icon(Icons.download_for_offline_outlined),
     setKey: SettingBoxKey.silentDownImg,
     defaultVal: false,
     onChanged: (value) => ImageUtils.silentDownImg = value,
   ),
   SwitchModel(
-    title: '长按/右键显示图片菜单',
+    title: 'Long press/right click to display picture menu',
     leading: const Icon(Icons.menu),
     setKey: SettingBoxKey.enableImgMenu,
     defaultVal: false,
@@ -473,26 +473,26 @@ List<SettingsModel> get extraSettings => [
       feedBack();
     },
     leading: const Icon(Icons.vibration_outlined),
-    title: '震动反馈',
-    subtitle: '请确定手机设置中已开启震动反馈',
+    title: 'Vibration feedback',
+    subtitle: 'Please make sure vibration feedback is turned on in your phone settings',
   ),
   const SwitchModel(
-    title: '大家都在搜',
-    subtitle: '是否展示「大家都在搜」',
+    title: 'Everyone is searching',
+    subtitle: 'Whether to display "Everyone is searching"',
     leading: Icon(Icons.data_thresholding_outlined),
     setKey: SettingBoxKey.enableHotKey,
     defaultVal: true,
   ),
   const SwitchModel(
-    title: '搜索发现',
-    subtitle: '是否展示「搜索发现」',
+    title: 'Search found',
+    subtitle: 'Whether to display "Search Discovery"',
     leading: Icon(Icons.search_outlined),
     setKey: SettingBoxKey.enableSearchRcmd,
     defaultVal: true,
   ),
   SwitchModel(
-    title: '搜索默认词',
-    subtitle: '是否展示搜索框默认词',
+    title: 'Search default words',
+    subtitle: 'Whether to display the search box default words',
     leading: const Icon(Icons.whatshot_outlined),
     setKey: SettingBoxKey.enableSearchWord,
     defaultVal: false,
@@ -508,63 +508,63 @@ List<SettingsModel> get extraSettings => [
     },
   ),
   const SwitchModel(
-    title: '快速收藏',
-    subtitle: '点击设置默认收藏夹\n点按收藏至默认，长按选择文件夹',
+    title: 'Quick collection',
+    subtitle: 'Click to set the default favorite\nClick to set the default favorite, and long press to select the folder',
     leading: Icon(Icons.bookmark_add_outlined),
     setKey: SettingBoxKey.enableQuickFav,
     onTap: _showFavDialog,
     defaultVal: false,
   ),
   SwitchModel(
-    title: '评论区搜索关键词',
-    subtitle: '展示评论区搜索关键词',
+    title: 'Search keywords in the comment area',
+    subtitle: 'Display search keywords in the comment area',
     leading: const Icon(Icons.search_outlined),
     setKey: SettingBoxKey.enableWordRe,
     defaultVal: false,
     onChanged: (value) => ReplyItemGrpc.enableWordRe = value,
   ),
   const SwitchModel(
-    title: '启用AI总结',
-    subtitle: '视频详情页开启AI总结',
+    title: 'Enable AI summarization',
+    subtitle: 'Turn on AI summary on video details page',
     leading: Icon(Icons.engineering_outlined),
     setKey: SettingBoxKey.enableAi,
     defaultVal: false,
   ),
   const SwitchModel(
-    title: '消息页禁用"收到的赞"功能',
-    subtitle: '禁止打开入口，降低网络社交依赖',
+    title: '消息页禁用"likes received"功能',
+    subtitle: 'It is forbidden to open the entrance to reduce dependence on online social networking.',
     leading: Icon(Icons.beach_access_outlined),
     setKey: SettingBoxKey.disableLikeMsg,
     defaultVal: false,
   ),
   const SwitchModel(
-    title: '默认展示评论区',
-    subtitle: '在视频详情页默认切换至评论区页（仅Tab型布局）',
+    title: 'Show comment area by default',
+    subtitle: 'Switch to the comment area page by default on the video details page (Tab layout only)',
     leading: Icon(Icons.mode_comment_outlined),
     setKey: SettingBoxKey.defaultShowComment,
     defaultVal: false,
   ),
   const SwitchModel(
-    title: '启用HTTP/2',
+    title: 'Enable HTTP/2',
     leading: Icon(Icons.swap_horizontal_circle_outlined),
     setKey: SettingBoxKey.enableHttp2,
     defaultVal: false,
     needReboot: true,
   ),
   const NormalModel(
-    title: '连接重试次数',
-    subtitle: '为0时禁用',
+    title: 'Number of connection retries',
+    subtitle: 'Disabled when 0',
     leading: Icon(Icons.repeat),
     onTap: _showReplyCountDialog,
   ),
   const NormalModel(
-    title: '连接重试间隔',
-    subtitle: '实际间隔 = 间隔 * 第x次重试',
+    title: 'Connection retry interval',
+    subtitle: 'actual interval = interval * xth retry',
     leading: Icon(Icons.more_time_outlined),
     onTap: _showReplyDelayDialog,
   ),
   PopupModel(
-    title: '评论展示',
+    title: 'Comment display',
     leading: const Icon(Icons.whatshot_outlined),
     value: () => Pref.replySortType,
     items: ReplySortType.values.take(2),
@@ -573,7 +573,7 @@ List<SettingsModel> get extraSettings => [
         .whenComplete(setState),
   ),
   PopupModel(
-    title: '楼中楼评论展示',
+    title: 'Louzhonglou comment display',
     leading: const Icon(Icons.subdirectory_arrow_right_outlined),
     value: () => Pref.reply2SortType,
     items: ReplySortType.values.take(2),
@@ -582,7 +582,7 @@ List<SettingsModel> get extraSettings => [
         .whenComplete(setState),
   ),
   PopupModel(
-    title: '动态展示',
+    title: 'Dynamic display',
     leading: const Icon(Icons.dynamic_feed_rounded),
     value: () => Pref.defaultDynamicType,
     items: DynamicsTabType.values.take(4),
@@ -591,21 +591,21 @@ List<SettingsModel> get extraSettings => [
         .whenComplete(setState),
   ),
   SwitchModel(
-    title: '显示动态互动内容',
-    subtitle: '开启后则在动态卡片底部显示互动内容（如关注的人点赞、热评等）',
+    title: 'Display dynamic interactive content',
+    subtitle: 'When turned on, interactive content (such as likes, hot comments, etc.) from people you follow will be displayed at the bottom of the dynamic card.',
     leading: const Icon(Icons.quickreply_outlined),
     setKey: SettingBoxKey.showDynInteraction,
     defaultVal: true,
     onChanged: (val) => ItemModulesModel.showDynInteraction = val,
   ),
   NormalModel(
-    title: '用户页默认展示TAB',
+    title: 'User pages display TAB by default',
     leading: const Icon(Icons.tab),
-    getSubtitle: () => '当前优先展示「${Pref.memberTab.title}」',
+    getSubtitle: () => 'Currently, "${Pref.memberTab.title}" is displayed first',
     onTap: _showMemberTabDialog,
   ),
   SwitchModel(
-    title: '显示UP主页小店TAB',
+    title: 'Show UP homepage shop TAB',
     leading: const Icon(Icons.shop_outlined),
     setKey: SettingBoxKey.showMemberShop,
     defaultVal: false,
@@ -613,8 +613,8 @@ List<SettingsModel> get extraSettings => [
   ),
   const SplitModel(
     normalModel: NormalModel.split(
-      title: '设置代理',
-      subtitle: '设置代理 host:port',
+      title: 'Set proxy',
+      subtitle: 'Set proxy host:port',
       leading: Icon(Icons.airplane_ticket_outlined),
     ),
     switchModel: SwitchModel.split(
@@ -624,15 +624,15 @@ List<SettingsModel> get extraSettings => [
     ),
   ),
   NormalModel(
-    title: '最大缓存大小',
+    title: 'Maximum cache size',
     getSubtitle: () =>
-        '当前最大缓存大小: 「${CacheManager.formatSize(Pref.maxCacheSize)}」',
+        'Current maximum cache size: "${CacheManager.formatSize(Pref.maxCacheSize)}"',
     leading: const Icon(Icons.delete_outlined),
     onTap: _showCacheDialog,
   ),
   SwitchModel(
-    title: '检查更新',
-    subtitle: '每次启动时检查是否需要更新',
+    title: 'Check for updates',
+    subtitle: 'Checks every time it starts to see if updates are needed',
     leading: const Icon(Icons.system_update_alt),
     setKey: SettingBoxKey.autoUpdate,
     defaultVal: true,
@@ -666,7 +666,7 @@ Future<void> audioNormalization(
         '3',
       };
       return SelectDialog<String>(
-        title: fallback ? '服务器无loudnorm配置时使用' : '音量均衡',
+        title: fallback ? 'Used when the server does not have loudnorm configuration' : 'Volume balance',
         toggleable: true,
         value: audioNormalization,
         values: values
@@ -692,12 +692,12 @@ Future<void> audioNormalization(
       await showDialog(
         context: context,
         builder: (context) => AlertDialog(
-          title: const Text('自定义参数'),
+          title: const Text('Custom parameters'),
           content: Column(
             mainAxisSize: MainAxisSize.min,
             spacing: 16,
             children: [
-              const Text('等同于 --lavfi-complex="[aid1] 参数 [ao]"'),
+              const Text('等同于 --lavfi-complex="[aid1] parameter [ao]"'),
               TextField(
                 autofocus: true,
                 onChanged: (value) => param = value,
@@ -708,7 +708,7 @@ Future<void> audioNormalization(
             TextButton(
               onPressed: Get.back,
               child: Text(
-                '取消',
+                'Cancel',
                 style: TextStyle(color: ColorScheme.of(context).outline),
               ),
             ),
@@ -722,7 +722,7 @@ Future<void> audioNormalization(
                 }
                 setState();
               },
-              child: const Text('确定'),
+              child: const Text('Sure'),
             ),
           ],
         ),
@@ -749,14 +749,14 @@ void _showDownPathDialog(BuildContext context, VoidCallback setState) {
             Get.back();
             PathUtils.openDir(downloadPath);
           },
-          child: const Text('打开'),
+          child: const Text('Open'),
         ),
         DialogOption(
           onPressed: () {
             Get.back();
             Utils.copyText(downloadPath);
           },
-          child: const Text('复制', style: TextStyle(fontSize: 14)),
+          child: const Text('copy', style: TextStyle(fontSize: 14)),
         ),
         DialogOption(
           onPressed: () {
@@ -768,7 +768,7 @@ void _showDownPathDialog(BuildContext context, VoidCallback setState) {
             Get.find<DownloadService>().initDownloadList();
             GStorage.setting.delete(SettingBoxKey.downloadPath);
           },
-          child: const Text('重置', style: TextStyle(fontSize: 14)),
+          child: const Text('reset', style: TextStyle(fontSize: 14)),
         ),
         DialogOption(
           onPressed: () async {
@@ -784,7 +784,7 @@ void _showDownPathDialog(BuildContext context, VoidCallback setState) {
             Get.find<DownloadService>().initDownloadList();
             GStorage.setting.put(SettingBoxKey.downloadPath, path);
           },
-          child: const Text('设置新路径', style: TextStyle(fontSize: 14)),
+          child: const Text('Set new path', style: TextStyle(fontSize: 14)),
         ),
       ],
     ),
@@ -796,7 +796,7 @@ void _showDynDialog(BuildContext context) {
   showDialog(
     context: context,
     builder: (context) => AlertDialog(
-      title: const Text('检查周期'),
+      title: const Text('Inspection cycle'),
       content: TextFormField(
         autofocus: true,
         initialValue: dynamicPeriod,
@@ -809,7 +809,7 @@ void _showDynDialog(BuildContext context) {
         TextButton(
           onPressed: Get.back,
           child: Text(
-            '取消',
+            'Cancel',
             style: TextStyle(color: ColorScheme.of(context).outline),
           ),
         ),
@@ -824,7 +824,7 @@ void _showDynDialog(BuildContext context) {
               SmartDialog.showToast(e.toString());
             }
           },
-          child: const Text('确定'),
+          child: const Text('Sure'),
         ),
       ],
     ),
@@ -836,7 +836,7 @@ void _showReplyLengthDialog(BuildContext context, VoidCallback setState) {
   showDialog(
     context: context,
     builder: (context) => AlertDialog(
-      title: const Text('评论折叠行数'),
+      title: const Text('Number of lines to collapse in comments'),
       content: TextFormField(
         autofocus: true,
         initialValue: replyLengthLimit,
@@ -849,7 +849,7 @@ void _showReplyLengthDialog(BuildContext context, VoidCallback setState) {
         TextButton(
           onPressed: Get.back,
           child: Text(
-            '取消',
+            'Cancel',
             style: TextStyle(color: ColorScheme.of(context).outline),
           ),
         ),
@@ -865,7 +865,7 @@ void _showReplyLengthDialog(BuildContext context, VoidCallback setState) {
               SmartDialog.showToast(e.toString());
             }
           },
-          child: const Text('确定'),
+          child: const Text('Sure'),
         ),
       ],
     ),
@@ -877,7 +877,7 @@ void _showDmHeightDialog(BuildContext context, VoidCallback setState) {
   showDialog(
     context: context,
     builder: (context) => AlertDialog(
-      title: const Text('弹幕行高'),
+      title: const Text('barrage line height'),
       content: TextFormField(
         autofocus: true,
         initialValue: danmakuLineHeight,
@@ -889,7 +889,7 @@ void _showDmHeightDialog(BuildContext context, VoidCallback setState) {
         TextButton(
           onPressed: Get.back,
           child: Text(
-            '取消',
+            'Cancel',
             style: TextStyle(color: ColorScheme.of(context).outline),
           ),
         ),
@@ -907,7 +907,7 @@ void _showDmHeightDialog(BuildContext context, VoidCallback setState) {
               SmartDialog.showToast(e.toString());
             }
           },
-          child: const Text('确定'),
+          child: const Text('Sure'),
         ),
       ],
     ),
@@ -919,7 +919,7 @@ void _showTouchSlopDialog(BuildContext context, VoidCallback setState) {
   showDialog(
     context: context,
     builder: (context) => AlertDialog(
-      title: const Text('横向滑动阈值'),
+      title: const Text('Lateral sliding threshold'),
       content: TextFormField(
         autofocus: true,
         initialValue: initialValue,
@@ -931,7 +931,7 @@ void _showTouchSlopDialog(BuildContext context, VoidCallback setState) {
         TextButton(
           onPressed: Get.back,
           child: Text(
-            '取消',
+            'Cancel',
             style: TextStyle(color: ColorScheme.of(context).outline),
           ),
         ),
@@ -947,7 +947,7 @@ void _showTouchSlopDialog(BuildContext context, VoidCallback setState) {
               SmartDialog.showToast(e.toString());
             }
           },
-          child: const Text('确定'),
+          child: const Text('Sure'),
         ),
       ],
     ),
@@ -961,7 +961,7 @@ Future<void> _showRefreshDialog(
   final res = await showDialog<double>(
     context: context,
     builder: (context) => SliderDialog(
-      title: const Text('刷新指示器高度'),
+      title: const Text('refresh indicator height'),
       min: 10.0,
       max: 100.0,
       divisions: 9,
@@ -994,7 +994,7 @@ Future<void> _showSuperResolutionDialog(
   final res = await showDialog<SuperResolutionType>(
     context: context,
     builder: (context) => SelectDialog<SuperResolutionType>(
-      title: '超分辨率',
+      title: 'super resolution',
       value: Pref.superResolutionType,
       values: SuperResolutionType.values.map((e) => (e, e.label)).toList(),
     ),
@@ -1022,14 +1022,14 @@ Future<void> _showFavDialog(BuildContext context) async {
         context: context,
         builder: (context) => AlertDialog(
           clipBehavior: Clip.hardEdge,
-          title: const Text('选择默认收藏夹'),
+          title: const Text('Select default favorites'),
           contentPadding: const EdgeInsets.only(top: 5, bottom: 18),
           content: SingleChildScrollView(
             child: RadioGroup(
               onChanged: (value) {
                 Get.back();
                 GStorage.setting.put(SettingBoxKey.quickFavId, value);
-                SmartDialog.showToast('设置成功');
+                SmartDialog.showToast('Setup successful');
               },
               groupValue: quickFavId,
               child: Column(
@@ -1061,7 +1061,7 @@ Future<void> _showReplyCountDialog(
   final res = await showDialog<double>(
     context: context,
     builder: (context) => SliderDialog(
-      title: const Text('连接重试次数'),
+      title: const Text('Number of connection retries'),
       min: 0,
       max: 8,
       divisions: 8,
@@ -1072,7 +1072,7 @@ Future<void> _showReplyCountDialog(
   if (res != null) {
     await GStorage.setting.put(SettingBoxKey.retryCount, res.toInt());
     setState();
-    SmartDialog.showToast('重启生效');
+    SmartDialog.showToast('Restart takes effect');
   }
 }
 
@@ -1083,7 +1083,7 @@ Future<void> _showReplyDelayDialog(
   final res = await showDialog<double>(
     context: context,
     builder: (context) => SliderDialog(
-      title: const Text('连接重试间隔'),
+      title: const Text('Connection retry interval'),
       min: 0,
       max: 1000,
       divisions: 10,
@@ -1095,7 +1095,7 @@ Future<void> _showReplyDelayDialog(
   if (res != null) {
     await GStorage.setting.put(SettingBoxKey.retryDelay, res.toInt());
     setState();
-    SmartDialog.showToast('重启生效');
+    SmartDialog.showToast('Restart takes effect');
   }
 }
 
@@ -1106,7 +1106,7 @@ Future<void> _showMemberTabDialog(
   final res = await showDialog<MemberTabType>(
     context: context,
     builder: (context) => SelectDialog<MemberTabType>(
-      title: '用户页默认展示TAB',
+      title: 'User pages display TAB by default',
       value: Pref.memberTab,
       values: MemberTabType.values.map((e) => (e, e.title)).toList(),
     ),
@@ -1124,7 +1124,7 @@ void _showProxyDialog(BuildContext context) {
   showDialog(
     context: context,
     builder: (context) => AlertDialog(
-      title: const Text('设置代理'),
+      title: const Text('Set proxy'),
       content: Column(
         mainAxisSize: MainAxisSize.min,
         children: [
@@ -1133,7 +1133,7 @@ void _showProxyDialog(BuildContext context) {
             initialValue: systemProxyHost,
             decoration: const InputDecoration(
               isDense: true,
-              labelText: '请输入Host，使用 . 分割',
+              labelText: 'Please enter Host, separated by .',
               border: OutlineInputBorder(
                 borderRadius: BorderRadius.all(Radius.circular(6)),
               ),
@@ -1146,7 +1146,7 @@ void _showProxyDialog(BuildContext context) {
             keyboardType: TextInputType.number,
             decoration: const InputDecoration(
               isDense: true,
-              labelText: '请输入Port',
+              labelText: 'Please enter Port',
               border: OutlineInputBorder(borderRadius: .all(.circular(6))),
             ),
             inputFormatters: [FilteringTextInputFormatter.digitsOnly],
@@ -1158,7 +1158,7 @@ void _showProxyDialog(BuildContext context) {
         TextButton(
           onPressed: Get.back,
           child: Text(
-            '取消',
+            'Cancel',
             style: TextStyle(color: ColorScheme.of(context).outline),
           ),
         ),
@@ -1174,7 +1174,7 @@ void _showProxyDialog(BuildContext context) {
               systemProxyPort,
             );
           },
-          child: const Text('确认'),
+          child: const Text('confirm'),
         ),
       ],
     ),
@@ -1186,7 +1186,7 @@ void _showCacheDialog(BuildContext context, VoidCallback setState) {
   showDialog(
     context: context,
     builder: (context) => AlertDialog(
-      title: const Text('最大缓存大小'),
+      title: const Text('Maximum cache size'),
       content: TextField(
         autofocus: true,
         onChanged: (value) => valueStr = value,
@@ -1198,7 +1198,7 @@ void _showCacheDialog(BuildContext context, VoidCallback setState) {
         TextButton(
           onPressed: Get.back,
           child: Text(
-            '取消',
+            'Cancel',
             style: TextStyle(color: ColorScheme.of(context).outline),
           ),
         ),
@@ -1216,7 +1216,7 @@ void _showCacheDialog(BuildContext context, VoidCallback setState) {
               SmartDialog.showToast(e.toString());
             }
           },
-          child: const Text('确定'),
+          child: const Text('Sure'),
         ),
       ],
     ),

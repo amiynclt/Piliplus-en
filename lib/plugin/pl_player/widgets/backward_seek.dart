@@ -77,7 +77,7 @@ class BackwardSeekIndicatorState extends State<BackwardSeekIndicator> {
               ),
               const SizedBox(height: 8.0),
               Text(
-                '快退${duration.inSeconds}秒',
+                'Rewind ${duration.inSeconds} seconds',
                 style: const TextStyle(
                   fontSize: 12.0,
                   color: Colors.white,

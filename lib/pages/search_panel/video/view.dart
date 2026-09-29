@@ -91,7 +91,7 @@ mixin SearchVideoPanelMixin<S extends SearchVideoPanel>
               width: 32,
               height: 32,
               child: IconButton(
-                tooltip: '筛选',
+                tooltip: 'filter',
                 style: const ButtonStyle(
                   padding: WidgetStatePropertyAll(EdgeInsets.zero),
                 ),

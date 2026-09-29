@@ -116,7 +116,7 @@ abstract class ReplyController<R> extends CommonListController<R, ReplyInfo> {
           if (inputDisable) {
             SmartDialog.showToast(rootText);
           }
-          if (rootText.contains('可发') || rootText.contains('可见')) {
+          if (rootText.contains('Can be sent') || rootText.contains('visible')) {
             hint = rootText;
           }
         }
@@ -246,7 +246,7 @@ abstract class ReplyController<R> extends CommonListController<R, ReplyInfo> {
           ..insert(0, list.removeAt(index));
       }
       loadingState.refresh();
-      SmartDialog.showToast('${isUpTop ? '取消' : ''}置顶成功');
+      SmartDialog.showToast('${isUpTop ? 'Cancel' : ''} Pinned successfully');
     } else {
       res.toast();
     }

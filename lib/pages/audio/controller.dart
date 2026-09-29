@@ -477,7 +477,7 @@ class AudioController extends GetxController
   @override
   Future<void> actionLikeVideo() async {
     if (!isLogin) {
-      SmartDialog.showToast('账号未登录');
+      SmartDialog.showToast('Account not logged in');
       return;
     }
     final newVal = !hasLike.value;
@@ -506,7 +506,7 @@ class AudioController extends GetxController
   @override
   Future<void> actionTriple() async {
     if (!isLogin) {
-      SmartDialog.showToast('账号未登录');
+      SmartDialog.showToast('Account not logged in');
       return;
     }
     final res = await AudioGrpc.audioTripleLike(
@@ -528,9 +528,9 @@ class AudioController extends GetxController
       }
       hasFav.value = true;
       if (!hasCoin) {
-        SmartDialog.showToast('投币失败');
+        SmartDialog.showToast('Coin failed');
       } else {
-        SmartDialog.showToast('三连成功');
+        SmartDialog.showToast('Three consecutive successes');
       }
     } else {
       res.toast();
@@ -575,7 +575,7 @@ class AudioController extends GetxController
   @override
   void showFavBottomSheet(BuildContext context, {bool isLongPress = false}) {
     if (!isLogin) {
-      SmartDialog.showToast('账号未登录');
+      SmartDialog.showToast('Account not logged in');
       return;
     }
     if (enableQuickFav) {
@@ -607,14 +607,14 @@ class AudioController extends GetxController
         contentPadding: const EdgeInsets.symmetric(vertical: 12),
         children: [
           DialogOption(
-            child: const Text('复制链接', style: TextStyle(fontSize: 14)),
+            child: const Text('Copy link', style: TextStyle(fontSize: 14)),
             onPressed: () {
               Get.back();
               Utils.copyText(audioUrl);
             },
           ),
           DialogOption(
-            child: const Text('其它app打开', style: TextStyle(fontSize: 14)),
+            child: const Text('Open other apps', style: TextStyle(fontSize: 14)),
             onPressed: () {
               Get.back();
               PiliAndroidHelper.openUrl(audioUrl);
@@ -622,7 +622,7 @@ class AudioController extends GetxController
           ),
           if (PlatformUtils.isMobile)
             DialogOption(
-              child: const Text('分享视频', style: TextStyle(fontSize: 14)),
+              child: const Text('share video', style: TextStyle(fontSize: 14)),
               onPressed: () {
                 Get.back();
                 if (audioItem.value case DetailItem(
@@ -631,7 +631,7 @@ class AudioController extends GetxController
                 )) {
                   ShareUtils.shareText(
                     '${arc.title} '
-                    'UP主: ${owner.name}'
+                    'UP owner: ${owner.name}'
                     ' - $audioUrl',
                   );
                 }
@@ -639,7 +639,7 @@ class AudioController extends GetxController
             ),
           if (isLogin)
             DialogOption(
-              child: const Text('分享至动态', style: TextStyle(fontSize: 14)),
+              child: const Text('Share to feed', style: TextStyle(fontSize: 14)),
               onPressed: () {
                 Get.back();
                 if (audioItem.value case DetailItem(
@@ -663,7 +663,7 @@ class AudioController extends GetxController
             ),
           if (isUgc && isLogin)
             DialogOption(
-              child: const Text('分享至消息', style: TextStyle(fontSize: 14)),
+              child: const Text('Share to message', style: TextStyle(fontSize: 14)),
               onPressed: () {
                 Get.back();
                 if (audioItem.value case DetailItem(

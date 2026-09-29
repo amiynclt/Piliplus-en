@@ -26,7 +26,7 @@ class _LiveSearchPageState extends State<LiveSearchPage> {
       appBar: AppBar(
         actions: [
           IconButton(
-            tooltip: '搜索',
+            tooltip: 'search',
             onPressed: _controller.submit,
             icon: const Icon(Icons.search, size: 22),
           ),
@@ -39,11 +39,11 @@ class _LiveSearchPageState extends State<LiveSearchPage> {
           textInputAction: TextInputAction.search,
           textAlignVertical: TextAlignVertical.center,
           decoration: InputDecoration(
-            hintText: '搜索房间或主播',
+            hintText: 'Search for a room or host',
             visualDensity: .standard,
             border: InputBorder.none,
             suffixIcon: IconButton(
-              tooltip: '清空',
+              tooltip: 'Clear',
               icon: const Icon(Icons.clear, size: 22),
               onPressed: _controller.onClear,
             ),
@@ -68,13 +68,13 @@ class _LiveSearchPageState extends State<LiveSearchPage> {
                     Obx(
                       () => Tab(
                         text:
-                            '正在直播 ${_controller.counts[0] != -1 ? _controller.counts[0] : ''}',
+                            'Live broadcast now ${_controller.counts[0] != -1 ? _controller.counts[0] :''}',
                       ),
                     ),
                     Obx(
                       () => Tab(
                         text:
-                            '主播 ${_controller.counts[1] != -1 ? _controller.counts[1] : ''}',
+                            'Anchor ${_controller.counts[1] != -1 ? _controller.counts[1] :''}',
                       ),
                     ),
                   ],

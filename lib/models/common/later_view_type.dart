@@ -2,10 +2,10 @@ import 'package:PiliPlus/pages/later/child_view.dart';
 import 'package:material_ui/material_ui.dart';
 
 enum LaterViewType {
-  all(0, '全部'),
-  // toView(1, '未看'),
-  unfinished(2, '未看完'),
-  // viewed(3, '已看完'),
+  all(0, 'all'),
+  // toView(1, 'Not seen'),
+  unfinished(2, 'Not finished yet'),
+  // viewed(3, 'Already finished reading'),
   ;
 
   Widget get page => LaterViewChildPage(laterViewType: this);

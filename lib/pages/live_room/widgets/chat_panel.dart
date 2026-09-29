@@ -223,7 +223,7 @@ class LiveRoomChatPanel extends StatelessWidget {
                   child: ElevatedButton.icon(
                     style: const ButtonStyle(visualDensity: .comfortable),
                     icon: const Icon(Icons.arrow_downward_rounded, size: 20),
-                    label: const Text('回到底部'),
+                    label: const Text('back to bottom'),
                     onPressed: liveRoomController.handleJumpToBottom,
                   ),
                 )
@@ -330,12 +330,12 @@ class LiveRoomChatPanel extends StatelessWidget {
         PopupMenuItem(
           height: 38,
           onTap: () => Utils.copyText(Utils.jsonEncoder.convert(item.toJson())),
-          child: const Text('复制弹幕信息', style: TextStyle(fontSize: 13)),
+          child: const Text('Copy barrage information', style: TextStyle(fontSize: 13)),
         ),
         PopupMenuItem(
           height: 38,
           onTap: () => Get.toNamed('/member?mid=${item.extra.mid}'),
-          child: const Text('去TA的个人空间', style: TextStyle(fontSize: 13)),
+          child: const Text('Go to TA’s personal space', style: TextStyle(fontSize: 13)),
         ),
         if (liveRoomController.isLogin) ...[
           PopupMenuItem(
@@ -352,12 +352,12 @@ class LiveRoomChatPanel extends StatelessWidget {
                 type: 1,
               );
               if (res.isSuccess) {
-                SmartDialog.showToast('屏蔽成功');
+                SmartDialog.showToast('Blocked successfully');
               } else {
                 res.toast();
               }
             },
-            child: const Text('屏蔽发送者', style: TextStyle(fontSize: 13)),
+            child: const Text('Block sender', style: TextStyle(fontSize: 13)),
           ),
           PopupMenuItem(
             height: 38,
@@ -367,7 +367,7 @@ class LiveRoomChatPanel extends StatelessWidget {
               msg: item.text,
               extra: item.extra,
             ),
-            child: const Text('举报选中弹幕', style: TextStyle(fontSize: 13)),
+            child: const Text('Report selected barrage', style: TextStyle(fontSize: 13)),
           ),
         ],
       ],

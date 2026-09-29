@@ -76,12 +76,12 @@ class _CreateFavPageState extends State<CreateFavPage> {
     final theme = Theme.of(context);
     return SimpleScaffold(
       appBar: AppBar(
-        title: Text(_mediaId != null ? '编辑' : '创建'),
+        title: Text(_mediaId != null ? 'edit' : 'create'),
         actions: [
           TextButton(
             onPressed: () {
               if (_titleController.text.isEmpty) {
-                SmartDialog.showToast('名称不能为空');
+                SmartDialog.showToast('Name cannot be empty');
                 return;
               }
               FavHttp.addOrEditFolder(
@@ -93,7 +93,7 @@ class _CreateFavPageState extends State<CreateFavPage> {
                 intro: _introController.text,
               ).then((res) {
                 if (res case Success(:final response)) {
-                  SmartDialog.showToast('${_mediaId != null ? '编辑' : '创建'}成功');
+                  SmartDialog.showToast('${_mediaId != null ? 'edit' : 'create'}成功');
                   if (mounted) {
                     Get.back(result: response);
                   }
@@ -102,7 +102,7 @@ class _CreateFavPageState extends State<CreateFavPage> {
                 }
               });
             },
-            child: const Text('完成'),
+            child: const Text('Finish'),
           ),
           const SizedBox(width: 16),
         ],
@@ -131,7 +131,7 @@ class _CreateFavPageState extends State<CreateFavPage> {
             sourcePath: imgPath,
             uiSettings: [
               AndroidUiSettings(
-                toolbarTitle: '裁剪',
+                toolbarTitle: 'Crop',
                 toolbarColor: theme.colorScheme.secondaryContainer,
                 toolbarWidgetColor: theme.colorScheme.onSecondaryContainer,
                 statusBarLight: theme.isLight,
@@ -141,7 +141,7 @@ class _CreateFavPageState extends State<CreateFavPage> {
                 initAspectRatio: CropAspectRatioPreset.ratio16x9,
               ),
               IOSUiSettings(
-                title: '裁剪',
+                title: 'Crop',
                 // aspectRatioPresets: [CropAspectRatioPreset.ratio16x9],
                 // aspectRatioLockEnabled: false,
                 // resetAspectRatioEnabled: false,
@@ -209,7 +209,7 @@ class _CreateFavPageState extends State<CreateFavPage> {
                                     _pickImg(context, theme);
                                   },
                                   child: const Text(
-                                    '替换封面',
+                                    'Replace cover',
                                     style: TextStyle(fontSize: 14),
                                   ),
                                 ),
@@ -220,7 +220,7 @@ class _CreateFavPageState extends State<CreateFavPage> {
                                     (context as Element).markNeedsBuild();
                                   },
                                   child: const Text(
-                                    '移除封面',
+                                    'Remove cover',
                                     style: TextStyle(fontSize: 14),
                                   ),
                                 ),
@@ -234,7 +234,7 @@ class _CreateFavPageState extends State<CreateFavPage> {
                     );
                   },
                   leading: Text(
-                    '封面',
+                    'cover',
                     style: leadingStyle,
                   ),
                   trailing: Row(
@@ -279,7 +279,7 @@ class _CreateFavPageState extends State<CreateFavPage> {
                           ),
                         ),
                         const TextSpan(
-                          text: '名称',
+                          text: 'name',
                           style: TextStyle(fontSize: 14),
                         ),
                       ],
@@ -302,7 +302,7 @@ class _CreateFavPageState extends State<CreateFavPage> {
                     ],
                     decoration: InputDecoration(
                       isDense: true,
-                      hintText: '名称',
+                      hintText: 'name',
                       hintStyle: TextStyle(
                         fontSize: 14,
                         color: theme.colorScheme.outline,
@@ -327,7 +327,7 @@ class _CreateFavPageState extends State<CreateFavPage> {
                   SizedBox(
                     width: 55,
                     child: Text(
-                      '简介',
+                      'Introduction',
                       style: TextStyle(
                         fontSize: 14,
                         color: theme.colorScheme.onSurfaceVariant,
@@ -345,7 +345,7 @@ class _CreateFavPageState extends State<CreateFavPage> {
                       ],
                       decoration: InputDecoration(
                         isDense: true,
-                        hintText: '可填写简介',
+                        hintText: 'Fillable introduction',
                         hintStyle: TextStyle(
                           fontSize: 14,
                           color: theme.colorScheme.outline,
@@ -372,7 +372,7 @@ class _CreateFavPageState extends State<CreateFavPage> {
                 onTap: onTap,
                 tileColor: theme.colorScheme.onInverseSurface,
                 leading: Text(
-                  '公开',
+                  'public',
                   style: leadingStyle,
                 ),
                 trailing: Transform.scale(

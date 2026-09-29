@@ -75,10 +75,10 @@ class _VotePanelState extends State<VotePanel> {
         children: [
           Text(
             _enabled
-                ? '投票选项'
+                ? 'voting options'
                 : groupValue.isEmpty
-                ? '已结束'
-                : '已完成',
+                ? 'ended'
+                : 'Completed',
           ),
           if (_enabled) Obx(() => Text('${groupValue.length} / $_maxCnt')),
         ],
@@ -134,7 +134,7 @@ class _VotePanelState extends State<VotePanel> {
                       }
                     }
                   : null,
-              child: const Center(child: Text('投票')),
+              child: const Center(child: Text('vote')),
             ),
           ),
         ),
@@ -162,7 +162,7 @@ class _VotePanelState extends State<VotePanel> {
                       final colorScheme = ColorScheme.of(context);
                       return SimpleDialog(
                         clipBehavior: .hardEdge,
-                        title: const Text('关注的人的投票'),
+                        title: const Text('Votes from people you follow'),
                         contentPadding: const .only(bottom: 12),
                         titlePadding: const .fromLTRB(20, 20, 20, 10),
                         children: list
@@ -183,7 +183,7 @@ class _VotePanelState extends State<VotePanel> {
                                     children: [
                                       TextSpan(text: e.name),
                                       TextSpan(
-                                        text: ' 投给了',
+                                        text: 'voted for',
                                         style: TextStyle(
                                           fontSize: 12,
                                           color: colorScheme.outline,
@@ -251,7 +251,7 @@ class _VotePanelState extends State<VotePanel> {
             runSpacing: 5,
             children: [
               Text(
-                '至 ${DateFormatUtils.format(_voteInfo.endTime, format: DateFormatUtils.longFormatDs)}',
+                'to ${DateFormatUtils.format(_voteInfo.endTime, format: DateFormatUtils.longFormatDs)}',
               ),
               Text.rich(
                 TextSpan(
@@ -260,7 +260,7 @@ class _VotePanelState extends State<VotePanel> {
                       text: NumUtils.numFormat(_voteInfo.joinNum),
                       style: TextStyle(color: theme.colorScheme.primary),
                     ),
-                    const TextSpan(text: '人参与'),
+                    const TextSpan(text: 'people participate'),
                   ],
                 ),
               ),
@@ -293,7 +293,7 @@ class _VotePanelState extends State<VotePanel> {
     spacing: 16,
     children: [
       CheckBoxText(
-        text: '显示比例',
+        text: 'display ratio',
         selected: _showPercentage,
         onChanged: (value) {
           setState(() {
@@ -302,7 +302,7 @@ class _VotePanelState extends State<VotePanel> {
         },
       ),
       CheckBoxText(
-        text: '匿名',
+        text: 'anonymous',
         selected: anonymous,
         onChanged: (val) => anonymous = val,
       ),

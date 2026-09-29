@@ -133,7 +133,7 @@ abstract class CommonIntroController extends GetxController
       selectLike: coinWithLike ? 1 : 0,
     );
     if (res.isSuccess) {
-      SmartDialog.showToast('投币成功');
+      SmartDialog.showToast('Coin successful');
       coinNum.value += coin;
       GlobalData().afterCoin(coin);
       stat.coin += coin;
@@ -205,7 +205,7 @@ mixin FavMixin on TripleMixin {
   // 收藏
   void showFavBottomSheet(BuildContext context, {bool isLongPress = false}) {
     if (!Accounts.main.isLogin) {
-      SmartDialog.showToast('账号未登录');
+      SmartDialog.showToast('Account not logged in');
       return;
     }
     // 快速收藏 &
@@ -228,7 +228,7 @@ mixin FavMixin on TripleMixin {
     final (rid, type) = getFavRidType;
     // 收藏至默认文件夹
     if (isQuick) {
-      SmartDialog.showLoading(msg: '请求中');
+      SmartDialog.showLoading(msg: 'Requesting');
       queryVideoInFolder().then((res) async {
         if (res.isSuccess) {
           final hasFav = this.hasFav.value;
@@ -242,7 +242,7 @@ mixin FavMixin on TripleMixin {
           if (result.isSuccess) {
             updateFavCount(hasFav ? -1 : 1);
             this.hasFav.toggle();
-            SmartDialog.showToast('${hasFav ? '取消' : ''}收藏成功');
+            SmartDialog.showToast('${hasFav ? 'Cancel' : ''}Collection successful');
           } else {
             res.toast();
           }
@@ -271,7 +271,7 @@ mixin FavMixin on TripleMixin {
     } catch (e) {
       if (kDebugMode) debugPrint(e.toString());
     }
-    SmartDialog.showLoading(msg: '请求中');
+    SmartDialog.showLoading(msg: 'Requesting');
     final result = await FavHttp.favVideo(
       resources: '$rid:$type',
       addIds: addMediaIdsNew.join(','),
@@ -286,7 +286,7 @@ mixin FavMixin on TripleMixin {
         updateFavCount(newVal ? 1 : -1);
         hasFav.value = newVal;
       }
-      SmartDialog.showToast('${newVal ? '' : '取消'}收藏成功');
+      SmartDialog.showToast('${newVal ? '' : 'Cancel'}收藏成功');
     } else {
       result.toast();
     }

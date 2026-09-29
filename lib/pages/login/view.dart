@@ -45,11 +45,11 @@ class _LoginPageState extends State<LoginPage> {
     return Column(
       children: [
         const SizedBox(height: 20),
-        const Text('使用 bilibili 官方 App 扫码登录'),
+        const Text('Use bilibili official app to scan the QR code to log in'),
         const SizedBox(height: 20),
         Obx(
           () => Text(
-            '剩余有效时间: ${_loginPageCtr.qrCodeLeftTime} 秒',
+            'Remaining validity time: ${_loginPageCtr.qrCodeLeftTime} seconds',
             style: TextStyle(
               fontFeatures: const [FontFeature.tabularFigures()],
               color: theme.colorScheme.primaryFixedDim,
@@ -63,11 +63,11 @@ class _LoginPageState extends State<LoginPage> {
             TextButton.icon(
               onPressed: _loginPageCtr.refreshQRCode,
               icon: const Icon(Icons.refresh),
-              label: const Text('刷新二维码'),
+              label: const Text('Refresh QR code'),
             ),
             TextButton.icon(
               onPressed: () async {
-                SmartDialog.showLoading(msg: '正在生成截图');
+                SmartDialog.showLoading(msg: 'Generating screenshots');
                 final boundary =
                     globalKey.currentContext!.findRenderObject()
                         as RenderRepaintBoundary;
@@ -81,7 +81,7 @@ class _LoginPageState extends State<LoginPage> {
                 ImageUtils.saveByteImg(bytes: pngBytes, fileName: picName);
               },
               icon: const Icon(Icons.save),
-              label: const Text('保存至相册'),
+              label: const Text('Save to album'),
             ),
             if (kDebugMode || PlatformUtils.isMobile)
               TextButton.icon(
@@ -90,7 +90,7 @@ class _LoginPageState extends State<LoginPage> {
                   mode: LaunchMode.externalNonBrowserApplication,
                 ),
                 icon: const Icon(Icons.open_in_browser_outlined),
-                label: const Text('其他应用打开'),
+                label: const Text('Open other apps'),
               ),
           ],
         ),
@@ -138,7 +138,7 @@ class _LoginPageState extends State<LoginPage> {
             return GestureDetector(
               onTap: () => Utils.copyText(
                 url,
-                toastText: '已复制到剪贴板，可粘贴至已登录的app私信处发送，然后点击已发送的链接打开',
+                toastText: 'Copied to the clipboard, you can paste it into the private message of the app you have logged in to send, and then click the sent link to open it',
               ),
               child: Padding(
                 padding: const EdgeInsets.symmetric(
@@ -158,7 +158,7 @@ class _LoginPageState extends State<LoginPage> {
         Padding(
           padding: const EdgeInsets.symmetric(horizontal: 20),
           child: Text(
-            '请务必在 ${Constants.appName} 开源仓库等可信渠道下载安装。',
+            'Please be sure to download and install from trusted channels such as the ${Constants.appName} open source warehouse.',
             style: theme.textTheme.labelSmall!.copyWith(
               color: theme.colorScheme.onSurface.withValues(alpha: 0.4),
             ),
@@ -173,12 +173,12 @@ class _LoginPageState extends State<LoginPage> {
       mainAxisSize: MainAxisSize.min,
       children: [
         const SizedBox(height: 20),
-        const Text('使用Cookie登录'),
+        const Text('Log in using cookies'),
         const SizedBox(height: 10),
         Padding(
           padding: const EdgeInsets.symmetric(horizontal: 20),
           child: Text(
-            '使用App端Api实现的功能将不可用',
+            'Functions implemented using the App-side API will not be available',
             style: theme.textTheme.labelMedium!.copyWith(
               color: theme.colorScheme.primary,
             ),
@@ -206,7 +206,7 @@ class _LoginPageState extends State<LoginPage> {
         OutlinedButton.icon(
           onPressed: _loginPageCtr.loginByCookie,
           icon: const Icon(Icons.login),
-          label: const Text('登录'),
+          label: const Text('Log in'),
         ),
       ],
     );
@@ -216,7 +216,7 @@ class _LoginPageState extends State<LoginPage> {
     return Column(
       children: [
         const SizedBox(height: 20),
-        const Text('使用账号密码登录'),
+        const Text('Log in using account and password'),
         const SizedBox(height: 10),
         Padding(
           padding: const EdgeInsets.symmetric(horizontal: 20, vertical: 10),
@@ -226,8 +226,8 @@ class _LoginPageState extends State<LoginPage> {
             decoration: InputDecoration(
               prefixIcon: const Icon(Icons.account_box),
               border: const UnderlineInputBorder(),
-              labelText: '账号',
-              hintText: '邮箱/手机号',
+              labelText: 'account',
+              hintText: 'Email/Mobile phone number',
               suffixIcon: IconButton(
                 onPressed: _loginPageCtr.usernameTextController.clear,
                 icon: const Icon(Icons.clear),
@@ -246,7 +246,7 @@ class _LoginPageState extends State<LoginPage> {
             decoration: InputDecoration(
               prefixIcon: const Icon(Icons.password),
               border: const UnderlineInputBorder(),
-              labelText: '密码',
+              labelText: 'password',
               suffixIcon: IconButton(
                 onPressed: _loginPageCtr.passwordTextController.clear,
                 icon: const Icon(Icons.clear),
@@ -261,7 +261,7 @@ class _LoginPageState extends State<LoginPage> {
               value: showPassword,
               onChanged: (value) => setState(() => showPassword = value!),
             ),
-            const Text('显示密码'),
+            const Text('show password'),
             const Spacer(),
             TextButton(
               onPressed: () {
@@ -271,7 +271,7 @@ class _LoginPageState extends State<LoginPage> {
                   context: context,
                   builder: (context) => SimpleDialog(
                     clipBehavior: Clip.hardEdge,
-                    title: const Text('忘记密码？'),
+                    title: const Text('forget the password?'),
                     contentPadding: const EdgeInsets.fromLTRB(
                       0.0,
                       2.0,
@@ -281,11 +281,11 @@ class _LoginPageState extends State<LoginPage> {
                     children: [
                       const Padding(
                         padding: EdgeInsets.fromLTRB(25, 0, 25, 10),
-                        child: Text("试试扫码、手机号登录，或选择"),
+                        child: Text("Try scanning the QR code, logging in with your mobile phone number, or selecting"),
                       ),
                       ListTile(
                         title: const Text(
-                          '找回密码（手机版）',
+                          'Retrieve password (mobile version)',
                         ),
                         leading: const Icon(Icons.smartphone_outlined),
                         subtitle: const Text(
@@ -299,13 +299,13 @@ class _LoginPageState extends State<LoginPage> {
                             parameters: {
                               'url': 'https://passport.bilibili.com/h5-app/passport/login/findPassword',
                               'type': 'url',
-                              'pageTitle': '忘记密码',
+                              'pageTitle': 'forget the password',
                             },
                           ),
                       ),
                       ListTile(
                         title: const Text(
-                          '找回密码（电脑版）',
+                          'Retrieve password (PC version)',
                         ),
                         leading: const Icon(Icons.desktop_windows_outlined),
                         subtitle: const Text(
@@ -319,7 +319,7 @@ class _LoginPageState extends State<LoginPage> {
                             parameters: {
                               'url': 'https://passport.bilibili.com/pc/passport/findPassword',
                               'type': 'url',
-                              'pageTitle': '忘记密码',
+                              'pageTitle': 'forget the password',
                               'uaType': 'pc',
                             },
                           ),
@@ -328,7 +328,7 @@ class _LoginPageState extends State<LoginPage> {
                   ),
                 );
               },
-              child: const Text('忘记密码'),
+              child: const Text('forget the password'),
             ),
             const SizedBox(width: 20),
           ],
@@ -336,16 +336,16 @@ class _LoginPageState extends State<LoginPage> {
         OutlinedButton.icon(
           onPressed: _loginPageCtr.loginByPassword,
           icon: const Icon(Icons.login),
-          label: const Text('登录'),
+          label: const Text('Log in'),
         ),
         const SizedBox(height: 20),
         Padding(
           padding: const EdgeInsets.symmetric(horizontal: 20),
           child: Text(
-            '根据 bilibili 官方登录接口规范，密码将在本地加盐、加密后传输。\n'
-            '盐与公钥均由官方提供；以 RSA/ECB/PKCS1Padding 方式加密。\n'
-            '账号密码仅用于该登录接口，不予保存；本地仅存储登录凭证。\n'
-            '请务必在 ${Constants.appName} 开源仓库等可信渠道下载安装。',
+            'According to the bilibili official login interface specification, the password will be salted and encrypted locally before being transmitted. \n'
+            'The salt and public key are provided by the official; encrypted with RSA/ECB/PKCS1Padding. \n'
+            'The account password is only used for this login interface and will not be saved; only the login credentials are stored locally. \n'
+            'Please be sure to download and install from trusted channels such as the ${Constants.appName} open source warehouse.',
             textAlign: TextAlign.center,
             style: theme.textTheme.labelSmall!.copyWith(
               color: theme.colorScheme.onSurface.withValues(alpha: 0.4),
@@ -360,7 +360,7 @@ class _LoginPageState extends State<LoginPage> {
     return Column(
       children: [
         const SizedBox(height: 20),
-        const Text('使用手机短信验证码登录'),
+        const Text('Log in using SMS verification code'),
         const SizedBox(height: 10),
         Padding(
           padding: const EdgeInsets.symmetric(horizontal: 20, vertical: 10),
@@ -378,8 +378,8 @@ class _LoginPageState extends State<LoginPage> {
                     return PopupMenuButton(
                       padding: EdgeInsets.zero,
                       tooltip:
-                          '选择国际冠码，'
-                          '当前为${_loginPageCtr.selectedCountryCodeId.cname}，'
+                          'Select the international crown code,'
+                          'Currently ${_loginPageCtr.selectedCountryCodeId.cname},'
                           '+${_loginPageCtr.selectedCountryCodeId.countryId}',
                       onSelected: (item) {
                         _loginPageCtr.selectedCountryCodeId = item;
@@ -430,7 +430,7 @@ class _LoginPageState extends State<LoginPage> {
                     ],
                     decoration: InputDecoration(
                       border: InputBorder.none,
-                      labelText: '手机号',
+                      labelText: 'Phone number',
                       suffixIcon: IconButton(
                         onPressed: _loginPageCtr.telTextController.clear,
                         icon: const Icon(Icons.clear),
@@ -458,7 +458,7 @@ class _LoginPageState extends State<LoginPage> {
                     decoration: const InputDecoration(
                       prefixIcon: Icon(Icons.sms_outlined),
                       border: InputBorder.none,
-                      labelText: '验证码',
+                      labelText: 'Verification code',
                     ),
                     keyboardType: TextInputType.number,
                     inputFormatters: <TextInputFormatter>[
@@ -474,8 +474,8 @@ class _LoginPageState extends State<LoginPage> {
                     icon: const Icon(Icons.send),
                     label: Text(
                       _loginPageCtr.smsSendCooldown > 0
-                          ? '等待${_loginPageCtr.smsSendCooldown}秒'
-                          : '获取验证码',
+                          ? 'Wait ${_loginPageCtr.smsSendCooldown} seconds'
+                          : 'Get verification code',
                     ),
                   ),
                 ),
@@ -487,15 +487,15 @@ class _LoginPageState extends State<LoginPage> {
         OutlinedButton.icon(
           onPressed: _loginPageCtr.loginBySmsCode,
           icon: const Icon(Icons.login),
-          label: const Text('登录'),
+          label: const Text('Log in'),
         ),
         const SizedBox(height: 20),
         Padding(
           padding: const EdgeInsets.symmetric(horizontal: 20),
           child: Text(
-            '手机号仅用于 bilibili 官方发送验证码与登录接口，不予保存；\n'
-            '本地仅存储登录凭证。\n'
-            '请务必在 ${Constants.appName} 开源仓库等可信渠道下载安装。',
+            'The mobile phone number is only used for bilibili official verification code sending and login interface, and will not be saved;\n'
+            'Only login credentials are stored locally. \n'
+            'Please be sure to download and install from trusted channels such as the ${Constants.appName} open source warehouse.',
             textAlign: TextAlign.center,
             style: theme.textTheme.labelSmall!.copyWith(
               color: theme.colorScheme.onSurface.withValues(alpha: 0.4),
@@ -518,13 +518,13 @@ class _LoginPageState extends State<LoginPage> {
     return SimpleScaffold(
       appBar: AppBar(
         leading: IconButton(
-          tooltip: '关闭',
+          tooltip: 'closure',
           icon: const Icon(Icons.close_outlined),
           onPressed: Get.back,
         ),
         title: Row(
           children: [
-            const Text('登录'),
+            const Text('Log in'),
             if (isLandscape)
               Expanded(
                 child: Align(
@@ -536,19 +536,19 @@ class _LoginPageState extends State<LoginPage> {
                       Tab(
                         child: Row(
                           mainAxisSize: MainAxisSize.min,
-                          children: [Icon(Icons.password), Text(' 密码')],
+                          children: [Icon(Icons.password), Text('password')],
                         ),
                       ),
                       Tab(
                         child: Row(
                           mainAxisSize: MainAxisSize.min,
-                          children: [Icon(Icons.sms_outlined), Text(' 短信')],
+                          children: [Icon(Icons.sms_outlined), Text('Short message')],
                         ),
                       ),
                       Tab(
                         child: Row(
                           mainAxisSize: MainAxisSize.min,
-                          children: [Icon(Icons.qr_code), Text(' 扫码')],
+                          children: [Icon(Icons.qr_code), Text('Scan code')],
                         ),
                       ),
                       Tab(
@@ -573,9 +573,9 @@ class _LoginPageState extends State<LoginPage> {
           if (!isLandscape)
             TabBar(
               tabs: const [
-                Tab(icon: Icon(Icons.password), text: '密码'),
-                Tab(icon: Icon(Icons.sms_outlined), text: '短信'),
-                Tab(icon: Icon(Icons.qr_code), text: '扫码'),
+                Tab(icon: Icon(Icons.password), text: 'password'),
+                Tab(icon: Icon(Icons.sms_outlined), text: 'Short message'),
+                Tab(icon: Icon(Icons.qr_code), text: 'Scan code'),
                 Tab(icon: Icon(Icons.cookie_outlined), text: 'Cookie'),
               ],
               controller: _loginPageCtr.tabController,

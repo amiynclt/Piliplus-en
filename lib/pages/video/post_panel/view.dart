@@ -70,12 +70,12 @@ class PostPanel extends CommonSlidePage {
           mainAxisSize: MainAxisSize.min,
           children: [
             Text(
-              '${isFirst ? '开始' : '结束'}: $value',
+              '${isFirst ? 'start' : 'Finish'}: $value',
             ),
             iconButton(
               context: context,
               size: 26,
-              tooltip: '设为当前',
+              tooltip: 'Set as current',
               icon: const Icon(Icons.my_location),
               onPressed: () {
                 updateSegment(
@@ -89,7 +89,7 @@ class PostPanel extends CommonSlidePage {
             iconButton(
               context: context,
               size: 26,
-              tooltip: isFirst ? '视频开头' : '视频结尾',
+              tooltip: isFirst ? 'Beginning of video' : 'End of video',
               icon: isFirst
                   ? const Icon(Icons.first_page)
                   : const Icon(Icons.last_page),
@@ -105,7 +105,7 @@ class PostPanel extends CommonSlidePage {
             iconButton(
               context: context,
               size: 26,
-              tooltip: '编辑',
+              tooltip: 'edit',
               icon: const Icon(Icons.edit),
               onPressed: () async {
                 String initV = value;
@@ -133,7 +133,7 @@ class PostPanel extends CommonSlidePage {
                     builder: (context) => AlertDialog(
                       content: textField,
                       title: Text(
-                        '${isFirst ? '开始' : '结束'}: ',
+                        '${isFirst ? 'start' : 'Finish'}: ',
                         style: const TextStyle(fontSize: 16),
                       ),
                       contentPadding: const .fromLTRB(24, 6, 24, 16),
@@ -141,13 +141,13 @@ class PostPanel extends CommonSlidePage {
                         TextButton(
                           onPressed: Get.back,
                           child: Text(
-                            '取消',
+                            'Cancel',
                             style: TextStyle(color: theme.colorScheme.outline),
                           ),
                         ),
                         TextButton(
                           onPressed: () => Get.back(result: initV),
-                          child: const Text('确定'),
+                          child: const Text('Sure'),
                         ),
                       ],
                     ),
@@ -169,12 +169,12 @@ class PostPanel extends CommonSlidePage {
                               spacing: 10,
                               mainAxisSize: .min,
                               children: [
-                                Text('${isFirst ? '开始' : '结束'}: '),
+                                Text('${isFirst ? 'start' : 'Finish'}: '),
                                 Expanded(child: textField),
                                 iconButton(
                                   size: 34,
                                   iconSize: 19,
-                                  tooltip: '取消',
+                                  tooltip: 'Cancel',
                                   onPressed: Get.back,
                                   iconColor: colorScheme.outline,
                                   bgColor: colorScheme.onInverseSurface,
@@ -183,7 +183,7 @@ class PostPanel extends CommonSlidePage {
                                 iconButton(
                                   size: 34,
                                   iconSize: 19,
-                                  tooltip: '确定',
+                                  tooltip: 'Sure',
                                   onPressed: () => Get.back(result: initV),
                                   iconColor: colorScheme.onSecondaryContainer,
                                   bgColor: colorScheme.secondaryContainer,
@@ -259,11 +259,11 @@ class _PostPanelState extends State<PostPanel>
         child: Row(
           children: [
             const SizedBox(width: 16),
-            const Expanded(child: Text('提交片段', style: TextStyle(fontSize: 16))),
+            const Expanded(child: Text('Submit snippet', style: TextStyle(fontSize: 16))),
             iconButton(
               size: 32,
               context: context,
-              tooltip: '添加片段',
+              tooltip: 'Add fragment',
               onPressed: () {
                 setState(() {
                   list.insert(
@@ -285,7 +285,7 @@ class _PostPanelState extends State<PostPanel>
             iconButton(
               size: 32,
               context: context,
-              tooltip: '关闭',
+              tooltip: 'closure',
               onPressed: Get.back,
               icon: const Icon(Icons.close),
             ),
@@ -302,22 +302,22 @@ class _PostPanelState extends State<PostPanel>
                 bottom: kFloatingActionButtonMargin + bottom,
               ),
               child: FloatingActionButton(
-                tooltip: '提交',
+                tooltip: 'submit',
                 onPressed: () => showDialog(
                   context: context,
                   builder: (context) => AlertDialog(
-                    title: const Text('确定无误再提交'),
+                    title: const Text('Make sure it is correct before submitting'),
                     actions: [
                       TextButton(
                         onPressed: Get.back,
                         child: Text(
-                          '取消',
+                          'Cancel',
                           style: TextStyle(color: theme.colorScheme.outline),
                         ),
                       ),
                       TextButton(
                         onPressed: _onPost,
-                        child: const Text('确定提交'),
+                        child: const Text('Confirm submission'),
                       ),
                     ],
                   ),
@@ -365,14 +365,14 @@ class _PostPanelState extends State<PostPanel>
 
     if (res case Success(:final response)) {
       Get.back();
-      SmartDialog.showToast('提交成功');
+      SmartDialog.showToast('Submission successful');
       list.clear();
       videoDetailController.handleSBData(response);
       if (videoDetailController.blockListener == null) {
         videoDetailController.initSkip();
       }
     } else {
-      SmartDialog.showToast('提交失败: $res');
+      SmartDialog.showToast('Submit failed: $res');
     }
   }
 
@@ -409,7 +409,7 @@ class _PostPanelState extends State<PostPanel>
                   spacing: 16,
                   children: [
                     PopupMenuText(
-                      title: '分类',
+                      title: 'Classification',
                       value: () => item.category,
                       onSelected: (e) {
                         bool flag = false;
@@ -454,7 +454,7 @@ class _PostPanelState extends State<PostPanel>
                       getSelectTitle: (category) => category.title,
                     ),
                     PopupMenuText(
-                      title: '行为类别',
+                      title: 'behavior category',
                       value: () => item.actionType,
                       onSelected: (e) {
                         bool flag = false;
@@ -498,7 +498,7 @@ class _PostPanelState extends State<PostPanel>
           child: iconButton(
             context: context,
             size: 26,
-            tooltip: '移除',
+            tooltip: 'Remove',
             icon: const Icon(Icons.clear),
             onPressed: () {
               setState(() {
@@ -513,7 +513,7 @@ class _PostPanelState extends State<PostPanel>
           child: iconButton(
             context: context,
             size: 26,
-            tooltip: '预览',
+            tooltip: 'Preview',
             icon: const Icon(Icons.preview_outlined),
             onPressed: () async {
               final player = plPlayerController.videoPlayerController;

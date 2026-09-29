@@ -181,7 +181,7 @@ abstract final class UserHttp {
       options: Options(contentType: Headers.formUrlEncodedContentType),
     );
     if (res.data['code'] == 0) {
-      SmartDialog.showToast('yeah！稍后再看');
+      SmartDialog.showToast('yeah! See you later');
       return const Success(null);
     } else {
       SmartDialog.showToast(res.data['message'].toString());
@@ -201,7 +201,7 @@ abstract final class UserHttp {
       options: Options(contentType: Headers.formUrlEncodedContentType),
     );
     if (res.data['code'] == 0) {
-      SmartDialog.showToast('yeah！成功移除');
+      SmartDialog.showToast('yeah! successfully removed');
       return const Success(null);
     } else {
       SmartDialog.showToast(res.data['message'].toString());
@@ -224,7 +224,7 @@ abstract final class UserHttp {
   //       Request().get(res.data['data']['confirm_uri']);
   //     }
   //   } catch (err) {
-  //     SmartDialog.showNotify(msg: '获取用户凭证: $err', notifyType: NotifyType.error);
+  //     SmartDialog.showNotify(msg: 'Get user credentials: $err', notifyType: NotifyType.error);
   //   }
   // }
 

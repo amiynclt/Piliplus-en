@@ -1,8 +1,8 @@
 import 'package:PiliPlus/models/common/enum_with_label.dart';
 
 enum ArchiveSortTypeApp with EnumWithLabel {
-  desc('默认'),
-  asc('倒序'),
+  desc('default'),
+  asc('reverse order'),
   ;
 
   @override

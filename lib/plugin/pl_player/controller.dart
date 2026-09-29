@@ -1014,7 +1014,7 @@ class PlPlayerController with BlockConfigMixin, AudioNormalizationMixin {
                 // }
                 if (isBuffering.value && buffered.value == 0) {
                   SmartDialog.showToast(
-                    '视频链接打开失败，重试中',
+                    'Failed to open video link, trying again',
                     displayTime: const Duration(milliseconds: 500),
                   );
                   refreshPlayer();
@@ -1023,7 +1023,7 @@ class PlPlayerController with BlockConfigMixin, AudioNormalizationMixin {
             },
           );
         } else if (event.startsWith('Could not open codec')) {
-          SmartDialog.showToast('无法加载解码器, $event，可能会切换至软解');
+          SmartDialog.showToast('Unable to load decoder, $event, may switch to soft decoding');
         } else if (!onlyPlayAudio.value) {
           if (event.startsWith("error running") ||
               event.startsWith("Failed to open .") ||
@@ -1034,7 +1034,7 @@ class PlPlayerController with BlockConfigMixin, AudioNormalizationMixin {
           if (!kDebugMode) {
             Utils.reportError('$event\n${player.state.playlist}');
           }
-          // SmartDialog.showToast('视频加载错误, $event');
+          // SmartDialog.showToast('Video loading error, $event');
         }
       }),
     ];
@@ -1649,10 +1649,10 @@ class PlPlayerController with BlockConfigMixin, AudioNormalizationMixin {
   }
 
   Future<void> takeScreenshot() async {
-    SmartDialog.showToast('截图中');
+    SmartDialog.showToast('Screenshot in progress');
     final image = await videoPlayerController?.screenshot();
     if (image != null) {
-      SmartDialog.showToast('点击弹窗保存截图');
+      SmartDialog.showToast('Click on the pop-up window to save the screenshot');
       final dispose = await showDialog<bool>(
         context: Get.context!,
         builder: (context) => GestureDetector(
@@ -1669,7 +1669,7 @@ class PlPlayerController with BlockConfigMixin, AudioNormalizationMixin {
                 fileName: 'screenshot_${cid}_$time',
               );
             } else {
-              SmartDialog.showToast('保存失败');
+              SmartDialog.showToast('Save failed');
             }
           },
           child: Align(
@@ -1699,7 +1699,7 @@ class PlPlayerController with BlockConfigMixin, AudioNormalizationMixin {
       );
       if (dispose ?? true) image.dispose();
     } else {
-      SmartDialog.showToast('截图失败');
+      SmartDialog.showToast('Screenshot failed');
     }
   }
 

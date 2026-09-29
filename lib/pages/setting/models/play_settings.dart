@@ -24,16 +24,16 @@ import 'package:material_ui/material_ui.dart';
 
 List<SettingsModel> get playSettings => [
   const SwitchModel(
-    title: '弹幕开关',
-    subtitle: '是否展示弹幕',
+    title: 'Barrage switch',
+    subtitle: 'Whether to display barrages',
     leading: Icon(CustomIcons.dm_settings),
     setKey: SettingBoxKey.enableShowDanmaku,
     defaultVal: true,
   ),
   if (PlatformUtils.isMobile)
     const SwitchModel(
-      title: '启用点击弹幕',
-      subtitle: '点击弹幕悬停，支持点赞、复制、举报操作',
+      title: 'Enable click barrage',
+      subtitle: 'Click and hover on the barrage to support like, copy, and report operations',
       leading: Icon(Icons.touch_app_outlined),
       setKey: SettingBoxKey.enableTapDm,
       defaultVal: true,
@@ -41,83 +41,83 @@ List<SettingsModel> get playSettings => [
   NormalModel(
     onTap: (context, setState) => Get.toNamed('/playSpeedSet'),
     leading: const Icon(Icons.speed_outlined),
-    title: '倍速设置',
-    subtitle: '设置视频播放速度',
+    title: 'Double speed setting',
+    subtitle: 'Set video playback speed',
   ),
   if (Platform.isAndroid)
     NormalModel(
       onTap: _showAngleDegreesDialog,
       leading: const Icon(MdiIcons.angleAcute),
-      title: '倾斜角度阈值',
-      getSubtitle: () => '当前:「${Pref.angleDegrees}°」',
+      title: 'Tilt angle threshold',
+      getSubtitle: () => 'Current: "${Pref.angleDegrees}°"',
     ),
   const SwitchModel(
-    title: '自动播放',
-    subtitle: '进入详情页自动播放',
+    title: 'Autoplay',
+    subtitle: 'Enter the details page to play automatically',
     leading: Icon(Icons.motion_photos_auto_outlined),
     setKey: SettingBoxKey.autoPlayEnable,
     defaultVal: false,
   ),
   const SwitchModel(
-    title: '全屏显示锁定按钮',
+    title: 'Show lock button full screen',
     leading: Icon(Icons.lock_outline),
     setKey: SettingBoxKey.showFsLockBtn,
     defaultVal: true,
   ),
   const SwitchModel(
-    title: '全屏显示截图按钮',
+    title: 'Full screen screenshot button',
     leading: Icon(Icons.photo_camera_outlined),
     setKey: SettingBoxKey.showFsScreenshotBtn,
     defaultVal: true,
   ),
   SwitchModel(
-    title: '全屏显示电池电量',
+    title: 'Full screen display of battery level',
     leading: const Icon(Icons.battery_3_bar),
     setKey: SettingBoxKey.showBatteryLevel,
     defaultVal: PlatformUtils.isMobile,
   ),
   const SwitchModel(
-    title: '双击快退/快进',
-    subtitle: '左侧双击快退/右侧双击快进，关闭则双击均为暂停/播放',
+    title: 'Double click to rewind/forward',
+    subtitle: 'Double-click on the left to rewind/double-click on the right to fast forward. If closed, double-click will pause/play.',
     leading: Icon(Icons.touch_app_outlined),
     setKey: SettingBoxKey.enableQuickDouble,
     defaultVal: true,
   ),
   const SwitchModel(
-    title: '左右侧滑动调节亮度/音量',
+    title: 'Swipe left and right to adjust brightness/volume',
     leading: Icon(MdiIcons.tuneVerticalVariant),
     setKey: SettingBoxKey.enableSlideVolumeBrightness,
     defaultVal: true,
   ),
   if (Platform.isAndroid)
     const SwitchModel(
-      title: '调节系统亮度',
+      title: 'Adjust system brightness',
       leading: Icon(Icons.brightness_6_outlined),
       setKey: SettingBoxKey.setSystemBrightness,
       defaultVal: false,
     ),
   const SwitchModel(
-    title: '中间滑动进入/退出全屏',
+    title: 'Swipe in the middle to enter/exit full screen',
     leading: Icon(MdiIcons.panVertical),
     setKey: SettingBoxKey.enableSlideFS,
     defaultVal: true,
   ),
   if (PlatformUtils.isMobile)
     NormalModel(
-      title: '播放器音量',
+      title: 'player volume',
       leading: const Icon(Icons.volume_up),
-      getSubtitle: () => '当前:「${Pref.playerVolume.toStringAsFixed(0)}%」',
+      getSubtitle: () => 'Current: "${Pref.playerVolume.toStringAsFixed(0)}%"',
       onTap: showPlayerVolumeDialog,
     )
   else
     NormalModel(
-      title: '最高音量',
+      title: 'maximum volume',
       leading: const Icon(Icons.volume_up),
-      getSubtitle: () => '当前:「${(Pref.maxVolume * 100).toStringAsFixed(0)}%」',
+      getSubtitle: () => 'Current: "${(Pref.maxVolume * 100).toStringAsFixed(0)}%"',
       onTap: _showMaxVolumeDialog,
     ),
   getVideoFilterSelectModel(
-    title: '双击快进/快退时长',
+    title: 'Double-click to fast forward/rewind the duration',
     suffix: 's',
     key: SettingBoxKey.fastForBackwardDuration,
     values: [5, 10, 15],
@@ -125,14 +125,14 @@ List<SettingsModel> get playSettings => [
     isFilter: false,
   ),
   const SwitchModel(
-    title: '滑动快进/快退使用相对时长',
+    title: 'Sliding fast forward/rewind using relative duration',
     leading: Icon(Icons.swap_horiz_outlined),
     setKey: SettingBoxKey.useRelativeSlide,
     defaultVal: false,
   ),
   getVideoFilterSelectModel(
-    title: '滑动快进/快退时长',
-    subtitle: '从播放器一端滑到另一端的快进/快退时长',
+    title: 'Slide fast forward/rewind duration',
+    subtitle: 'Fast forward/rewind duration when sliding from one end of the player to the other',
     suffix: Pref.useRelativeSlide ? '%' : 's',
     key: SettingBoxKey.sliderDuration,
     values: [25, 50, 90, 100],
@@ -140,14 +140,14 @@ List<SettingsModel> get playSettings => [
     isFilter: false,
   ),
   NormalModel(
-    title: '自动启用字幕',
+    title: 'Automatically enable subtitles',
     leading: const Icon(Icons.closed_caption_outlined),
-    getSubtitle: () => '当前选择偏好：${Pref.subtitlePreferenceV2.desc}',
+    getSubtitle: () => 'Current selection preference: ${Pref.subtitlePreferenceV2.desc}',
     onTap: _showSubtitleDialog,
   ),
   if (PlatformUtils.isDesktop)
     SwitchModel(
-      title: '最小化时暂停/还原时播放',
+      title: 'Pause when minimized/play when restored',
       leading: const Icon(Icons.pause_circle_outline),
       setKey: SettingBoxKey.pauseOnMinimize,
       defaultVal: false,
@@ -158,13 +158,13 @@ List<SettingsModel> get playSettings => [
       },
     ),
   const SwitchModel(
-    title: '启用键盘控制',
+    title: 'Enable keyboard control',
     leading: Icon(Icons.keyboard_alt_outlined),
     setKey: SettingBoxKey.keyboardControl,
     defaultVal: true,
   ),
   PopupModel(
-    title: 'SuperChat (醒目留言) 显示类型',
+    title: 'SuperChat (eye-catching message) display type',
     leading: const Icon(Icons.live_tv),
     value: () => Pref.superChatType,
     items: SuperChatType.values,
@@ -173,96 +173,96 @@ List<SettingsModel> get playSettings => [
         .whenComplete(setState),
   ),
   NormalModel(
-    title: '全屏 SC 大小',
-    subtitle: 'SuperChat (醒目留言) 大小设置',
+    title: 'Full screen SC size',
+    subtitle: 'SuperChat (eye-catching message) size settings',
     leading: const Icon(Icons.open_in_full),
     onTap: (_, _) => Get.to(const FullScreenScSize()),
   ),
   const SwitchModel(
-    title: '竖屏扩大展示',
-    subtitle: '小屏竖屏视频宽高比由16:9扩大至1:1（不支持收起）；横屏适配时，扩大至9:16',
+    title: 'Vertical screen expanded display',
+    subtitle: 'The aspect ratio of the small screen vertical screen video is expanded from 16:9 to 1:1 (retracting is not supported); when adapted to the horizontal screen, the aspect ratio is expanded to 9:16',
     leading: Icon(Icons.expand_outlined),
     setKey: SettingBoxKey.enableVerticalExpand,
     defaultVal: false,
   ),
   const SwitchModel(
-    title: '自动全屏',
-    subtitle: '视频开始播放时进入全屏',
+    title: 'Automatic full screen',
+    subtitle: 'Go to full screen when video starts playing',
     leading: Icon(Icons.fullscreen_outlined),
     setKey: SettingBoxKey.enableAutoEnter,
     defaultVal: false,
   ),
   const SwitchModel(
-    title: '自动退出全屏',
-    subtitle: '视频结束播放时退出全屏',
+    title: 'Automatically exit full screen',
+    subtitle: 'Exit full screen when video ends',
     leading: Icon(Icons.fullscreen_exit_outlined),
     setKey: SettingBoxKey.enableAutoExit,
     defaultVal: true,
   ),
   const SwitchModel(
-    title: '延长播放控件显示时间',
-    subtitle: '开启后延长至30秒，便于屏幕阅读器滑动切换控件焦点',
+    title: 'Extend playback control display time',
+    subtitle: 'Extended to 30 seconds after enabled to facilitate screen readers sliding to switch control focus',
     leading: Icon(Icons.timer_outlined),
     setKey: SettingBoxKey.enableLongShowControl,
     defaultVal: false,
   ),
   if (PlatformUtils.isMobile)
     const SwitchModel(
-      title: '后台播放',
-      subtitle: '进入后台时继续播放',
+      title: 'Play in background',
+      subtitle: 'Continue playing when entering the background',
       leading: Icon(Icons.motion_photos_pause_outlined),
       setKey: SettingBoxKey.continuePlayInBackground,
       defaultVal: false,
     ),
   if (Platform.isAndroid) ...[
     SwitchModel(
-      title: '后台画中画',
-      subtitle: '进入后台时以小窗形式（PiP）播放',
+      title: 'Backstage picture-in-picture',
+      subtitle: 'Play in a small window (PiP) when entering the background',
       leading: const Icon(Icons.picture_in_picture_outlined),
       setKey: SettingBoxKey.autoPiP,
       defaultVal: false,
       onChanged: (val) {
         if (val && !videoPlayerServiceHandler!.enableBackgroundPlay) {
-          SmartDialog.showToast('建议开启后台音频服务');
+          SmartDialog.showToast('It is recommended to enable background audio service');
         }
       },
     ),
     const SwitchModel(
-      title: '画中画不加载弹幕',
-      subtitle: '当弹幕开关开启时，小窗屏蔽弹幕以获得较好的体验',
+      title: 'Picture-in-picture does not load the barrage',
+      subtitle: 'When the barrage switch is turned on, the small window blocks the barrage for a better experience.',
       leading: Icon(CustomIcons.dm_off),
       setKey: SettingBoxKey.pipNoDanmaku,
       defaultVal: false,
     ),
   ],
   const SwitchModel(
-    title: '全屏手势反向',
-    subtitle: '默认播放器中部向上滑动进入全屏，向下退出\n开启后向下全屏，向上退出',
+    title: 'Full screen gesture reverse',
+    subtitle: 'By default, the middle part of the player slides upward to enter full screen and downward to exit.\nAfter opening, slide downward to full screen and upward to exit.',
     leading: Icon(Icons.swap_vert),
     setKey: SettingBoxKey.fullScreenGestureReverse,
     defaultVal: false,
   ),
   const SwitchModel(
-    title: '全屏展示点赞/投币/收藏等操作按钮',
+    title: 'Full screen display of like/coin/collection and other operation buttons',
     leading: Icon(MdiIcons.dotsHorizontalCircleOutline),
     setKey: SettingBoxKey.showFSActionItem,
     defaultVal: true,
   ),
   const SwitchModel(
-    title: '观看人数',
-    subtitle: '展示同时在看人数',
+    title: 'Number of viewers',
+    subtitle: 'Display the number of people watching at the same time',
     leading: Icon(Icons.people_outlined),
     setKey: SettingBoxKey.enableOnlineTotal,
     defaultVal: false,
   ),
   NormalModel(
-    title: '默认全屏方向',
+    title: 'Default full screen orientation',
     leading: const Icon(Icons.open_with_outlined),
-    getSubtitle: () => '当前全屏方向：${Pref.fullScreenMode.desc}',
+    getSubtitle: () => 'Current full-screen orientation: ${Pref.fullScreenMode.desc}',
     onTap: _showFullScreenModeDialog,
   ),
   PopupModel(
-    title: '底部进度条展示',
+    title: 'Bottom progress bar display',
     leading: const Icon(Icons.border_bottom_outlined),
     value: () => Pref.btmProgressBehavior,
     items: BtmProgressBehavior.values,
@@ -272,8 +272,8 @@ List<SettingsModel> get playSettings => [
   ),
   if (PlatformUtils.isMobile)
     SwitchModel(
-      title: '后台音频服务',
-      subtitle: '避免画中画没有播放暂停功能',
+      title: 'Background audio service',
+      subtitle: 'Avoid picture-in-picture without playback and pause function',
       leading: const Icon(Icons.volume_up_outlined),
       setKey: SettingBoxKey.enableBackgroundPlay,
       defaultVal: true,
@@ -281,7 +281,7 @@ List<SettingsModel> get playSettings => [
           videoPlayerServiceHandler!.enableBackgroundPlay = value,
     ),
   PopupModel(
-    title: '播放顺序',
+    title: 'Play order',
     leading: const Icon(Icons.repeat),
     value: () => Pref.playRepeat,
     items: PlayRepeat.values,
@@ -290,8 +290,8 @@ List<SettingsModel> get playSettings => [
         .whenComplete(setState),
   ),
   const SwitchModel(
-    title: '播放器设置仅对当前生效',
-    subtitle: '弹幕、字幕及部分设置中没有的设置除外',
+    title: 'Player settings only take effect for the current time',
+    subtitle: 'Except for barrages, subtitles and some settings that are not included in the settings',
     leading: Icon(Icons.video_settings_outlined),
     setKey: SettingBoxKey.tempPlayerConf,
     defaultVal: false,
@@ -305,7 +305,7 @@ Future<void> _showSubtitleDialog(
   final res = await showDialog<SubtitlePrefType>(
     context: context,
     builder: (context) => SelectDialog<SubtitlePrefType>(
-      title: '字幕选择偏好',
+      title: 'Subtitle selection preferences',
       value: Pref.subtitlePreferenceV2,
       values: SubtitlePrefType.values.map((e) => (e, e.desc)).toList(),
     ),
@@ -326,7 +326,7 @@ Future<void> _showFullScreenModeDialog(
   final res = await showDialog<FullScreenMode>(
     context: context,
     builder: (context) => SelectDialog<FullScreenMode>(
-      title: '默认全屏方向',
+      title: 'Default full screen orientation',
       value: Pref.fullScreenMode,
       values: FullScreenMode.values.map((e) => (e, e.desc)).toList(),
     ),
@@ -344,7 +344,7 @@ Future<void> _showAngleDegreesDialog(
   final res = await showDialog<double>(
     context: context,
     builder: (context) => SliderDialog(
-      title: const Text('倾斜角度阈值'),
+      title: const Text('Tilt angle threshold'),
       min: 10.0,
       max: 90.0,
       divisions: 90,
@@ -366,7 +366,7 @@ Future<void> showPlayerVolumeDialog(
 }) {
   return showVolumeDialog(
     context,
-    title: const Text('播放器音量'),
+    title: const Text('player volume'),
     value: Pref.playerVolume,
     onChanged: (value) => GStorage.setting
         .put(SettingBoxKey.playerVolume, value)
@@ -383,7 +383,7 @@ Future<void> _showMaxVolumeDialog(
 ) {
   return showVolumeDialog(
     context,
-    title: const Text('最高音量'),
+    title: const Text('maximum volume'),
     value: Pref.maxVolume * 100,
     onChanged: (rawValue) {
       final maxVolume = (rawValue / 100).toPrecision(2);

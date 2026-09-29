@@ -101,7 +101,7 @@ class _ReplyPageState extends CommonRichTextPubPageState<LiveSendDmPanel> {
             () {
               final isEmoji = panelType.value == .emoji;
               return iconButton(
-                tooltip: '表情',
+                tooltip: 'expression',
                 onPressed: () => updatePanelType(isEmoji ? .keyboard : .emoji),
                 iconSize: 22,
                 icon: const Icon(Icons.emoji_emotions_outlined),
@@ -124,7 +124,7 @@ class _ReplyPageState extends CommonRichTextPubPageState<LiveSendDmPanel> {
                 onSubmitted: onSubmitted,
                 focusNode: focusNode,
                 decoration: const InputDecoration(
-                  hintText: "输入弹幕内容",
+                  hintText: "Enter the barrage content",
                   border: InputBorder.none,
                   hintStyle: TextStyle(fontSize: 14),
                 ),
@@ -149,7 +149,7 @@ class _ReplyPageState extends CommonRichTextPubPageState<LiveSendDmPanel> {
           const SizedBox(width: 12),
           Obx(
             () => iconButton(
-              tooltip: '发送',
+              tooltip: 'send',
               iconSize: 22,
               iconColor: enablePublish.value
                   ? theme.colorScheme.primary
@@ -198,7 +198,7 @@ class _ReplyPageState extends CommonRichTextPubPageState<LiveSendDmPanel> {
       liveRoomController
         ..savedDanmaku?.clear()
         ..savedDanmaku = null;
-      SmartDialog.showToast('发送成功');
+      SmartDialog.showToast('Sent successfully');
     } else {
       res.toast();
     }

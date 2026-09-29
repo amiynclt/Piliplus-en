@@ -233,7 +233,7 @@ class UserInfoCard extends StatelessWidget {
                 color: colorScheme.vipColor,
               ),
               child: Text(
-                card.vip?.label?.text ?? '大会员',
+                card.vip?.label?.text ?? 'big member',
                 strutStyle: const StrutStyle(
                   height: 1,
                   leading: 0,
@@ -382,7 +382,7 @@ class UserInfoCard extends StatelessWidget {
               ),
             ),
             TextSpan(
-              text: ' 该账号封禁中',
+              text: 'This account is banned',
               style: TextStyle(
                 color: isLight
                     ? colorScheme.onErrorContainer
@@ -494,15 +494,15 @@ class UserInfoCard extends StatelessWidget {
                     ],
                     TextSpan(
                       text: isOwner
-                          ? '编辑资料'
+                          ? 'Edit profile'
                           : switch (relation) {
-                              0 || -1 => '关注',
-                              1 => '悄悄关注',
-                              2 => '已关注',
-                              // 3 => '回关',
-                              4 || 6 => '已互关',
-                              128 => '移除黑名单',
-                              -10 => '特别关注', // 该状态码并不是官方状态码
+                              0 || -1 => 'focus on',
+                              1 => 'Follow quietly',
+                              2 => 'Already following',
+                              // 3 => 'Return to customs',
+                              4 || 6 => 'Already related',
+                              128 => 'Remove blacklist',
+                              -10 => 'special attention', // 该状态码并不是官方状态码
                               _ => relation.toString(),
                             },
                     ),
@@ -875,7 +875,7 @@ class UserInfoCard extends StatelessWidget {
           colorScheme,
           charges,
           chargeCount,
-          '人为TA充电',
+          'People charge TA',
           () => UpowerRankPage.toUpowerRank(
             mid: card.mid!,
             name: card.name!,
@@ -887,7 +887,7 @@ class UserInfoCard extends StatelessWidget {
           colorScheme,
           guards,
           guardCount,
-          '人加入大航海',
+          'People join the great voyage',
           () => MemberGuard.toMemberGuard(
             mid: card.mid!,
             name: card.name!,
@@ -942,7 +942,7 @@ class UserInfoCard extends StatelessWidget {
             ),
           ),
           Text(
-            '${flag ? '等${item.items!.length}人' : ''}也关注了TA',
+            '${flag ? 'Waiting for ${item.items!.length} people' : ''}Also followed TA',
             style: TextStyle(fontSize: 13, color: colorScheme.outline),
           ),
           Icon(

@@ -35,7 +35,7 @@ class _SysMsgPageState extends State<SysMsgPage> {
   Widget build(BuildContext context) {
     final theme = Theme.of(context);
     return SimpleScaffold(
-      appBar: AppBar(title: const Text('系统通知')),
+      appBar: AppBar(title: const Text('System notification')),
       body: refreshIndicator(
         onRefresh: _sysMsgController.onRefresh,
         child: CustomScrollView(
@@ -89,7 +89,7 @@ class _SysMsgPageState extends State<SysMsgPage> {
               final item = response[index];
               void onLongPress() => showConfirmDialog(
                 context: context,
-                title: const Text('确定删除该通知?'),
+                title: const Text('Are you sure you want to delete this notification?'),
                 onConfirm: () => _sysMsgController.onRemove(item.id, index),
               );
               return ListTile(
@@ -203,7 +203,7 @@ class _SysMsgPageState extends State<SysMsgPage> {
               ..add(const TextSpan(text: '（'))
               ..add(
                 TextSpan(
-                  text: '查看动态',
+                  text: 'View updates',
                   style: TextStyle(color: theme.colorScheme.primary),
                   recognizer: NoDeadlineTapGestureRecognizer()
                     ..onTap = () {
@@ -220,7 +220,7 @@ class _SysMsgPageState extends State<SysMsgPage> {
         } else {
           spanChildren.add(
             TextSpan(
-              text: '\u{1F517}网页链接',
+              text: '\u{1F517}Web link',
               style: TextStyle(color: theme.colorScheme.primary),
               recognizer: NoDeadlineTapGestureRecognizer()
                 ..onTap = () {

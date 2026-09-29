@@ -132,7 +132,7 @@ class _FontSettingPageState extends State<FontSettingPage> {
             trailing: iconButton(
               size: 38,
               iconSize: 22,
-              tooltip: '移除',
+              tooltip: 'Remove',
               onPressed: () {
                 if (_selectedFont == font) {
                   _appFont = (fontFamily: null, isCustom: false);
@@ -150,7 +150,7 @@ class _FontSettingPageState extends State<FontSettingPage> {
     }
     return SimpleScaffold(
       appBar: AppBar(
-        title: const Text('App字体设置'),
+        title: const Text('App font settings'),
         actions: [
           TextButton(
             onPressed: () => setState(() {
@@ -158,11 +158,11 @@ class _FontSettingPageState extends State<FontSettingPage> {
               _selectedWeight = _normalFontWeight;
               _selectedScale = 1;
             }),
-            child: const Text('重置'),
+            child: const Text('reset'),
           ),
           TextButton(
             onPressed: _saveFontSetting,
-            child: const Text('确定'),
+            child: const Text('Sure'),
           ),
           const SizedBox(width: 12),
         ],
@@ -180,11 +180,11 @@ class _FontSettingPageState extends State<FontSettingPage> {
                   'ABCDEFGHIJKLMNOPQRSTUVWXYZ\n'
                   '1234567890.:,;\'"(!?)+-*/=\n'
                   '${Platform.isWindows
-                      ? "中国智造，惠及全球"
+                      ? "Intelligent manufacturing in China benefits the world"
                       : Platform.isMacOS || Platform.isIOS
-                      ? "汉体书写信息技术标准相容"
-                      : "我能吞下玻璃而不伤身体"}\n\n'
-                  '注：部分字体可能无法应用',
+                      ? "Chinese writing information technology standards compatible"
+                      : "I can swallow glass without harming myself"}\n\n'
+                  'Note: Some fonts may not be available',
                   style: TextStyle(
                     fontFamily: _selectedFont ?? '',
                     fontWeight: .values[_selectedWeight],
@@ -213,14 +213,14 @@ class _FontSettingPageState extends State<FontSettingPage> {
                       child: Row(
                         children: [
                           const Text(
-                            '字体：',
+                            'Font:',
                             style: TextStyle(fontWeight: .bold, fontSize: 15),
                           ),
                           Expanded(
                             child: Text(
                               _appFont.isCustom
                                   ? _selectedFont!.split('/').last
-                                  : _selectedFont ?? '默认',
+                                  : _selectedFont ?? 'default',
                               style: TextStyle(
                                 fontSize: 15,
                                 fontFamily: _selectedFont ?? '',
@@ -232,7 +232,7 @@ class _FontSettingPageState extends State<FontSettingPage> {
                             child: iconButton(
                               size: 32,
                               iconSize: 20,
-                              tooltip: '导入',
+                              tooltip: 'import',
                               context: context,
                               onPressed: () async {
                                 SmartDialog.showLoading();
@@ -266,7 +266,7 @@ class _FontSettingPageState extends State<FontSettingPage> {
                               minTileHeight: _tileHeight,
                               tileColor: _tileColor(null),
                               onTap: () => _onFontChanged(null),
-                              title: const Text('默认'),
+                              title: const Text('default'),
                             ),
                           ),
                           if (FontUtils.isCustom)
@@ -307,7 +307,7 @@ class _FontSettingPageState extends State<FontSettingPage> {
                   _buildItem(
                     Row(
                       children: [
-                        const Text('字重：', style: TextStyle(fontWeight: .bold)),
+                        const Text('Font weight:', style: TextStyle(fontWeight: .bold)),
                         const SizedBox(
                           width: 40,
                           child: Text(
@@ -345,7 +345,7 @@ class _FontSettingPageState extends State<FontSettingPage> {
                   _buildItem(
                     Row(
                       children: [
-                        const Text('字号：', style: TextStyle(fontWeight: .bold)),
+                        const Text('Font size:', style: TextStyle(fontWeight: .bold)),
                         const SizedBox(
                           width: 40,
                           child: Text('小', style: TextStyle(fontSize: 11.9)),
@@ -359,7 +359,7 @@ class _FontSettingPageState extends State<FontSettingPage> {
                             divisions: 15,
                             secondaryTrackValue: 1,
                             label: _selectedScale == 1.0
-                                ? '默认'
+                                ? 'default'
                                 : _selectedScale.toStringAsFixed(2),
                             onChanged: (value) => setState(
                               () => _selectedScale = value.toPrecision(2),
